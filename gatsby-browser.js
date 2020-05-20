@@ -1,2 +1,2 @@
-import "tailwindcss/dist/base.css"
+import "tailwindcss/dist/tailwind.css"
 import "./src/css/index.css"

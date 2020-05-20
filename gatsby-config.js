@@ -12,12 +12,7 @@ module.exports = {
     },
     `gatsby-transformer-yaml`,
     `gatsby-plugin-emotion`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
+
     {
       resolve: `gatsby-source-git`,
       options: {
