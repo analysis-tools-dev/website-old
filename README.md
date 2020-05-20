@@ -1,9 +1,6 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Analysis Tools" src="/static/logo_black.svg" />
-  </a>
-</p>
+<a href="http://analysis-tools.dev/">
+  <img alt="Analysis Tools" src="/static/logo_black.svg" width="500" />
+</a>
 
 This is the main website code of [analysis-tools.dev](https://analysis-tools.dev).  
 It is a community-organized project around static and dynamic analysis tools.
