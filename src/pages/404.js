@@ -6,7 +6,7 @@ const ComponentName = ({ data }) => {
   return (
     <Layout>
       <div>
-        <h1>Page not found</h1>
+        <h1>Page not found!!!</h1>
         Go to <Link to="/">home page</Link> or enjoy the picture:
         <img
           src="https://picsum.photos/seed/picsum/800/600"
