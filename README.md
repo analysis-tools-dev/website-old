@@ -5,9 +5,9 @@
  </div>   
 
 <p align="center">
-  This is the main website code of [analysis-tools.dev](https://analysis-tools.dev).  
-  It is a community-organized project around static and dynamic analysis tools.
-  You can help make this website better!
+ This is the main website code of <a href="https://analysis-tools.dev">analysis-tools.dev</a>.  
+ It is a community-organized project around static and dynamic analysis tools.
+ You can help make this website better!
 </p>
   
 ## 🚀 Contributing
