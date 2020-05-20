@@ -22,7 +22,7 @@ module.exports = {
       resolve: `gatsby-source-git`,
       options: {
         name: `static-analysis-tools`,
-        remote: `git@github.com:jakubsacha/static-analysis.git`,
+        remote: `https://github.com/jakubsacha/static-analysis.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
         branch: `patch-1`,
         // Tailor which files get imported eg. import the docs folder from a codebase.
@@ -33,7 +33,7 @@ module.exports = {
       resolve: `gatsby-source-git`,
       options: {
         name: `static-analysis-tags`,
-        remote: `git@github.com:jakubsacha/static-analysis.git`,
+        remote: `https://github.com/jakubsacha/static-analysis.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
         branch: `patch-1`,
         // Tailor which files get imported eg. import the docs folder from a codebase.
