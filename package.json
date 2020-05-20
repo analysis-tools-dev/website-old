@@ -15,8 +15,9 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "gatsby": "^2.21.21",
-    "gatsby-plugin-emotion": "^4.3.1",
+    "gatsby-plugin-emotion": "^4.3.2",
     "gatsby-plugin-typography": "^2.5.1",
     "gatsby-source-filesystem": "^2.3.1",
     "gatsby-source-git": "^1.0.2",
@@ -26,6 +27,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-typography": "^0.16.19",
+    "tailwindcss": "^1.4.6",
+    "twin.macro": "^1.1.0",
     "typography": "^0.16.19",
     "typography-theme-kirkham": "^0.16.19"
   },

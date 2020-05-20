@@ -1,49 +1,30 @@
 import React from "react"
-import { css } from "@emotion/core"
 import { useStaticQuery, Link, graphql } from "gatsby"
+import "twin.macro"
 
-import { rhythm } from "../utils/typography"
 export default ({ children }) => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `
-  )
   return (
-    <div
-      css={css`
-        margin: 0 auto;
-        max-width: 700px;
-        padding: ${rhythm(2)};
-        padding-top: ${rhythm(1.5)};
-      `}
-    >
-      <Link to={`/`}>
-        <h3
-          css={css`
-            margin-bottom: ${rhythm(2)};
-            display: inline-block;
-            font-style: normal;
-          `}
-        >
-          {data.site.siteMetadata.title}
-        </h3>
-      </Link>
-      <Link
-        to={`/about/`}
-        css={css`
-          float: right;
-        `}
-      >
-        About
-      </Link>
-      {children}
+    <div>
+      <div tw="bg-color1 py-2 mb-5">
+        <div tw="container w-9/12 mx-auto flex text-right text-white">
+          <div tw="flex-auto">
+            <Link to={`/about/`}>About</Link>
+          </div>
+        </div>
+        <div tw="container w-9/12 mx-auto flex">
+          <div tw="flex-auto">
+            <Link to={`/`}>
+              <img src="/logo_white.svg" tw="w-4/12" alt="" />
+            </Link>
+          </div>
+          {/* <div tw="flex-auto">
+            <input type="text" placeholder="Search..." tw="w-56 p-1" />
+          </div> */}
+        </div>
+      </div>
+      <div tw="container w-9/12 mx-auto">
+        <div>{children}</div>
+      </div>
     </div>
   )
 }

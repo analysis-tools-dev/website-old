@@ -1,27 +1,23 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import "twin.macro"
 
 export default function Tag(d) {
   const tag = d.data.tagsYaml
   const tools = d.data.allToolsYaml.nodes
   return (
     <Layout>
-      <div>
+      <div tw="pb-5">
         <h1>{tag.name}</h1>
       </div>
       <div>
         {tools.map(tool => (
-          <div key={tool.id}>
-            <Link to={tool.fields.slug}>{tool.name}</Link>
-            <p>{tool.description}</p>
-            <p>
-              {tool.tags.map(tag => (
-                <span key={tag}>
-                  <small>{tag}</small>
-                </span>
-              ))}
-            </p>
+          <div tw="pb-3" key={tool.id}>
+            <h3>
+              <Link to={tool.fields.slug}>{tool.name}</Link>
+            </h3>
+            <p tw="pl-5">{tool.description}</p>
           </div>
         ))}
       </div>
