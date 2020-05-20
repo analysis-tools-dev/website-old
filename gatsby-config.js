@@ -1,10 +1,44 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: `Static Analysis tools`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+    `gatsby-transformer-yaml`,
+    `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `static-analysis-tools`,
+        remote: `git@github.com:jakubsacha/static-analysis.git`,
+        // Optionally supply a branch. If none supplied, you'll get the default branch.
+        branch: `patch-1`,
+        // Tailor which files get imported eg. import the docs folder from a codebase.
+        patterns: `data/tools.yml`,
+      },
+    },
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `static-analysis-tags`,
+        remote: `git@github.com:jakubsacha/static-analysis.git`,
+        // Optionally supply a branch. If none supplied, you'll get the default branch.
+        branch: `patch-1`,
+        // Tailor which files get imported eg. import the docs folder from a codebase.
+        patterns: `data/tags.yml`,
+      },
+    },
+  ],
 }
