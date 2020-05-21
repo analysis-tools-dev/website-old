@@ -10,14 +10,17 @@ export default ({ children }) => {
           <nav>
             <ul tw="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
               <li>
-                <a tw="hover:text-gray-200 hover:underline px-4" href="#">
+                <a
+                  tw="hover:text-gray-200 hover:underline px-4"
+                  href="https://github.com/analysis-tools-dev/static-analysis"
+                >
                   Github
                 </a>
               </li>
               <li tw="float-right">
-                <a tw="hover:text-gray-200 hover:underline px-4" href="#">
+                <Link tw="hover:text-gray-200 hover:underline px-4" to="/about">
                   About
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -41,12 +44,12 @@ export default ({ children }) => {
 
       <header tw="w-full container mx-auto">
         <div tw="flex flex-col items-center py-12">
-          <a
+          <Link
             tw="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
-            href="#"
+            href="/"
           >
             <img src="/logo_black.svg" tw="w-2/6" />
-          </a>
+          </Link>
         </div>
       </header>
 
