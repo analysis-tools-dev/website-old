@@ -70,14 +70,14 @@ export default ({ children }) => {
             <a href="/" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
               Tools
             </a>
-            <a href="/guides" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Guides
+            <a href="/blog" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+              Blog
             </a>
             <a href="/videos" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
               Videos
             </a>
             <a href="#" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Propose new tool
+              Add tool
             </a>
           </div>
         </div>
