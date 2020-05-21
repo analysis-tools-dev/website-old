@@ -162,44 +162,14 @@ export default ({ children }) => {
           </div>
 
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
-            <p tw="text-xl font-semibold pb-5">Instagram</p>
+            <p tw="text-xl font-semibold pb-5">Popular Languages</p>
             <div tw="grid grid-cols-3 gap-3">
-              <img
-                tw="hover:opacity-75"
-                src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
-              />
-              <img
-                tw="hover:opacity-75"
-                src="https://source.unsplash.com/collection/1346951/150x150?sig=2"
-              />
-              <img
-                tw="hover:opacity-75"
-                src="https://source.unsplash.com/collection/1346951/150x150?sig=3"
-              />
-              <img
-                tw="hover:opacity-75"
-                src="https://source.unsplash.com/collection/1346951/150x150?sig=4"
-              />
-              <img
-                tw="hover:opacity-75"
-                src="https://source.unsplash.com/collection/1346951/150x150?sig=5"
-              />
-              <img
-                tw="hover:opacity-75"
-                src="https://source.unsplash.com/collection/1346951/150x150?sig=6"
-              />
-              <img
-                tw="hover:opacity-75"
-                src="https://source.unsplash.com/collection/1346951/150x150?sig=7"
-              />
-              <img
-                tw="hover:opacity-75"
-                src="https://source.unsplash.com/collection/1346951/150x150?sig=8"
-              />
-              <img
-                tw="hover:opacity-75"
-                src="https://source.unsplash.com/collection/1346951/150x150?sig=9"
-              />
+              <img tw="hover:opacity-75" alt="Python" src="logos/python.svg" />
+              <img tw="hover:opacity-75" src="logos/ruby.svg" />
+              <img tw="hover:opacity-75" src="logos/php.svg" />
+              <img tw="hover:opacity-75" src="logos/c.svg" />
+              <img tw="hover:opacity-75" src="logos/javascript.svg" />
+              <img tw="hover:opacity-75" src="logos/go.svg" />
             </div>
             <a
               href="#"
