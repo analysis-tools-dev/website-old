@@ -43,12 +43,12 @@ export default ({ children }) => {
       </nav>
 
       <header tw="w-full container mx-auto">
-        <div tw="flex flex-col items-center py-12">
+        <div tw="flex flex-col items-center">
           <Link
             tw="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
             href="/"
           >
-            <img src="/logo_black.svg" tw="w-3/6" />
+            <img src="/logo_black.svg" tw="w-2/6" />
           </Link>
         </div>
       </header>
