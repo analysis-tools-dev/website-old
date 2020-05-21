@@ -9,7 +9,8 @@ export default function Tag(d) {
   return (
     <Layout>
       <div tw="pb-5">
-        <h1>{tag.name}</h1>
+        <h1>{tag.name} static analysis tools</h1>
+        <p></p>
       </div>
       <div>
         {tools.map(tool => (

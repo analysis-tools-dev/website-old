@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `Static Analysis tools`,
+    siteUrl: `https://analysis-tools.dev`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
