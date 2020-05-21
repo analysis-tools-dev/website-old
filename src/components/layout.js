@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 import "twin.macro"
 
 export default ({ children }) => {
@@ -153,20 +153,6 @@ export default ({ children }) => {
       </div>
 
       <footer tw="w-full border-t bg-white pb-12">
-        <div
-          tw="relative w-full flex items-center invisible md:visible md:pb-12"
-          x-data="getCarouselData()"
-        >
-          <button tw="absolute bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12">
-            &#8592;
-          </button>
-          <template x-for="image in images.slice(currentIndex, currentIndex + 6)">
-            <img tw="w-1/6 hover:opacity-75" />
-          </template>
-          <button tw="absolute right-0 bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12">
-            &#8594;
-          </button>
-        </div>
         <div tw="w-full container mx-auto flex flex-col items-center">
           <div tw="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
             <a href="/about" tw="uppercase px-3">
