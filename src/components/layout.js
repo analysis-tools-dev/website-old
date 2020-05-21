@@ -215,20 +215,14 @@ export default ({ children }) => {
         </div>
         <div tw="w-full container mx-auto flex flex-col items-center">
           <div tw="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-            <a href="#" tw="uppercase px-3">
+            <a href="/about" tw="uppercase px-3">
               About Us
             </a>
-            <a href="#" tw="uppercase px-3">
-              Privacy Policy
-            </a>
-            <a href="#" tw="uppercase px-3">
-              Terms Conditions
-            </a>
-            <a href="#" tw="uppercase px-3">
-              Contact Us
-            </a>
           </div>
-          <div tw="uppercase pb-6">&copy; myblog.com</div>
+          <div>
+            Beautiful icons provided by <a href="https://icons8.com/icon/pack/files/dusk">icons8</a>
+          </div>
+          <div tw="uppercase pb-6">&copy; analysis-tools.dev</div>
         </div>
       </footer>
     </div>
