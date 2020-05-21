@@ -142,22 +142,25 @@ export default ({ children }) => {
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">About Us</p>
             <p tw="pb-2">
-              We are an open community around code quality and solid engineering
-              standards! Here you can find a directory of static and dynamic
-              code analysis tools and quality checkers. All tools are
-              peer-reviewed and meet high standards. You can help to improve
-              this list{" "}
+              On this page you can find a directory of static and dynamic code
+              analysis tools and quality checkers. All tools are peer-reviewed
+              and meet high standards.
+            </p>
+            <p>
+              {" "}
+              You can help to improve this list{" "}
               <a href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
                 {" "}
                 on Github{" "}
               </a>
-              .
+              and join our open community around code quality and solid
+              engineering standards!
             </p>
             <Link
               to="/about"
               tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
             >
-              Get to know us
+              Learn more
             </Link>
           </div>
 
@@ -165,18 +168,16 @@ export default ({ children }) => {
             <p tw="text-xl font-semibold pb-5">Popular Languages</p>
             <div tw="grid grid-cols-3 gap-3">
               <img tw="hover:opacity-75" alt="Python" src="logos/python.svg" />
-              <img tw="hover:opacity-75" src="logos/ruby.svg" />
-              <img tw="hover:opacity-75" src="logos/php.svg" />
-              <img tw="hover:opacity-75" src="logos/c.svg" />
-              <img tw="hover:opacity-75" src="logos/javascript.svg" />
-              <img tw="hover:opacity-75" src="logos/go.svg" />
+              <img tw="hover:opacity-75" alt="Ruby" src="logos/ruby.svg" />
+              <img tw="hover:opacity-75" alt="PHP" src="logos/php.svg" />
+              <img tw="hover:opacity-75" alt="C" src="logos/c.svg" />
+              <img
+                tw="hover:opacity-75"
+                alt="JavaScript"
+                src="logos/javascript.svg"
+              />
+              <img tw="hover:opacity-75" alt="Go" src="logos/go.svg" />
             </div>
-            <a
-              href="#"
-              tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6"
-            >
-              <i class="fab fa-instagram mr-2"></i> Follow @dgrzyb
-            </a>
           </div>
         </aside>
       </div>
