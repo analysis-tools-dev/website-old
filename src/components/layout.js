@@ -167,16 +167,32 @@ export default ({ children }) => {
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">Popular Languages</p>
             <div tw="grid grid-cols-3 gap-3">
-              <img tw="hover:opacity-75" alt="Python" src="logos/python.svg" />
-              <img tw="hover:opacity-75" alt="Ruby" src="logos/ruby.svg" />
-              <img tw="hover:opacity-75" alt="PHP" src="logos/php.svg" />
-              <img tw="hover:opacity-75" alt="C" src="logos/c.svg" />
-              <img
-                tw="hover:opacity-75"
-                alt="JavaScript"
-                src="logos/javascript.svg"
-              />
-              <img tw="hover:opacity-75" alt="Go" src="logos/go.svg" />
+              <a href="/language/python">
+                <img
+                  tw="hover:opacity-75"
+                  alt="Python"
+                  src="logos/python.svg"
+                />
+              </a>
+              <a href="/language/ruby">
+                <img tw="hover:opacity-75" alt="Ruby" src="logos/ruby.svg" />
+              </a>
+              <a href="/language/php">
+                <img tw="hover:opacity-75" alt="PHP" src="logos/php.svg" />
+              </a>
+              <a href="/language/c">
+                <img tw="hover:opacity-75" alt="C" src="logos/c.svg" />
+              </a>
+              <a href="/language/javascript">
+                <img
+                  tw="hover:opacity-75"
+                  alt="JavaScript"
+                  src="logos/javascript.svg"
+                />
+              </a>
+              <a href="/language/go">
+                <img tw="hover:opacity-75" alt="Go" src="logos/go.svg" />
+              </a>
             </div>
           </div>
         </aside>
