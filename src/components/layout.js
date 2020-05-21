@@ -142,9 +142,16 @@ export default ({ children }) => {
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">About Us</p>
             <p tw="pb-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-              mattis est eu odio sagittis tristique. Vestibulum ut finibus leo.
-              In hac habitasse platea dictumst.
+              We are an open community around code quality and solid engineering
+              standards! Here you can find a directory of static and dynamic
+              code analysis tools and quality checkers. All tools are
+              peer-reviewed and meet high standards. You can help to improve
+              this list{" "}
+              <a href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
+                {" "}
+                on Github{" "}
+              </a>
+              .
             </p>
             <Link
               to="/about"
