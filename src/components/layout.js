@@ -25,6 +25,8 @@ export default ({ children }) => {
             </ul>
           </nav>
 
+          {/*
+            We should add github and youtube links here (fontawesome integration necessary)
           <div tw="flex items-center text-lg no-underline text-white pr-6">
             <a tw="" href="#">
               <i class="fab fa-facebook"></i>
@@ -38,7 +40,7 @@ export default ({ children }) => {
             <a tw="pl-6" href="#">
               <i class="fab fa-linkedin"></i>
             </a>
-          </div>
+          </div> */}
         </div>
       </nav>
 
@@ -46,9 +48,9 @@ export default ({ children }) => {
         <div tw="flex flex-col items-center">
           <Link
             tw="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
-            href="/"
+            to="/"
           >
-            <img src="/logo_black.svg" tw="w-2/6" />
+            <img src="/logo_black.svg" tw="w-2/6" alt="Analysis tools logo" />
           </Link>
         </div>
       </header>
@@ -58,25 +60,28 @@ export default ({ children }) => {
         x-data="{ open: false }"
       >
         <div tw="block sm:hidden">
-          <a
-            href="#"
+          <Link
+            to="/"
             tw="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
           >
             Topics <i class="fas ml-2"></i>
-          </a>
+          </Link>
         </div>
         <div tw="w-full flex-grow sm:flex sm:items-center sm:w-auto">
           <div tw="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <a href="/" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+            <Link to="/" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
               Tools
-            </a>
-            <a href="/blog" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+            </Link>
+            <Link to="/blog" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
               Blog
-            </a>
-            <a href="/videos" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+            </Link>
+            <Link to="/videos" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
               Videos
-            </a>
-            <a href="#" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+            </Link>
+            <a
+              href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
+              tw="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >
               Add tool
             </a>
           </div>
@@ -104,7 +109,7 @@ export default ({ children }) => {
               and join our open community around code quality and solid
               engineering standards!
             </p>
-            <img src="/hero/hero.svg" />
+            <img src="/hero/hero.svg" alt="People analysing charts" />
             <Link
               to="/about"
               tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
