@@ -13,18 +13,31 @@ const ComponentName = ({ data }) => {
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-5">Tools by Language</h1>
-          <ul>
-            {data.allTagsYaml.nodes.map(t => (
-              <li key={t.id}>
-                <p tw="pb-5">
-                  <strong>
-                    <Link to={t.fields.slug}>{t.name}</Link>
-                  </strong>
-                </p>
-              </li>
-            ))}
-          </ul>
+          <p tw="text-xl font-semibold pb-5">Popular Languages</p>
+          <div tw="grid grid-cols-3 gap-3">
+            <a href="/language/python">
+              <img tw="hover:opacity-75" alt="Python" src="/logos/python.svg" />
+            </a>
+            <a href="/language/ruby">
+              <img tw="hover:opacity-75" alt="Ruby" src="/logos/ruby.svg" />
+            </a>
+            <a href="/language/php">
+              <img tw="hover:opacity-75" alt="PHP" src="/logos/php.svg" />
+            </a>
+            <a href="/language/c">
+              <img tw="hover:opacity-75" alt="C" src="/logos/c.svg" />
+            </a>
+            <a href="/language/javascript">
+              <img
+                tw="hover:opacity-75"
+                alt="JavaScript"
+                src="/logos/javascript.svg"
+              />
+            </a>
+            <a href="/language/go">
+              <img tw="hover:opacity-75" alt="Go" src="/logos/go.svg" />
+            </a>
+          </div>
         </div>
       </article>
     </Layout>

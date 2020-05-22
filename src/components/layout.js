@@ -5,7 +5,7 @@ import "twin.macro"
 export default ({ children }) => {
   return (
     <div class="bg-white font-family-karla">
-      <nav tw="w-full py-4 bg-blue-800 shadow">
+      <nav tw="w-full py-4 bg-color3 shadow">
         <div tw="w-full container mx-auto flex flex-wrap items-center justify-between">
           <nav>
             <ul tw="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
@@ -70,6 +70,9 @@ export default ({ children }) => {
         <div tw="w-full flex-grow sm:flex sm:items-center sm:w-auto">
           <div tw="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
             <Link to="/" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+              Home
+            </Link>
+            <Link to="/tools" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
               Tools
             </Link>
             <Link to="/blog" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
