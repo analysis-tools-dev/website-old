@@ -84,12 +84,7 @@ export default ({ children }) => {
       </nav>
 
       <div tw="container mx-auto flex flex-wrap py-6">
-        <section tw="w-full md:w-2/3 flex flex-col px-3">
-          <h1 tw="text-3xl font-bold hover:text-gray-700 pb-4">
-            Tools by Language
-          </h1>
-          {children}
-        </section>
+        <section tw="w-full md:w-2/3 flex flex-col px-3">{children}</section>
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
