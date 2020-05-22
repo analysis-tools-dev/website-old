@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import { Helmet } from "react-helmet"
 import "twin.macro"
 
 export default function Tag(d) {
@@ -8,6 +9,10 @@ export default function Tag(d) {
   const tools = d.data.allToolsYaml.nodes
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{tag.name} static analysis tools</title>
+      </Helmet>
       <div tw="pb-5">
         <h1>{tag.name} static analysis tools</h1>
         <p></p>

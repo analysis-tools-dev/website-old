@@ -14,7 +14,7 @@ module.exports = {
     },
     `gatsby-transformer-yaml`,
     `gatsby-plugin-emotion`,
-
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-git`,
       options: {
