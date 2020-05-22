@@ -15,16 +15,16 @@ export default function Tag(d) {
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-5">
+          <h1 tw="text-3xl font-semibold pb-10">
             {tag.name} static analysis tools
           </h1>
           <ul>
             {tools.map(tool => (
-              <li tw="pb-3" key={tool.id}>
+              <li tw="pr-3 pb-6" key={tool.id}>
                 <Link to={tool.fields.slug} tw="font-bold">
                   {tool.name}
                 </Link>
-                <p tw="pl-5">{tool.description}</p>
+                <p tw="">{tool.description}</p>
               </li>
             ))}
           </ul>
