@@ -12,7 +12,7 @@
   
 ## 🚀 Contributing
 
-Thanks for considering to this project.
+Thanks for considering to contribute to this project.
 
 1.  **Clone the repo**
 
