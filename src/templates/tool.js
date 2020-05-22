@@ -15,8 +15,8 @@ export default function BlogPost(d) {
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-10">{tool.name}</h1>
-          <p>{tool.description}</p>
+          <h1 tw="text-3xl font-semibold pb-5">{tool.name}</h1>
+          <p tw="pb-5">{tool.description}</p>
           <div tw="flex">
             <FaHome tw="mt-1 mr-2" />
             <a href={tool.url}>{tool.url}</a>
