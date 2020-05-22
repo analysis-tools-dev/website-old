@@ -17,6 +17,13 @@ export default function BlogPost(d) {
           <h1 tw="text-3xl font-semibold pb-10">{tool.name}</h1>
           <p>{tool.description}</p>
           <a href={tool.url}>{tool.url}</a>
+          <ul tw="flex flex-wrap list-none max-w-sm">
+            {tool.tags.map(tag => (
+              <li tw="mt-1 mr-1 mb-1" key={tool.id}>
+                <span tw="bg-color1 px-1 py-1">{tag}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </article>
     </Layout>
@@ -29,6 +36,7 @@ export const query = graphql`
       name
       description
       url
+      tags
       fields {
         slug
       }
