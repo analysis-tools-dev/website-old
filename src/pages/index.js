@@ -6,12 +6,9 @@ import "twin.macro"
 const ComponentName = ({ data }) => {
   return (
     <Layout>
-      <h1 tw="text-3xl font-bold hover:text-gray-700 pb-4">
-        Tools by Language
-      </h1>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-xl font-semibold pb-5">Programming languages</h1>
+          <h1 tw="text-3xl font-semibold pb-5">Tools by Language</h1>
           <ul>
             {data.allTagsYaml.nodes.map(t => (
               <li key={t.id}>
