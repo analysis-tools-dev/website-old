@@ -11,22 +11,25 @@ export default function Tag(d) {
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{tag.name} static analysis tools</title>
+        <title>{tag.name} static analysis tools and linters</title>
       </Helmet>
-      <div tw="pb-5">
-        <h1>{tag.name} static analysis tools</h1>
-        <p></p>
-      </div>
-      <div>
-        {tools.map(tool => (
-          <div tw="pb-3" key={tool.id}>
-            <h3>
-              <Link to={tool.fields.slug}>{tool.name}</Link>
-            </h3>
-            <p tw="pl-5">{tool.description}</p>
-          </div>
-        ))}
-      </div>
+      <article tw="flex flex-col shadow my-4 w-full">
+        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+          <h1 tw="text-3xl font-semibold pb-5">
+            {tag.name} static analysis tools
+          </h1>
+          <ul>
+            {tools.map(tool => (
+              <li tw="pb-3" key={tool.id}>
+                <Link to={tool.fields.slug} tw="font-bold">
+                  {tool.name}
+                </Link>
+                <p tw="pl-5">{tool.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
     </Layout>
   )
 }

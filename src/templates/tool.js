@@ -10,14 +10,15 @@ export default function BlogPost(d) {
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{tool.name} overview</title>
+        <title>{tool.name} Details</title>
       </Helmet>
-
-      <div>
-        <h1>{tool.name}</h1>
-      </div>
-      <div>{tool.description}</div>
-      <a href={tool.url}>{tool.url}</a>
+      <article tw="flex flex-col shadow my-4 w-full">
+        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+          <h1 tw="text-3xl font-semibold pb-5">{tool.name}</h1>
+          <p>{tool.description}</p>
+          <a href={tool.url}>{tool.url}</a>
+        </div>
+      </article>
     </Layout>
   )
 }

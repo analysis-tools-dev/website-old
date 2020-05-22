@@ -2,10 +2,15 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import "twin.macro"
+import { Helmet } from "react-helmet"
 
 const ComponentName = ({ data }) => {
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Static analysis tools, linters, code quality</title>
+      </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold pb-5">Tools by Language</h1>
