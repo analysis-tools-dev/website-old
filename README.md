@@ -2,7 +2,7 @@
   <a href="http://analysis-tools.dev/">
     <img alt="Analysis Tools" src="/static/logo_black.svg" />
   </a>
- </div>   
+ </div>
 
 <p align="center">
  This is the main website code of <a href="https://analysis-tools.dev">analysis-tools.dev</a>.  
@@ -12,7 +12,7 @@
   
 ## 🚀 Contributing
 
-Thanks for considering to contribute to this project.
+Thanks for considering to contribute to this project. Here's how to get started:
 
 1.  **Clone the repo**
 
