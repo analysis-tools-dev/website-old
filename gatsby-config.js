@@ -2,19 +2,6 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const TagsQuery = `{
-  allTagsYaml {
-    edges {
-      node {
-        name
-        objectID: id
-        tag
-        type
-      }
-    }
-  }
-}`
-
 const ToolsQuery = `{
   allToolsYaml {
     edges {
@@ -31,10 +18,27 @@ const ToolsQuery = `{
   }
 }`
 
+const TagsQuery = `{
+  allTagsYaml {
+    edges {
+      node {
+        name
+        objectID: id
+        tag
+        type
+      }
+    }
+  }
+}`
+
 const queries = [
   {
     query: ToolsQuery,
     transformer: ({ data }) => data.allToolsYaml.edges.map(({ node }) => node),
+  },
+  {
+    query: TagsQuery,
+    transformer: ({ data }) => data.allTagsYaml.edges.map(({ node }) => node),
   },
 ]
 
