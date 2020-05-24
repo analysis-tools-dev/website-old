@@ -4,6 +4,9 @@ account_id = "1c71f27d6fa097a1576b4ffab9186fa8"
 workers_dev = false
 route = "*analysis-tools.dev/*"
 zone_id = "d0225a1c5a0f904f7483bbc781bfd807"
+kv-namespaces = [ 
+         { binding = "votes", id = "6f4092d5a6524b8c90abbe3d18eb1a07" } 
+]
 
 [site]
 bucket = "./public"
