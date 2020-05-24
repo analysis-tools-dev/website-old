@@ -53,13 +53,13 @@ jobs:
           accessToken: ${{ secrets.GITHUB_TOKEN }}
           urls: "https://static-analysis.dev,https://static-analysis.dev/tools,https://analysis-tools.dev/language/go,https://analysis-tools.dev/tool/golangci-lint"
           prCommentEnabled: ${{ github.event_name == 'pull_request' }}
-          outputDirectory: build/lighthouse-reports/
+          outputDirectory: lighthouse-reports/
 
       - name: Store Lighthouse reports
         uses: actions/upload-artifact@master
         with:
           name: Lighthouse reports
-          path: build/lighthouse-reports/
+          path: lighthouse-reports/
       # - name: Check Lighthouse performance budget
       #   uses: foo-software/lighthouse-check-status-action@master
       #   with:
