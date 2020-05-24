@@ -11,16 +11,16 @@ export default ({ children }) => {
           <nav>
             <ul tw="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
               <li>
-                <FaGithub tw="float-left mt-1 mr-1" />
+                <FaGithub tw="float-left mt-1" />
                 <a
-                  tw="hover:text-gray-200 hover:underline px-4"
+                  tw="hover:text-gray-200 hover:underline px-2"
                   href="https://github.com/analysis-tools-dev/static-analysis"
                 >
                   Github
                 </a>
               </li>
               <li tw="float-right">
-                <Link tw="hover:text-gray-200 hover:underline px-4" to="/about">
+                <Link tw="hover:text-gray-200 hover:underline px-2" to="/about">
                   About
                 </Link>
               </li>
