@@ -40,3 +40,28 @@ jobs:
         uses: cloudflare/wrangler-action@1.1.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+
+      - name: Run Lighthouse 💡🏠
+        uses: foo-software/lighthouse-check-action@master
+        with:
+          # Use the following for Slack integration:
+          # slackWebhookUrl: ${{ secrets.LIGHTHOUSE_CHECK_WEBHOOK_URL }}
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
+          urls: "https://static-analysis.dev,https://static-analysis.dev/tools,https://analysis-tools.dev/language/go,https://analysis-tools.dev/tool/golangci-lint"
+          prCommentEnabled: ${{ github.event_name == 'pull_request' }}
+          outputDirectory: build/lighthouse-reports/
+
+      - name: Store Lighthouse reports
+        uses: actions/upload-artifact@master
+        with:
+          name: Lighthouse reports
+          path: build/lighthouse-reports/
+      # - name: Check Lighthouse performance budget
+      #   uses: foo-software/lighthouse-check-status-action@master
+      #   with:
+      #     outputDirectory: build/lighthouse-reports/
+      #     minAccessibilityScore: "70"
+      #     minBestPracticesScore: "90"
+      #     minSeoScore: "70"
+      # The following check is not advised as performance varies greatly between runs.
+      # minPerformanceScore: "50"
