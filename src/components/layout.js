@@ -11,7 +11,7 @@ export default ({ children }) => {
           <nav>
             <ul tw="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
               <li>
-                  <FaGithub tw="float-left mt-1 mr-1" />
+                <FaGithub tw="float-left mt-1 mr-1" />
                 <a
                   tw="hover:text-gray-200 hover:underline px-4"
                   href="https://github.com/analysis-tools-dev/static-analysis"
@@ -26,23 +26,6 @@ export default ({ children }) => {
               </li>
             </ul>
           </nav>
-
-          {/*
-            We should add github and youtube links here (fontawesome integration necessary)
-          <div tw="flex items-center text-lg no-underline text-white pr-6">
-            <a tw="" href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a tw="pl-6" href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a tw="pl-6" href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a tw="pl-6" href="#">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div> */}
         </div>
       </nav>
 
