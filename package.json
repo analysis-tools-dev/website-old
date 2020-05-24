@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "analysis-tools-dev",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A website about static analysis tools, linters, and code quality checkers",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
