@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import "twin.macro"
+import { FaGithub } from "react-icons/fa"
 
 export default ({ children }) => {
   return (
@@ -10,6 +11,7 @@ export default ({ children }) => {
           <nav>
             <ul tw="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
               <li>
+                  <FaGithub tw="float-left mt-1 mr-1" />
                 <a
                   tw="hover:text-gray-200 hover:underline px-4"
                   href="https://github.com/analysis-tools-dev/static-analysis"
