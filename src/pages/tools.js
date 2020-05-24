@@ -9,7 +9,10 @@ const ComponentName = ({ data }) => {
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Static analysis tools, linters, code quality</title>
+        <title>
+          Static analysis tools, linters, code quality in{" "}
+          {data.allTagsYaml.nodes.length.toString()} categories
+        </title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
