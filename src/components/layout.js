@@ -29,14 +29,31 @@ export default ({ children }) => {
         </div>
       </nav>
 
-      <header tw="w-full container mx-auto">
-        <div tw="flex flex-col items-center">
+      <header tw="w-full flex-row container mx-auto">
+        <div tw="flex items-center">
           <Link
-            tw="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
+            tw="w-2/6 font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
             to="/"
           >
-            <img src="/logo_black.svg" tw="w-2/6" alt="Analysis tools logo" />
+            <img src="/logo_black.svg" alt="Analysis tools logo" />
           </Link>
+
+          <div tw="flex w-4/6">
+            <form tw="flex flex-auto">
+              <input
+                name="search_query"
+                type="text"
+                tw="relative shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-r-none"
+                placeholder="Search linters and analysis tools..."
+              ></input>
+              <button
+                type="submit"
+                tw="bg-color4 hover:bg-blue-700 shadow text-white font-bold py-2 px-4 rounded rounded-l-none"
+              >
+                Find
+              </button>
+            </form>
+          </div>
         </div>
       </header>
 
