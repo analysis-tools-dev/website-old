@@ -29,13 +29,15 @@ async function router(event) {
   const params = url.pathname.split("/")
   switch (params[1]) {
     case "upVote":
-      upVote(params[2])
+      await upVote(params[2])
       return new Response("OK", { status: 200 })
     case "downVote":
-      downVote(params[2])
+      await downVote(params[2])
       return new Response("OK", { status: 200 })
     case "getVotes":
-      return new Response(JSON.stringify(getVotes(params[2])), { status: 200 })
+      return new Response(JSON.stringify(await getVotes(params[2])), {
+        status: 200,
+      })
     default:
       return handleEvent(event)
   }
