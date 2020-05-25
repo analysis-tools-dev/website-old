@@ -1,14 +1,14 @@
 module.exports.upVote = async function (id) {
   const key = encodeURIComponent(`upvotes_${id}`)
   let vote = await votes.get(key)
-  await votes.put(key, parseInt(vote, 10) + 1)
+  await votes.put(key, vote * 1 + 1)
   return true
 }
 
 module.exports.downVote = async function (id) {
   const key = encodeURIComponent(`downvotes_${id}`)
   let vote = await votes.get(key)
-  await votes.put(key, parseInt(vote, 10) + 1)
+  await votes.put(key, vote * 1 + 1)
   return true
 }
 
