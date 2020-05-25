@@ -98,11 +98,12 @@ export default ({ children }) => {
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
-            <p tw="text-xl font-semibold pb-5">About Us</p>
+            <p tw="text-xl font-semibold pb-5">Write better software</p>
             <p tw="pb-2">
-              On this page you can find a directory of static and dynamic code
-              analysis tools and quality checkers. All tools are peer-reviewed
-              and meet high standards.
+              On this page you can find static- and dynamic code analysis tools
+              and linters that will help you improve your code quality. All
+              tools are peer-reviewed by fellow developers to meet high
+              standards.
             </p>
             <p>
               {" "}
