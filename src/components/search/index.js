@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from "react"
+import React, { useState } from "react"
 import {
   InstantSearch,
   Index,
@@ -7,9 +7,8 @@ import {
 } from "react-instantsearch-dom"
 import "twin.macro"
 import algoliasearch from "algoliasearch/lite"
-import { Root, HitsWrapper } from "./styles"
+import { HitsWrapper, PoweredBy } from "./styles"
 import { SearchBox } from "react-instantsearch-dom"
-// import Input from "./Input"
 import * as hitComps from "./hitComps"
 
 // Results informs the user that no matches could be found for a query
@@ -22,40 +21,21 @@ const Stats = connectStateResults(
   ({ searchResults: res }) =>
     res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
 )
-const useClickOutside = (ref, handler, events) => {
-  //   if (!events) events = [`mousedown`, `touchstart`]
-  //   const detectClickOutside = event =>
-  //     !ref.current.contains(event.target) && handler()
-  //   useEffect(() => {
-  //     for (const event of events)
-  //       document.addEventListener(event, detectClickOutside)
-  //     return () => {
-  //       for (const event of events)
-  //         document.removeEventListener(event, detectClickOutside)
-  //     }
-  //   })
-}
+
 export default function Search({ indices, collapse, hitsAsGrid }) {
-  const ref = createRef()
   const [query, setQuery] = useState(``)
-  const [focus, setFocus] = useState(false)
+  const [setFocus] = useState(false)
   const searchClient = algoliasearch(
     "V0X7Z4KE9D",
     "544bec33383dc791bcbca3e1ceaec11b"
   )
-  useClickOutside(ref, () => setFocus(false))
   return (
     <InstantSearch
       searchClient={searchClient}
       indexName={indices[0].name}
       onSearchStateChange={({ query }) => setQuery(query)}
-      root={{ Root, props: { ref } }}
     >
       <div tw="relative shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-r-none">
-        {/* <Input
-        onFocus={() => setFocus(true)}
-        {...{ collapse, focus }}
-      /> */}
         <SearchBox
           tw="w-full px-8"
           translations={{
@@ -84,7 +64,6 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
           }
           autoFocus
         />
-        {/* <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}> */}
         <HitsWrapper
           show={query.length > 0}
           asGrid="false"
@@ -101,7 +80,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
               </Results>
             </Index>
           ))}
-          {/* <PoweredBy /> */}
+          <PoweredBy />
         </HitsWrapper>
       </div>
     </InstantSearch>

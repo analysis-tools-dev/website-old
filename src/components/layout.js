@@ -2,9 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import "twin.macro"
 import { FaGithub } from "react-icons/fa"
-import algoliasearch from "algoliasearch/lite"
-import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
-// import SearchHit from "./search-hit"
 import Search from "./Search"
 
 const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
@@ -45,27 +42,11 @@ export default ({ children }) => {
           </Link>
 
           <div tw="flex w-4/6">
-            {/* <InstantSearch searchClient={searchClient} indexName="Tools">
-              <SearchBox tw="relative shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-r-none" />
-              <div tw="grid h-16 overflow-scroll z-20 top-0 shadow p-4 bg-white w-full">
-                <Hits hitComponent={SearchHit} />
-              </div>
-            </InstantSearch> */}
-
             <Search tw="w-full" collapse indices={searchIndices} />
           </div>
         </div>
       </header>
 
-      {/* // -webkit-overflow-scrolling: touch;
-  // position: absolute;
-  // right: 0;
-  // top: calc(100% + 0.5em);
-  // width: 80vw;
-  // max-width: 30em;
-  // box-shadow: 0 0 5px 0;
-  // padding: 0.7em 1em 0.4em;
-  // background: white;" */}
       <nav
         tw="w-full py-4 border-t border-b bg-gray-100"
         x-data="{ open: false }"

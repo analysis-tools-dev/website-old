@@ -1,5 +1,5 @@
-import React, { Fragment } from "react"
-import { Highlight, Snippet } from "react-instantsearch-dom"
+import React from "react"
+import { Highlight } from "react-instantsearch-dom"
 import { Link } from "gatsby"
 // import { Tags } from "styled-icons/fa-solid/Tags"
 
@@ -11,6 +11,7 @@ export const ToolsHit = clickHandler => ({ hit }) => (
         <Highlight attribute="name" hit={hit} tagName="mark" />
       </h4>
       {hit.description}
+      {/* FIXME */}
       {/* <Snippet attribute="description" hit={hit} tagName="mark" /> */}
       {/* {hit.tags.map((tag, index) => (
         <Fragment key={tag}>
