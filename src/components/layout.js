@@ -2,10 +2,16 @@ import React from "react"
 import { Link } from "gatsby"
 import "twin.macro"
 import { FaGithub } from "react-icons/fa"
+import algoliasearch from "algoliasearch/lite"
+import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
+// import SearchHit from "./search-hit"
+import Search from "./Search"
+
+const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
 
 export default ({ children }) => {
   return (
-    <div class="bg-white font-family-karla">
+    <div>
       <nav tw="w-full py-4 bg-color3 shadow">
         <div tw="w-full container mx-auto flex flex-wrap items-center justify-between">
           <nav>
@@ -39,24 +45,27 @@ export default ({ children }) => {
           </Link>
 
           <div tw="flex w-4/6">
-            <form tw="flex flex-auto">
-              <input
-                name="search_query"
-                type="text"
-                tw="relative shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-r-none"
-                placeholder="Search linters and analysis tools..."
-              ></input>
-              <button
-                type="submit"
-                tw="bg-color4 hover:bg-blue-700 shadow text-white font-bold py-2 px-4 rounded rounded-l-none"
-              >
-                Find
-              </button>
-            </form>
+            {/* <InstantSearch searchClient={searchClient} indexName="Tools">
+              <SearchBox tw="relative shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-r-none" />
+              <div tw="grid h-16 overflow-scroll z-20 top-0 shadow p-4 bg-white w-full">
+                <Hits hitComponent={SearchHit} />
+              </div>
+            </InstantSearch> */}
+
+            <Search tw="w-full" collapse indices={searchIndices} />
           </div>
         </div>
       </header>
 
+      {/* // -webkit-overflow-scrolling: touch;
+  // position: absolute;
+  // right: 0;
+  // top: calc(100% + 0.5em);
+  // width: 80vw;
+  // max-width: 30em;
+  // box-shadow: 0 0 5px 0;
+  // padding: 0.7em 1em 0.4em;
+  // background: white;" */}
       <nav
         tw="w-full py-4 border-t border-b bg-gray-100"
         x-data="{ open: false }"
@@ -66,7 +75,7 @@ export default ({ children }) => {
             to="/"
             tw="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
           >
-            Topics <i class="fas ml-2"></i>
+            Topics <i tw="ml-2"></i>
           </Link>
         </div>
         <div tw="w-full flex-grow sm:flex sm:items-center sm:w-auto">
