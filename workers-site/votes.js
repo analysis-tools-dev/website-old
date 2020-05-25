@@ -16,8 +16,8 @@ module.exports.getVotes = async function (id) {
   const upVotesKey = encodeURIComponent(`upvotes_${id}`)
   const downVotesKey = encodeURIComponent(`upvotes_${id}`)
   let data = {
-    upVotes: await votes.get(upVotesKey),
-    downVotes: await votes.get(downVotesKey),
+    upVotes: parseInt((await votes.get(upVotesKey)) * 1, 10),
+    downVotes: parseInt((await votes.get(downVotesKey)) * 1, 10),
   }
   data.sum = parseInt(data.upVotes, 10) - parseInt(data.downVotes, 10)
   return data
