@@ -54,6 +54,7 @@ module.exports = {
     siteUrl: `https://analysis-tools.dev`,
   },
   plugins: [
+    `gatsby-transformer-votes`,
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,

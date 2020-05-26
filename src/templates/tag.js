@@ -33,6 +33,13 @@ export default function Tag(d) {
           <ul>
             {tools.map(tool => (
               <li tw="pr-3 pb-6" key={tool.id}>
+                <p>
+                  Votes: {tool.children[0].sum}{" "}
+                  <a href={`/upVote/${tool.children[0].key}`}>upvote</a>
+                  &nbsp;
+                  <a href={`/downVote/${tool.children[0].key}`}>downvote</a>
+                </p>
+
                 <Link to={tool.fields.slug} tw="font-bold">
                   {tool.name}
                 </Link>
@@ -58,7 +65,7 @@ export const query = graphql`
 
     allToolsYaml(
       filter: { tags: { glob: $tag } }
-      sort: { order: ASC, fields: name }
+      sort: { fields: childVotes___sum, order: DESC }
     ) {
       nodes {
         id
@@ -67,6 +74,14 @@ export const query = graphql`
         tags
         fields {
           slug
+        }
+        children {
+          ... on Votes {
+            sum
+            downVotes
+            upVotes
+            key
+          }
         }
       }
     }

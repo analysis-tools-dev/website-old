@@ -1,9 +1,8 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 const { slugify } = require("./utils/slugify")
 
 // generate slugs for our data
-exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `TagsYaml`) {
