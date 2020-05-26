@@ -5,8 +5,7 @@ import { Link } from "gatsby"
 
 export const ToolsHit = clickHandler => ({ hit }) => (
   <div>
-    {/* <Link to={hit.slug} onClick={clickHandler}> */}
-    <Link to="/" onClick={clickHandler}>
+    <Link to={hit.fields.slug} onClick={clickHandler}>
       <h4>
         <Highlight attribute="name" hit={hit} tagName="mark" />
       </h4>
