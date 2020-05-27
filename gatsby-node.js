@@ -9,7 +9,7 @@ exports.onCreateNode = async ({ node, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: `/${node.type}/${slugify(node.tag)}`,
+      value: `/tag/${slugify(node.tag)}`,
     })
   }
 

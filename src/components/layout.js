@@ -117,30 +117,30 @@ export default ({ children }) => {
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">Popular Languages</p>
             <div tw="grid grid-cols-3 gap-3">
-              <a href="/language/python">
+              <a href="/tag/python">
                 <img
                   tw="hover:opacity-75"
                   alt="Python"
                   src="/logos/python.svg"
                 />
               </a>
-              <a href="/language/ruby">
+              <a href="/tag/ruby">
                 <img tw="hover:opacity-75" alt="Ruby" src="/logos/ruby.svg" />
               </a>
-              <a href="/language/php">
+              <a href="/tag/php">
                 <img tw="hover:opacity-75" alt="PHP" src="/logos/php.svg" />
               </a>
-              <a href="/language/c">
+              <a href="/tag/c">
                 <img tw="hover:opacity-75" alt="C" src="/logos/c.svg" />
               </a>
-              <a href="/language/javascript">
+              <a href="/tag/javascript">
                 <img
                   tw="hover:opacity-75"
                   alt="JavaScript"
                   src="/logos/javascript.svg"
                 />
               </a>
-              <a href="/language/go">
+              <a href="/tag/go">
                 <img tw="hover:opacity-75" alt="Go" src="/logos/go.svg" />
               </a>
             </div>

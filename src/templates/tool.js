@@ -26,7 +26,9 @@ export default function BlogPost(d) {
             <ul tw="flex flex-wrap list-none max-w-sm">
               {tool.tags.map(tag => (
                 <li tw="mt-1 mr-1 mb-1" key={tool.id}>
-                  <span tw="bg-color-gray-200 px-2 py-1 rounded">{tag}</span>
+                  <a href={"/tag/" + tag}>
+                    <span tw="bg-color-gray-200 px-2 py-1 rounded">{tag}</span>
+                  </a>
                 </li>
               ))}
             </ul>
