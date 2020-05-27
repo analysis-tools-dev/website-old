@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import "twin.macro"
 
 const focus = css`
   background: white;
@@ -44,8 +45,7 @@ export const HitsWrapper = styled.div`
 `
 
 export const PoweredBy = () => (
-  <span>
-    Powered by{` `}
-    <a href="https://algolia.com">Algolia</a>
-  </span>
+  <div tw="p-2">
+    Search powered by <a href="https://algolia.com">Algolia</a>
+  </div>
 )

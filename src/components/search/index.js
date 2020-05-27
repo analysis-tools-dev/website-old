@@ -17,10 +17,6 @@ const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
     res && res.nbHits > 0 ? children : `No results for '${state.query}'`
 )
-const Stats = connectStateResults(
-  ({ searchResults: res }) =>
-    res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
-)
 
 export default function Search({ indices, collapse, hitsAsGrid }) {
   const [query, setQuery] = useState(``)
@@ -67,14 +63,10 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
         <HitsWrapper
           show={query.length > 0}
           asGrid="false"
-          tw="max-h-200 overflow-scroll shadow p-4 bg-white w-full absolute"
+          tw="max-h-200 overflow-scroll border shadow p-4 bg-white w-full absolute left-0"
         >
           {indices.map(({ name, title, hitComp }) => (
             <Index key={name} indexName={name}>
-              <header>
-                <h3>{title}</h3>
-                <Stats />
-              </header>
               <Results>
                 <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
               </Results>
