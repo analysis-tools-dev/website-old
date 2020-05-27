@@ -50,7 +50,7 @@ const queries = [
 
 module.exports = {
   siteMetadata: {
-    title: `Static Analysis tools`,
+    title: `Analysis Tools`,
     siteUrl: `https://analysis-tools.dev`,
   },
   plugins: [
