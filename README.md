@@ -1,14 +1,10 @@
- <div align="center"> 
   <a href="http://analysis-tools.dev/">
-    <img alt="Analysis Tools" src="/static/logo_black.svg" />
+    <img width="400px" alt="Analysis Tools" src="/static/logo_black.svg" />
   </a>
- </div>
 
-<p align="center">
  This is the main website code of <a href="https://analysis-tools.dev">analysis-tools.dev</a>.  
- It is a community-organized project around static and dynamic analysis tools.
+ It is a community-organized project around static and dynamic analysis tools.  
  You can help make this website better!
-</p>
   
 ## 🚀 Contributing
 
