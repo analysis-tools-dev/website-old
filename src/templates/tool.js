@@ -19,7 +19,7 @@ export default function BlogPost(d) {
           <p tw="pb-3">{tool.description}</p>
           <div tw="flex mt-3">
             <FaHome tw="mt-1 mr-2" />
-            <a href={tool.url}>{tool.url}</a>
+            <a tw="underline" href={tool.url}>{tool.url}</a>
           </div>
           <div tw="flex mt-3">
             <FaTags tw="mt-2 mr-2" />
