@@ -16,17 +16,17 @@ export default function BlogPost(d) {
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold pb-5">{tool.name}</h1>
-          <p tw="pb-5">{tool.description}</p>
-          <div tw="flex">
+          <p tw="pb-3">{tool.description}</p>
+          <div tw="flex mt-3">
             <FaHome tw="mt-1 mr-2" />
             <a href={tool.url}>{tool.url}</a>
           </div>
-          <div tw="flex">
+          <div tw="flex mt-3">
             <FaTags tw="mt-2 mr-2" />
             <ul tw="flex flex-wrap list-none max-w-sm">
               {tool.tags.map(tag => (
                 <li tw="mt-1 mr-1 mb-1" key={tool.id}>
-                  <span tw="bg-color1 px-1 py-1">{tag}</span>
+                  <span tw="bg-color-gray-200 px-2 py-1 rounded">{tag}</span>
                 </li>
               ))}
             </ul>
