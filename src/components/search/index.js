@@ -58,6 +58,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
               </g>
             </svg>
           }
+          autoFocus
         />
         <HitsWrapper
           show={query.length > 0}
