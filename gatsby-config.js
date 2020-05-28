@@ -63,6 +63,24 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `tag-descriptions`,
+        path: `${__dirname}/content/tag-descriptions/`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+        gfm: true,
+        // Plugins configs
+        plugins: [],
+      },
+    },
     `gatsby-transformer-yaml`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,

@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet"
 import { FaCaretUp, FaCaretDown } from "react-icons/fa"
 import "twin.macro"
 
-const getIntroText = tools => {
+const getTitleText = tools => {
   if (tools.length < 3) {
     return "The best"
   } else {
@@ -16,14 +16,14 @@ const getIntroText = tools => {
 export default function Tag(d) {
   const tag = d.data.tagsYaml
   const tools = d.data.allToolsYaml.nodes
-  const introText = getIntroText(tools)
+  const titleText = getTitleText(tools)
 
   return (
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          {introText} {tag.name} static analysis tools and linters
+          {titleText} {tag.name} static analysis tools and linters
         </title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
@@ -31,6 +31,7 @@ export default function Tag(d) {
           <h1 tw="text-3xl font-semibold pb-10">
             {tag.name} static analysis tools
           </h1>
+          <p dangerouslySetInnerHTML={{ __html: d.data.markdownRemark.excerpt }} />
 
           {tools.map(tool => (
             <div tw="my-3 flex  border-b border-gray-200 pb-6" key={tool.id}>
@@ -68,6 +69,13 @@ export const query = graphql`
       tag
       fields {
         slug
+      }
+    }
+
+    markdownRemark(frontmatter: { tag: { eq: $tag } }) {
+      excerpt(format: HTML, pruneLength: 500)
+      frontmatter {
+        tag
       }
     }
 
