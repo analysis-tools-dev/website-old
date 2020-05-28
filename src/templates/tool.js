@@ -6,8 +6,10 @@ import "twin.macro"
 import {
   FaTags,
   FaHome,
+  FaOsi,
   FaCopyright,
   FaExclamationCircle,
+  FaCheckCircle,
 } from "react-icons/fa"
 
 export default function BlogPost(d) {
@@ -28,14 +30,24 @@ export default function BlogPost(d) {
               {tool.url}
             </a>
           </div>
-          <div tw="flex mt-3">
-            <FaCopyright tw="mt-1 mr-2" />
-            {(tool.proprietary && "Proprietary") || "Open Source"}
-          </div>
-          <div tw="flex mt-3">
-            <FaExclamationCircle tw="mt-1 mr-2" />
-            {(tool.deprecated && "Deprecated/Unmaintained") || "Maintained"}
-          </div>
+          {tool.proprietary ? (
+            <div tw="flex mt-3">
+              <FaCopyright tw="mt-1 mr-2" /> Proprietary{" "}
+            </div>
+          ) : (
+            <div tw="flex mt-3">
+              <FaOsi tw="mt-1 mr-2" /> Open Source
+            </div>
+          )}
+          {tool.deprecated ? (
+            <div tw="flex mt-3">
+              <FaExclamationCircle tw="mt-1 mr-2" /> Deprecated/Unmaintained{" "}
+            </div>
+          ) : (
+            <div tw="flex mt-3">
+              <FaCheckCircle tw="mt-1 mr-2" /> Maintained
+            </div>
+          )}
           <div tw="flex mt-3">
             <FaTags tw="mt-2 mr-2" />
             <ul tw="flex flex-wrap list-none max-w-sm">
