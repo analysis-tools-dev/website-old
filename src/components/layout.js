@@ -33,7 +33,7 @@ export default ({ children }) => {
       </nav>
 
       <header tw="w-full flex-row container mx-auto">
-        <div tw="flex items-center">
+        <div tw="md:flex items-center">
           <Link
             tw="w-2/6 font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
             to="/"
@@ -41,7 +41,7 @@ export default ({ children }) => {
             <img src="/logo_black.svg" alt="Analysis tools logo" />
           </Link>
 
-          <div tw="flex w-4/6">
+          <div tw="flex md:w-4/6">
             <Search tw="w-full" collapse indices={searchIndices} />
           </div>
         </div>
