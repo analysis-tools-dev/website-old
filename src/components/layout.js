@@ -1,10 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
-import "twin.macro"
+import tw, { styled } from "twin.macro"
 import { FaGithub } from "react-icons/fa"
 import Search from "./search"
 
 const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
+
+const NavLink = styled(props => <Link {...props} />)`
+  ${tw`transition-all duration-300 hover:bg-gray-400 rounded py-2 my-1 px-4 mx-1 hover:mx-0 hover:py-3 hover:my-0 hover:px-5`}
+`
 
 export default ({ children }) => {
   return (
@@ -53,21 +57,13 @@ export default ({ children }) => {
       >
         <div tw="w-full flex-grow sm:flex sm:items-center sm:w-auto">
           <div tw="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <Link to="/" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Home
-            </Link>
-            <Link to="/tools" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Tools
-            </Link>
-            <Link to="/blog" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Blog
-            </Link>
-            <Link to="/videos" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Videos
-            </Link>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/tools">Tools</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/videos">Videos</NavLink>
             <a
               href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
-              tw="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+              tw="transition-all duration-300 hover:bg-gray-400 rounded py-2 my-1 px-4 mx-1 hover:mx-0 hover:py-3 hover:my-0 hover:px-5"
             >
               Add tool
             </a>
@@ -100,7 +96,7 @@ export default ({ children }) => {
             <img src="/hero/hero.svg" alt="People analysing charts" />
             <Link
               to="/about"
-              tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
+              tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
             >
               Learn more
             </Link>
