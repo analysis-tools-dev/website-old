@@ -1,9 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Helmet } from "react-helmet"
-import { FaCaretUp, FaCaretDown } from "react-icons/fa"
 import "twin.macro"
+import ToolsList from "../components/tools-list"
 
 const getIntroText = tools => {
   if (tools.length < 3) {
@@ -33,27 +33,7 @@ export default function Tag(d) {
           </h1>
 
           {tools.map(tool => (
-            <div tw="my-3 flex  border-b border-gray-200 pb-6" key={tool.id}>
-              <p tw="flex-none w-12 text-center text-gray-600">
-                <a tw="block" href={`/upVote/${tool.children[0].key}`}>
-                  <FaCaretUp tw="m-auto text-3xl text-gray-400" />
-                </a>
-
-                <span tw="block text-color4 font-bold">
-                  {tool.children[0].sum}
-                </span>
-
-                <a tw="block" href={`/downVote/${tool.children[0].key}`}>
-                  <FaCaretDown tw="m-auto text-3xl text-gray-400" />
-                </a>
-              </p>
-              <div tw="flex-auto pl-5">
-                <Link to={tool.fields.slug} tw="pb-4">
-                  <h4 tw="font-bold text-xl mb-3">{tool.name}</h4>
-                </Link>
-                <p tw="text-gray-600">{tool.description}</p>
-              </div>
-            </div>
+            <ToolsList tool={tool} key={tool.id} />
           ))}
         </div>
       </article>
