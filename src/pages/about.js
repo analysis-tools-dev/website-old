@@ -1,4 +1,4 @@
-import { React, Fragment } from "react"
+import { React } from "react"
 import Layout from "../components/layout"
 import "twin.macro"
 
@@ -17,9 +17,9 @@ const About = () => {
             checkers.
           </p>
           <p>
-            <Fragment>
-              &#60&#97&#32&#104&#114&#101&#102&#61&#34&#109&#97&#105&#108&#116&#111&#58&#104&#101&#108&#108&#111&#64&#97&#110&#97&#108&#121&#115&#105&#115&#45&#116&#111&#111&#108&#115&#46&#100&#101&#118&#34&#62&#67&#111&#110&#116&#97&#99&#116&#32&#117&#115&#60&#47&#97&#62
-            </Fragment>
+            <a tw="underline" href="mailto:hello@analysis-tools.dev">
+              Contact us!
+            </a>
           </p>
         </div>
       </article>
