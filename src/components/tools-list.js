@@ -20,7 +20,7 @@ export default function Tool({ tool }) {
         return false
       }
       await fetch(`/api/vote${direction}?tag=${tool.children[0].key}`)
-      if (direction === "up") {
+      if (direction === "Up") {
         setVotes(votes + 1)
       } else {
         setVotes(votes - 1)
