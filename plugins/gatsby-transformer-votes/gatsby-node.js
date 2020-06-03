@@ -1,5 +1,4 @@
 const fetch = require("node-fetch")
-const Bottleneck = require("bottleneck/es5")
 const { slugify } = require("../../utils/slugify")
 const { v4: uuidv4 } = require("uuid")
 
@@ -11,17 +10,25 @@ const { v4: uuidv4 } = require("uuid")
  */
 exports.onPreInit = () => console.log("Loaded gatsby-starter-plugin")
 
-const limiter = new Bottleneck({
-  minTime: 30,
-  maxConcurrent: 10,
-})
+let data = {}
+
+exports.onPreBootstrap = async () => {
+  console.log("Fetching voting data from GCP")
+  const resp = await fetch(`https://analysis-tools.dev/api/votesList`)
+  data = await resp.json()
+  console.log(data)
+}
 
 getNodeVotes = async node => {
   const key = slugify(`${node.internal.type}${node.name}`)
-  const wrapped = limiter.wrap(fetch)
-  const resp = await wrapped(`https://analysis-tools.dev/getVotes/${key}`)
-  const json = await resp.json()
-  return { ...json, key }
+  const json = data[key]
+
+  return {
+    upVotes: (json && json.upVotes) || 0,
+    downVotes: (json && json.downVotes) || 0,
+    sum: (json && json.sum) || 0,
+    key,
+  }
 }
 
 // generate slugs for our data
