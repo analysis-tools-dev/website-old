@@ -19,7 +19,7 @@ export default function Tool({ tool }) {
       if (hasVoted) {
         return false
       }
-      await fetch(`/${direction}Vote/${tool.children[0].tag}`)
+      await fetch(`/api/vote${direction}?tag=${tool.children[0].key}`)
       if (direction === "up") {
         setVotes(votes + 1)
       } else {
@@ -34,11 +34,11 @@ export default function Tool({ tool }) {
   return (
     <div tw="my-3 flex  border-b border-gray-200 pb-6">
       <p tw="flex-none w-12 text-center text-gray-600">
-        <VoteLink hasVoted={hasVoted} onClick={() => vote("up")}>
+        <VoteLink hasVoted={hasVoted} onClick={() => vote("Up")}>
           <FaCaretUp tw="m-auto" />
         </VoteLink>
         <span tw="block text-color4 font-bold">{votes}</span>
-        <VoteLink hasVoted={hasVoted} onClick={() => vote("down")}>
+        <VoteLink hasVoted={hasVoted} onClick={() => vote("Down")}>
           <FaCaretDown tw="m-auto" />
         </VoteLink>
       </p>
