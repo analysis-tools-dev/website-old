@@ -5,14 +5,12 @@ import "twin.macro"
 import { Helmet } from "react-helmet"
 
 const ComponentName = ({ data }) => {
+  const totalCount = data.allToolsYaml.totalCount.toString();
   return (
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>
-          Static analysis tools, linters, code quality for Python, Ruby, C, PHP,
-          Go, and more
-        </title>
+        <title>Compare {totalCount}+ Analysis Tools For Python, Ruby, C, PHP, Go,...</title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
@@ -160,6 +158,9 @@ export const query = graphql`
           }
         }
       }
+    }
+    allToolsYaml {
+      totalCount
     }
   }
 `

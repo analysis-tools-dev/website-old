@@ -23,7 +23,7 @@ export default function Tag(d) {
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          {introText} {tag.name} static analysis tools and linters
+          {introText} {tag.name} Static Analysis Tools and Linters
         </title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">

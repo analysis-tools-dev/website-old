@@ -12,13 +12,25 @@ import {
   FaCheckCircle,
 } from "react-icons/fa"
 
+const getIntroText = tool => {
+  let license = "A Proprietary"
+  if (!tool.proprietary) {
+    license = "An Open Source"
+  }
+  let taglist = tool.tags.join(", ")
+  return `${license} analysis tool for ${taglist}`
+}
+
 export default function BlogPost(d) {
   const tool = d.data.toolsYaml
+  const introText = getIntroText(tool)
   return (
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{tool.name} Details</title>
+        <title>
+          {tool.name}, {introText}
+        </title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
