@@ -4,12 +4,13 @@ import Layout from "../components/layout"
 import { Helmet } from "react-helmet"
 import "twin.macro"
 import {
-  FaTags,
-  FaHome,
-  FaOsi,
+  FaCheckCircle,
   FaCopyright,
   FaExclamationCircle,
-  FaCheckCircle,
+  FaHome,
+  FaLink,
+  FaOsi,
+  FaTags,
 } from "react-icons/fa"
 
 const getIntroText = tool => {
@@ -42,6 +43,14 @@ export default function BlogPost(d) {
               {tool.homepage}
             </a>
           </div>
+          {tool.source && 
+          <div tw="flex mt-3">
+            <FaLink tw="mt-1 mr-2" />
+            <a tw="underline" href={tool.source}>
+              {tool.source}
+            </a>
+          </div>
+          }
           {tool.proprietary ? (
             <div tw="flex mt-3">
               <FaCopyright tw="mt-1 mr-2" /> Proprietary{" "}
