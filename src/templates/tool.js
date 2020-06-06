@@ -38,8 +38,8 @@ export default function BlogPost(d) {
           <p tw="pb-3">{tool.description}</p>
           <div tw="flex mt-3">
             <FaHome tw="mt-1 mr-2" />
-            <a tw="underline" href={tool.url}>
-              {tool.url}
+            <a tw="underline" href={tool.homepage}>
+              {tool.homepage}
             </a>
           </div>
           {tool.proprietary ? (
@@ -85,7 +85,8 @@ export const query = graphql`
       description
       proprietary
       deprecated
-      url
+      homepage
+      source
       tags
       fields {
         slug
