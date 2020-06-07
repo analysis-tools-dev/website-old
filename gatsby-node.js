@@ -1,6 +1,6 @@
 const path = require(`path`)
 const { slugify } = require("./utils/slugify")
-
+const { getGithubStats } = require("./utils/githubStats")
 // generate slugs for our data
 exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions
@@ -19,6 +19,15 @@ exports.onCreateNode = async ({ node, actions }) => {
       name: `slug`,
       value: `/tool/${slugify(node.name)}`,
     })
+
+    const stats = await getGithubStats(node.source)
+    if (stats) {
+      createNodeField({
+        node,
+        name: `gitubStats`,
+        value: stats,
+      })
+    }
   }
 }
 
