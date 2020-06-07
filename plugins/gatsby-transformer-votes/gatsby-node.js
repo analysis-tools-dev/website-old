@@ -13,10 +13,9 @@ exports.onPreInit = () => console.log("Loaded gatsby-starter-plugin")
 let data = {}
 
 exports.onPreBootstrap = async () => {
-  console.log("Fetching voting data from GCP")
+  console.log("Fetching voting data from the GCP endpoint")
   const resp = await fetch(`https://analysis-tools.dev/api/votesList`)
   data = await resp.json()
-  console.log(data)
 }
 
 getNodeVotes = async node => {
