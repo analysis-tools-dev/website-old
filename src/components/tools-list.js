@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 import "twin.macro"
 import Vote from "../components/vote"
 
@@ -19,38 +19,3 @@ export default function Tool({ tool }) {
     </div>
   )
 }
-
-export const query = graphql`
-  query($slug: String!, $tag: String!) {
-    tagsYaml(fields: { slug: { eq: $slug } }) {
-      name
-      tag
-      fields {
-        slug
-      }
-    }
-
-    allToolsYaml(
-      filter: { tags: { glob: $tag } }
-      sort: { fields: childVotes___sum, order: DESC }
-    ) {
-      nodes {
-        id
-        name
-        description
-        tags
-        fields {
-          slug
-        }
-        children {
-          ... on Votes {
-            sum
-            downVotes
-            upVotes
-            key
-          }
-        }
-      }
-    }
-  }
-`
