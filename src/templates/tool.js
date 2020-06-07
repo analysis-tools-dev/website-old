@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import Vote from "../components/vote"
+
 import { Helmet } from "react-helmet"
 import "twin.macro"
 import {
@@ -33,53 +35,62 @@ export default function BlogPost(d) {
           {tool.name}, {introText}
         </title>
       </Helmet>
-      <article tw="flex flex-col shadow my-4 w-full">
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-5">{tool.name}</h1>
-          <p tw="pb-3">{tool.description}</p>
-          <div tw="flex mt-3">
-            <FaHome tw="mt-1 mr-2" />
-            <a tw="underline" href={tool.homepage}>
-              {tool.homepage}
-            </a>
+      <article tw="flex shadow my-4 w-full">
+        <div tw="bg-white flex justify-start p-6 w-full">
+          <div tw="w-12 flex-none">
+            <Vote key={tool.children[0].key} sum={tool.children[0].sum} />
           </div>
-          {tool.source && 
-          <div tw="flex mt-3">
-            <FaLink tw="mt-1 mr-2" />
-            <a tw="underline" href={tool.source}>
-              {tool.source}
-            </a>
-          </div>
-          }
-          {tool.proprietary ? (
-            <div tw="flex mt-3">
-              <FaCopyright tw="mt-1 mr-2" /> Proprietary{" "}
-            </div>
-          ) : (
-            <div tw="flex mt-3">
-              <FaOsi tw="mt-1 mr-2" /> Open Source
-            </div>
-          )}
-          {tool.deprecated ? (
-            <div tw="flex mt-3">
-              <FaExclamationCircle tw="mt-1 mr-2" /> Deprecated/Unmaintained{" "}
-            </div>
-          ) : (
-            <div tw="flex mt-3">
-              <FaCheckCircle tw="mt-1 mr-2" /> Maintained
-            </div>
-          )}
-          <div tw="flex mt-3">
-            <FaTags tw="mt-2 mr-2" />
-            <ul tw="flex flex-wrap list-none max-w-sm">
-              {tool.tags.map(tag => (
-                <li tw="mt-1 mr-1 mb-1" key={tool.id}>
-                  <a href={"/tag/" + tag}>
-                    <span tw="bg-color-gray-200 px-2 py-1 rounded">{tag}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+
+          <div tw="flex-auto pl-5">
+            <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
+            <p tw="pb-3">{tool.description}</p>
+            <p tw="mb-3">
+              <FaHome tw="mb-1 mr-2 inline-block" />
+              <a tw="underline" href={tool.homepage}>
+                {tool.homepage}
+              </a>
+            </p>
+            {tool.source && (
+              <p tw="mb-3">
+                <FaLink tw="mb-1 mr-2 inline-block" />
+                <a tw="underline" href={tool.source}>
+                  {tool.source}
+                </a>
+              </p>
+            )}
+            {tool.proprietary ? (
+              <p tw="mb-3">
+                <FaCopyright tw="mb-1 mr-2 inline-block" /> Proprietary{" "}
+              </p>
+            ) : (
+              <p tw="mb-3">
+                <FaOsi tw="mb-1 mr-2 inline-block" /> Open Source
+              </p>
+            )}
+            {tool.deprecated ? (
+              <p tw="mb-3">
+                <FaExclamationCircle tw="mb-1 mr-2 inline-block" />{" "}
+                Deprecated/Unmaintained{" "}
+              </p>
+            ) : (
+              <p tw="mb-3">
+                <FaCheckCircle tw="mb-1 mr-2 inline-block" /> Maintained
+              </p>
+            )}
+            <p>
+              <FaTags tw="mb-1 mr-2 inline-block align-top" />
+              <ul tw="list-none max-w-sm inline-block align-top">
+                {tool.tags.map(tag => (
+                  <li key={tag} tw="mb-2 mr-1 inline-block" key={tool.id}>
+                    <a href={"/tag/" + tag}>
+                      <span tw="bg-color-gray-200 px-2 py-1 rounded">
+                        {tag}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </p>
           </div>
         </div>
       </article>
@@ -99,6 +110,14 @@ export const query = graphql`
       tags
       fields {
         slug
+      }
+      children {
+        ... on Votes {
+          sum
+          downVotes
+          upVotes
+          key
+        }
       }
     }
   }

@@ -3,6 +3,7 @@ module.exports = {
   theme: {
     maxHeight: {
       "200": "200px",
+      "70": "70px",
     },
     extend: {
       colors: {

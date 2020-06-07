@@ -16,7 +16,7 @@ export default ({ children }) => {
       <nav tw="w-full py-4 bg-color3 shadow">
         <div tw="w-full container mx-auto flex flex-wrap items-center justify-between">
           <nav>
-            <ul tw="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+            <ul tw="flex items-center justify-between font-bold text-sm text-white uppercase no-underline ml-5">
               <li>
                 <FaGithub tw="float-left mt-1" />
                 <a
@@ -38,24 +38,22 @@ export default ({ children }) => {
 
       <header tw="w-full flex-row container mx-auto">
         <div tw="md:flex items-center">
-          <Link
-            tw="w-2/6 font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
-            to="/"
-          >
-            <img src="/logo_black.svg" alt="Analysis tools logo" />
+          <Link tw="w-2/6 h-1 md:h-auto">
+            <img
+              src="/logo_black.svg"
+              tw="w-2/6 mx-auto md:w-full"
+              alt="Analysis tools logo"
+            />
           </Link>
 
-          <div tw="flex md:w-4/6">
+          <div tw="mx-5 mb-5 md:mb-0 md:w-4/6">
             <Search tw="w-full" collapse indices={searchIndices} />
           </div>
         </div>
       </header>
 
-      <nav
-        tw="w-full py-4 border-t border-b bg-gray-100"
-        x-data="{ open: false }"
-      >
-        <div tw="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+      <nav tw="w-full py-4 border-t border-b bg-gray-100">
+        <div tw="w-full">
           <div tw="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/tools">Tools</NavLink>
