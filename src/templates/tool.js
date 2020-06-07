@@ -92,7 +92,7 @@ export default function BlogPost(d) {
             ) : (
               <p tw="mb-3">
                 <FaOsi tw="mb-1 mr-2 inline-block" />{" "}
-                {"license" in tool.fields.githubStats
+                {tool.fields.githubStats.license
                   ? tool.fields.githubStats.license.name
                   : "Open Source"}
               </p>
