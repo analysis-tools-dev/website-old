@@ -81,7 +81,7 @@ export default function BlogPost(d) {
               <FaTags tw="mb-1 mr-2 inline-block align-top" />
               <ul tw="list-none max-w-sm inline-block align-top">
                 {tool.tags.map(tag => (
-                  <li key={tag} tw="mb-2 mr-1 inline-block" key={tool.id}>
+                  <li tw="mb-2 mr-1 inline-block" key={tag}>
                     <a href={"/tag/" + tag}>
                       <span tw="bg-color-gray-200 px-2 py-1 rounded">
                         {tag}
