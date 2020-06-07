@@ -6,12 +6,16 @@ import Vote from "../components/vote"
 import { Helmet } from "react-helmet"
 import "twin.macro"
 import {
+  FaCalendarAlt,
   FaCheckCircle,
+  FaCodeBranch,
   FaCopyright,
   FaExclamationCircle,
+  FaEye,
   FaHome,
   FaLink,
   FaOsi,
+  FaStar,
   FaTags,
 } from "react-icons/fa"
 
@@ -40,9 +44,32 @@ export default function BlogPost(d) {
           <div tw="w-12 flex-none">
             <Vote key={tool.children[0].key} sum={tool.children[0].sum} />
           </div>
-
           <div tw="flex-auto pl-5">
             <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
+            {"created_at" in tool.fields.githubStats && (
+              <ul tw="mb-3">
+                <a tw="underline mr-3" href={tool.source}>
+                  <FaCalendarAlt tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.created_at}
+                </a>
+                <a tw="underline mr-3" href={tool.source}>
+                  <FaStar tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.stargazers_count}
+                </a>
+                <a tw="underline mr-3" href={tool.source}>
+                  <FaCodeBranch tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.forks_count}
+                </a>
+                <a tw="underline mr-3" href={tool.source}>
+                  <FaEye tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.watchers_count}
+                </a>
+                <a tw="underline mr-3" href={tool.source}>
+                  < FaExclamationCircle tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.open_issues_count}
+                </a>
+              </ul>
+            )}
             <p tw="pb-3">{tool.description}</p>
             <p tw="mb-3">
               <FaHome tw="mb-1 mr-2 inline-block" />
@@ -64,7 +91,7 @@ export default function BlogPost(d) {
               </p>
             ) : (
               <p tw="mb-3">
-                <FaOsi tw="mb-1 mr-2 inline-block" /> Open Source
+                <FaOsi tw="mb-1 mr-2 inline-block" /> Open Source {tool.fields.githubStats.license.name}
               </p>
             )}
             {tool.deprecated ? (
@@ -110,6 +137,25 @@ export const query = graphql`
       tags
       fields {
         slug
+        githubStats {
+          stargazers_count
+          created_at(formatString: "YYYY")
+          # archived
+          forks_count
+          language
+          license {
+            name
+          }
+          open_issues_count
+          organization {
+            avatar_url
+          }
+          owner {
+            avatar_url
+          }
+          size
+          watchers_count
+        }
       }
       children {
         ... on Votes {

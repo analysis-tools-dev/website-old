@@ -24,7 +24,7 @@ exports.onCreateNode = async ({ node, actions }) => {
     if (stats) {
       createNodeField({
         node,
-        name: `gitubStats`,
+        name: `githubStats`,
         value: stats,
       })
     }
