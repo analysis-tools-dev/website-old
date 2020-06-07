@@ -65,7 +65,7 @@ export default function BlogPost(d) {
                   {tool.fields.githubStats.watchers_count}
                 </a>
                 <a tw="underline mr-3" href={tool.source}>
-                  < FaExclamationCircle tw="mb-1 mr-2 inline-block" />
+                  <FaExclamationCircle tw="mb-1 mr-2 inline-block" />
                   {tool.fields.githubStats.open_issues_count}
                 </a>
               </ul>
@@ -91,7 +91,10 @@ export default function BlogPost(d) {
               </p>
             ) : (
               <p tw="mb-3">
-                <FaOsi tw="mb-1 mr-2 inline-block" /> Open Source {tool.fields.githubStats.license.name}
+                <FaOsi tw="mb-1 mr-2 inline-block" />{" "}
+                {"license" in tool.fields.githubStats
+                  ? tool.fields.githubStats.license.name
+                  : "Open Source"}
               </p>
             )}
             {tool.deprecated ? (
