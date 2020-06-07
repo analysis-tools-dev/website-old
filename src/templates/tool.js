@@ -48,26 +48,26 @@ export default function BlogPost(d) {
             <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
             {"created_at" in tool.fields.githubStats && (
               <ul tw="mb-3">
-                <a tw="underline mr-3" href={tool.source}>
-                  <FaCalendarAlt tw="mb-1 mr-2 inline-block" />
-                  {tool.fields.githubStats.created_at}
-                </a>
-                <a tw="underline mr-3" href={tool.source}>
+                <span tw="mr-3" href={tool.source}>
                   <FaStar tw="mb-1 mr-2 inline-block" />
                   {tool.fields.githubStats.stargazers_count}
-                </a>
-                <a tw="underline mr-3" href={tool.source}>
-                  <FaCodeBranch tw="mb-1 mr-2 inline-block" />
-                  {tool.fields.githubStats.forks_count}
-                </a>
-                <a tw="underline mr-3" href={tool.source}>
+                </span>
+                <span tw="mr-3" href={tool.source}>
                   <FaEye tw="mb-1 mr-2 inline-block" />
                   {tool.fields.githubStats.watchers_count}
-                </a>
-                <a tw="underline mr-3" href={tool.source}>
+                </span>
+                <span tw="mr-3" href={tool.source}>
                   <FaExclamationCircle tw="mb-1 mr-2 inline-block" />
                   {tool.fields.githubStats.open_issues_count}
-                </a>
+                </span>
+                <span tw="mr-3" href={tool.source}>
+                  <FaCodeBranch tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.forks_count}
+                </span>
+                <span tw="mr-3" href={tool.source}>
+                  <FaCalendarAlt tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.created_at}
+                </span>
               </ul>
             )}
             <p tw="pb-3">{tool.description}</p>
