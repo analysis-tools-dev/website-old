@@ -8,19 +8,33 @@ const limiter = new Bottleneck({
 const throttledFetch = limiter.wrap(fetch)
 
 module.exports.getGithubStats = async url => {
-  if (!url) {
+  try {
+    if (!url) {
+      return {}
+    }
+    if (!url.includes("github.com")) {
+      return {}
+    }
+    const match = url.match(/.*github.com\/(.*)\/(.*).*/)
+    if (!match) {
+      return {}
+    }
+
+    let headers = { accept: "application/vnd.github.preview" }
+    if (process.env.GITHUB_USERNAME && process.env.GITHUB_TOKEN) {
+      headers.Authorization =
+        "Basic " +
+        Buffer.from(
+          process.env.GITHUB_USERNAME + ":" + process.env.GITHUB_TOKEN
+        ).toString("base64")
+    }
+    const res = await throttledFetch(
+      `https://api.github.com/repos/${match[1]}/${match[2]}`,
+      { headers }
+    )
+    return await res.json()
+  } catch (err) {
+    console.log(err)
     return {}
   }
-  if (!url.includes("github.com")) {
-    return {}
-  }
-  const match = url.match(/.*github.com\/(.*)\/(.*).*/)
-  if (!match) {
-    return {}
-  }
-  const res = await throttledFetch(
-    `https://api.github.com/repos/${match[1]}/${match[2]}`,
-    { headers: { accept: "application/vnd.github.preview" } }
-  )
-  return await res.json()
 }
