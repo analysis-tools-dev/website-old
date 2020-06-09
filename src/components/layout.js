@@ -59,11 +59,12 @@ export default ({ children }) => {
             <NavLink to="/tools">Tools</NavLink>
             <NavLink to="/blog">Blog</NavLink>
             <NavLink to="/videos">Videos</NavLink>
+            <NavLink to="/sponsor">Sponsor</NavLink>
             <a
               href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
               tw="transition-all duration-300 hover:bg-gray-400 rounded py-2 my-1 px-4 mx-1 hover:mx-0 hover:py-3 hover:my-0 hover:px-5"
             >
-              Add tool
+              Contribute
             </a>
           </div>
         </div>
