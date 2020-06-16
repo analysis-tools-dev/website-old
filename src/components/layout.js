@@ -38,7 +38,7 @@ export default ({ children }) => {
 
       <header tw="w-full flex-row container mx-auto">
         <div tw="md:flex items-center">
-          <Link tw="w-2/6 h-1 md:h-auto">
+          <Link to="/" tw="w-2/6 h-1 md:h-auto">
             <img
               src="/logo_black.svg"
               tw="w-2/6 mx-auto md:w-full"

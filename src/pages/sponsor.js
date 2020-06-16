@@ -12,7 +12,12 @@ const Videos = ({ data }) => {
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-10">❤️ Sponsor</h1>
+          <h1 tw="text-3xl font-semibold pb-10">
+            <span role="img" aria-label="heart">
+              ❤️
+            </span>{" "}
+            Sponsor
+          </h1>
           <p tw="mb-3">
             We found that this project is attracting a lot of engineers that
             care about code-quality and solid engineering standards. We think
@@ -34,7 +39,10 @@ const Videos = ({ data }) => {
             help us on our mission, take a look at our Github Sponsoring page.
           </p>
           <p tw="mb-3">
-            <a tw="underline" href="https://github.com/sponsors/analysis-tools-dev/">
+            <a
+              tw="underline"
+              href="https://github.com/sponsors/analysis-tools-dev/"
+            >
               Check out our Github Sponsors page here
             </a>
           </p>

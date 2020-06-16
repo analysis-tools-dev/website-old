@@ -42,6 +42,7 @@
     "twin.macro": "^1.1.0",
     "typography": "^0.16.19",
     "typography-theme-kirkham": "^0.16.19",
+    "utterances-react": "^0.1.3",
     "uuid": "^8.1.0"
   },
   "devDependencies": {

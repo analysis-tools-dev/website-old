@@ -9,7 +9,7 @@ const VoteLink = styled.a`
   ${tw`block transition-all ease-in-out duration-300 text-3xl`}
 `
 
-export default function Vote({ key, sum }) {
+export default function Vote({ k, sum }) {
   const [votes, setVotes] = useState(sum)
   const [hasVoted, setHasVoted] = useState(false)
 
@@ -24,7 +24,7 @@ export default function Vote({ key, sum }) {
         setVotes(votes - 1)
       }
       setHasVoted(true)
-      await fetch(`/api/vote${direction}?tag=${key}`)
+      await fetch(`/api/vote${direction}?tag=${k}`)
     } catch (e) {
       //voting didn't work out
     }

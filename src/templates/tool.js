@@ -18,6 +18,7 @@ import {
   FaStar,
   FaTags,
 } from "react-icons/fa"
+import Utterances from "utterances-react"
 
 const getIntroText = tool => {
   let license = "A Proprietary"
@@ -42,7 +43,7 @@ export default function BlogPost(d) {
       <article tw="flex shadow my-4 w-full">
         <div tw="bg-white flex justify-start p-6 w-full">
           <div tw="w-12 flex-none">
-            <Vote key={tool.children[0].key} sum={tool.children[0].sum} />
+            <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
           </div>
           <div tw="flex-auto pl-5">
             <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
@@ -107,7 +108,7 @@ export default function BlogPost(d) {
                 <FaCheckCircle tw="mb-1 mr-2 inline-block" /> Maintained
               </p>
             )}
-            <p>
+            <div>
               <FaTags tw="mb-1 mr-2 inline-block align-top" />
               <ul tw="list-none max-w-sm inline-block align-top">
                 {tool.tags.map(tag => (
@@ -120,7 +121,22 @@ export default function BlogPost(d) {
                   </li>
                 ))}
               </ul>
-            </p>
+            </div>
+          </div>
+          <div>
+            <Utterances
+              repo="analysis-tools-dev/website-comments"
+              issueTerm="pathname"
+              label=""
+              theme="github-light"
+              crossorigin="anonymous"
+              async={false}
+              style={`
+            & .utterances {
+              max-width: 950px;
+            }
+          `}
+            />
           </div>
         </div>
       </article>

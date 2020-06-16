@@ -7,7 +7,7 @@ export default function Tool({ tool }) {
   return (
     <div tw="my-3 flex border-b border-gray-200 pb-6">
       <div tw="flex-none w-12">
-        <Vote sum={tool.children[0].sum} key={tool.children[0].key} />
+        <Vote sum={tool.children[0].sum} k={tool.children[0].key} />
       </div>
 
       <div tw="flex-auto pl-5">
