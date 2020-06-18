@@ -122,21 +122,21 @@ export default function BlogPost(d) {
                 ))}
               </ul>
             </div>
-          </div>
-          <div>
-            <Utterances
-              repo="analysis-tools-dev/website-comments"
-              issueTerm="pathname"
-              label=""
-              theme="github-light"
-              crossorigin="anonymous"
-              async={false}
-              style={`
+            <div>
+              <Utterances
+                repo="analysis-tools-dev/website-comments"
+                issueTerm="pathname"
+                label=""
+                theme="github-light"
+                crossorigin="anonymous"
+                async={false}
+                style={`
             & .utterances {
               max-width: 950px;
             }
           `}
-            />
+              />
+            </div>
           </div>
         </div>
       </article>
