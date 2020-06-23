@@ -71,6 +71,11 @@ export default function BlogPost(d) {
                 </span>
               </ul>
             )}
+            {tool.fields.screenshot && (
+              <p tw="pb-3">
+                <img tw="border-4 max-w-sm" src={tool.fields.screenshot} />
+              </p>
+            )}
             <p tw="pb-3">{tool.description}</p>
             <p tw="mb-3">
               <FaHome tw="mb-1 mr-2 inline-block" />
@@ -156,6 +161,7 @@ export const query = graphql`
       tags
       fields {
         slug
+        screenshot
         githubStats {
           stargazers_count
           created_at(formatString: "YYYY")

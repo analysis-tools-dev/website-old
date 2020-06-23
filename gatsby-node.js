@@ -1,6 +1,8 @@
 const path = require(`path`)
 const { slugify } = require("./utils/slugify")
 const { getGithubStats } = require("./utils/githubStats")
+const { getScreenshot } = require("./utils/screenshot")
+
 // generate slugs for our data
 exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions
@@ -26,6 +28,15 @@ exports.onCreateNode = async ({ node, actions }) => {
         node,
         name: `githubStats`,
         value: stats,
+      })
+    }
+
+    const screenshot = await getScreenshot(node.homepage)
+    if (screenshot) {
+      createNodeField({
+        node,
+        name: `screenshot`,
+        value: screenshot,
       })
     }
   }
