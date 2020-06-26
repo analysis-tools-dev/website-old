@@ -73,7 +73,7 @@ export default function BlogPost(d) {
             )}
             {tool.fields.screenshot && (
               <p tw="pb-3">
-                <img tw="border-4 max-w-sm" src={tool.fields.screenshot} />
+                <img alt={`Screenshot of ${tool.name} website`} tw="border-4 max-w-sm" src={tool.fields.screenshot} />
               </p>
             )}
             <p tw="pb-3">{tool.description}</p>
