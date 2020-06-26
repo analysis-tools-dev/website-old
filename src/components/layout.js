@@ -40,7 +40,7 @@ export default ({ children }) => {
         <div tw="md:flex items-center">
           <Link to="/" tw="w-2/6 h-1 md:h-auto">
             <img
-              src="/logo_black.svg"
+              src="/logo.svg"
               tw="w-2/6 mx-auto md:w-full"
               alt="Analysis tools logo"
             />

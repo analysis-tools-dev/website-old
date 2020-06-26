@@ -1,5 +1,5 @@
   <a href="http://analysis-tools.dev/">
-    <img width="400px" alt="Analysis Tools" src="/static/logo_black.svg" />
+    <img width="400px" alt="Analysis Tools" src="/static/logo.svg" />
   </a>
 
 ![CI](https://github.com/analysis-tools-dev/website/workflows/CI/badge.svg)
@@ -7,7 +7,7 @@
 This is the main website code of <a href="https://analysis-tools.dev">analysis-tools.dev</a>.  
 It is a community-organized project around static and dynamic analysis tools.  
 You can help make this website better!
-  
+
 ## 🚀 Contributing
 
 Thanks for considering to contribute to this project. Here's how to get started:
