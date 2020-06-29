@@ -10,15 +10,31 @@ const ComponentName = ({ data }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          Static analysis tools, linters, code quality in{" "}
-          {data.allTagsYaml.nodes.length.toString()} categories
+          Analysis tools, linters, code quality checkers for{" "}
+          {data.languages.nodes.length.toString()} languages
         </title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-10">Tools by Language</h1>
+          <h1 tw="text-3xl font-semibold pb-10">Tools for Various Programming Languages</h1>
           <ul>
-            {data.allTagsYaml.nodes.map(t => (
+            {data.languages.nodes.map(t => (
+              <li key={t.id}>
+                <p tw="pb-5">
+                  <strong>
+                    <Link to={t.fields.slug}>{t.name}</Link>
+                  </strong>
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+      <article tw="flex flex-col shadow my-4 w-full">
+        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+          <h1 tw="text-3xl font-semibold pb-10">Tools for Markup Languages and More</h1>
+          <ul>
+            {data.other.nodes.map(t => (
               <li key={t.id}>
                 <p tw="pb-5">
                   <strong>
@@ -36,11 +52,27 @@ const ComponentName = ({ data }) => {
 
 export const query = graphql`
   {
-    allTagsYaml(sort: { fields: name, order: ASC }) {
+    languages: allTagsYaml(
+      filter: { type: { glob: "language" } } 
+      sort: { fields: name, order: ASC }) {
       nodes {
         id
         name
         tag
+        type
+        fields {
+          slug
+        }
+      }
+    }
+    other: allTagsYaml(
+      filter: { type: { glob: "other" } } 
+      sort: { fields: name, order: ASC }) {
+      nodes {
+        id
+        name
+        tag
+        type
         fields {
           slug
         }
