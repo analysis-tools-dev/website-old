@@ -1,5 +1,5 @@
   <a href="http://analysis-tools.dev/">
-    <img width="400px" alt="Analysis Tools" src="/static/logo.svg" />
+    <img width="400px" alt="Analysis Tools" src="/static/logo.png" />
   </a>
 
 ![CI](https://github.com/analysis-tools-dev/website/workflows/CI/badge.svg)
