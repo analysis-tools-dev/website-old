@@ -29,7 +29,7 @@ export default function Tag(d) {
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold pb-10">
-            {tag.name} static analysis tools
+            {introText} {tag.name} static analysis tools
           </h1>
 
           {tools.map(tool => (
