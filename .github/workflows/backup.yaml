@@ -3,6 +3,8 @@
 name: Backup
 
 on:
+  push:
+    branches: [master]
   schedule:
     - cron: "0 */24 * * *"
   repository_dispatch:
