@@ -9,6 +9,9 @@ build:
 .PHONY: deploy-all
 deploy-all: deploy-voteUp deploy-voteDown deploy-votesList deploy-persistVote deploy-recalculateStatistics
 
+backup:
+	gcloud beta firestore export gs://analysis-tools-votes-backups
+
 deploy-voteUp: 					TRIGGER=--trigger-http --allow-unauthenticated
 deploy-voteDown: 				TRIGGER=--trigger-http --allow-unauthenticated
 deploy-votesList: 				TRIGGER=--trigger-http --allow-unauthenticated
