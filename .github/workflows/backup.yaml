@@ -10,7 +10,7 @@ on:
   repository_dispatch:
 
 jobs:
-  build:
+  backup:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,4 +26,4 @@ jobs:
 
       - name: Backup db
         run: |
-          make backup
+          make -C backend backup
