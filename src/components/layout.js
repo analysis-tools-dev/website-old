@@ -75,6 +75,14 @@ export default ({ children }) => {
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+            <p tw="text-xl font-semibold pb-5">Sponsors</p>
+            <p tw="pb-2">
+              <a href="https://www.deepcode.ai/">
+                <img alt="DeepCode logo" src="/sponsors/deepcode.svg" />
+              </a>
+            </p>
+          </div>
+          <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">Write better software</p>
             <p tw="pb-2">
               On this page you can find static- and dynamic code analysis tools
