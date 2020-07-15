@@ -74,7 +74,7 @@ module.exports = {
         remote: `https://github.com/analysis-tools-dev/static-analysis.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
         branch: `master`,
-        // Tailor which files get imported eg. import the docs folder from a codebase.
+        // Tailor which files get imported e.g. import the docs folder from a codebase.
         patterns: `data/tools.yml`,
       },
     },
@@ -85,7 +85,7 @@ module.exports = {
         remote: `https://github.com/analysis-tools-dev/static-analysis.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
         branch: `master`,
-        // Tailor which files get imported eg. import the docs folder from a codebase.
+        // Tailor which files get imported e.g. import the docs folder from a codebase.
         patterns: `data/tags.yml`,
       },
     },
