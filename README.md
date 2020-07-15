@@ -8,6 +8,14 @@ This is the main website code of <a href="https://analysis-tools.dev">analysis-t
 It is a community-organized project around static and dynamic analysis tools.  
 You can help make this website better!
 
+## :heart: Sponsors
+
+This project would not be possible without the generous support of our sponsors.
+
+<a href="https://deepcode.ai"><img width="200px" src="static/sponsors/deepcode.svg" /></a>
+
+If you also want to support this project, head over to our [Github sponsors page](https://github.com/sponsors/analysis-tools-dev).
+
 ## 🚀 Contributing
 
 Thanks for considering to contribute to this project. Here's how to get started:
