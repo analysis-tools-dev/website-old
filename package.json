@@ -20,7 +20,7 @@
     "bottleneck": "^2.19.5",
     "capture-website": "^1.0.0",
     "gatsby": "^2.21.21",
-    "gatsby-cli": "^2.12.34",
+    "gatsby-cli": "^2.12.60",
     "gatsby-plugin-algolia": "^0.11.0",
     "gatsby-plugin-emotion": "^4.3.2",
     "gatsby-plugin-react-helmet": "^3.3.2",
