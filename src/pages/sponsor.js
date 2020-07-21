@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import "twin.macro"
 import { Helmet } from "react-helmet"
 
-const Videos = ({ data }) => {
+const Sponsor = ({ data }) => {
   return (
     <Layout>
       <Helmet>
@@ -52,4 +52,4 @@ const Videos = ({ data }) => {
   )
 }
 
-export default Videos
+export default Sponsor
