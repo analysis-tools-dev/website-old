@@ -58,7 +58,6 @@ export default ({ children }) => {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/tools">Tools</NavLink>
             <NavLink to="/blog">Blog</NavLink>
-            <NavLink to="/videos">Videos</NavLink>
             <NavLink to="/sponsor">Sponsor</NavLink>
             <a
               href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
