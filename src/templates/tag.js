@@ -4,6 +4,8 @@ import Layout from "../components/layout"
 import { Helmet } from "react-helmet"
 import "twin.macro"
 import ToolsList from "../components/tools-list"
+import SponsorBanner from "../components/sponsorbanner"
+import {getRandomInt} from "../../utils/random"
 
 const getIntroText = tools => {
   if (tools.length < 3) {
@@ -17,6 +19,10 @@ export default function Tag(d) {
   const tag = d.data.tagsYaml
   const tools = d.data.allToolsYaml.nodes
   const introText = getIntroText(tools)
+
+  const bannerPosition = getRandomInt(tools.length);
+  const toolsBefore = tools.splice(0, bannerPosition);
+  const toolsAfter = tools;
 
   return (
     <Layout>
@@ -32,7 +38,12 @@ export default function Tag(d) {
             {introText} {tag.name} static analysis tools
           </h1>
 
-          {tools.map(tool => (
+          {toolsBefore.map(tool => (
+            <ToolsList tool={tool} key={tool.id} />
+          ))}
+          <SponsorBanner />
+
+          {toolsAfter.map(tool => (
             <ToolsList tool={tool} key={tool.id} />
           ))}
         </div>
