@@ -16,7 +16,7 @@ const ComponentName = ({ data }) => {
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <p tw="text-xl font-semibold pb-5">Popular Languages</p>
+          <p tw="text-xl font-semibold pb-5">Most Popular Analysis Tools by Programming Language</p>
           <div tw="grid grid-cols-2 gap-3 ">
             {["python", "ruby", "php", "c", "javascript", "go"].map(l => (
               <div key={l} tw="border-b border-gray-200 pb-5 px-2">
