@@ -47,7 +47,7 @@ export default function BlogPost(d) {
           </div>
           <div tw="flex-auto pl-5">
             <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
-            {"created_at" in tool.fields.githubStats && (
+            { tool.fields.githubStats.stargazers_count && (
               <ul tw="mb-3">
                 <span tw="mr-3" href={tool.source}>
                   <FaStar tw="mb-1 mr-2 inline-block" />
