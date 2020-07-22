@@ -7,7 +7,7 @@ import Search from "./search"
 const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
 
 const NavLink = styled(props => <Link {...props} />)`
-  ${tw`transition-all duration-300 hover:bg-gray-400 rounded py-2 my-1 px-4 mx-1 hover:mx-0 hover:py-3 hover:my-0 hover:px-5`}
+  ${tw`transition-all duration-300 hover:bg-gray-400 rounded my-1 mx-1 p-2 sm:px-6`}
 `
 
 export default ({ children }) => {
@@ -31,14 +31,13 @@ export default ({ children }) => {
 
       <nav tw="w-full py-4 border-t border-b bg-gray-100">
         <div tw="w-full">
-          <div tw="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <NavLink to="/">Home</NavLink>
+          <div tw="w-full container mx-auto flex flex-row items-center justify-center text-sm font-bold uppercase mt-0">
             <NavLink to="/tools">Tools</NavLink>
             <NavLink to="/blog">Blog</NavLink>
             <NavLink to="/sponsor">Sponsor</NavLink>
             <a
               href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
-              tw="transition-all duration-300 hover:bg-gray-400 rounded py-2 my-1 px-4 mx-1 hover:mx-0 hover:py-3 hover:my-0 hover:px-5"
+              tw="transition-all duration-300 hover:bg-gray-400 rounded my-1 mx-1 p-2"
             >
               Contribute
             </a>
