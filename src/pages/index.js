@@ -42,7 +42,7 @@ const ComponentName = ({ data }) => {
                   to={`/tag/${l}`}
                   tw="rounded-full px-4 mr-2 bg-color2 text-white p-2 rounded-lg leading-none transition-all duration-300 hover:bg-blue-500"
                 >
-                  Check more
+                  Show all
                 </Link>
               </div>
             ))}
