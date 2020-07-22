@@ -120,11 +120,6 @@ export default ({ children }) => {
 
       <footer tw="w-full border-t bg-white pb-12">
         <div tw="w-full container mx-auto flex flex-col items-center">
-          <div tw="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-            <a href="/about" tw="uppercase px-3">
-              About Us
-            </a>
-          </div>
           <div>
             Beautiful icons provided by{" "}
             <a href="https://icons8.com/icon/pack/files/dusk">icons8</a>
@@ -133,7 +128,7 @@ export default ({ children }) => {
               Hero vector illustration created by pch.vector - www.freepik.com
             </a>
           </div>
-          <div tw="uppercase pb-6">&copy; analysis-tools.dev</div>
+          <div tw="pb-6">&copy; analysis-tools.dev</div>
         </div>
       </footer>
     </div>
