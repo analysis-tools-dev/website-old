@@ -13,29 +13,6 @@ const NavLink = styled(props => <Link {...props} />)`
 export default ({ children }) => {
   return (
     <div>
-      <nav tw="w-full py-4 bg-color3 shadow">
-        <div tw="w-full container mx-auto flex flex-wrap items-center justify-between">
-          <nav>
-            <ul tw="flex items-center justify-between font-bold text-sm text-white uppercase no-underline ml-5">
-              <li>
-                <FaGithub tw="float-left mt-1" />
-                <a
-                  tw="hover:text-gray-200 hover:underline px-2"
-                  href="https://github.com/analysis-tools-dev/static-analysis"
-                >
-                  Github
-                </a>
-              </li>
-              <li tw="float-right">
-                <Link tw="hover:text-gray-200 hover:underline px-2" to="/about">
-                  About
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </nav>
-
       <header tw="w-full flex-row container mx-auto">
         <div tw="md:flex items-center">
           <Link to="/" tw="w-2/6 h-1 md:h-auto">
