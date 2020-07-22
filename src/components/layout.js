@@ -77,7 +77,7 @@ export default ({ children }) => {
             </p>
             <img src="/hero/hero.svg" alt="People analysing charts" />
             <Link
-              to="/about"
+              to="/blog"
               tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
             >
               Learn more
