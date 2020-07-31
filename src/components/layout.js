@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
-import { FaGithub } from "react-icons/fa"
 import Search from "./search"
 
 const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
