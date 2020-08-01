@@ -67,6 +67,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `tag-descriptions`,
+        path: `${__dirname}/content/tag-descriptions/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
       },
@@ -74,6 +81,11 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+        gfm: true,
+        // Plugins configs
         plugins: [],
       },
     },
