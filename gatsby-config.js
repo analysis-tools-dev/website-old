@@ -8,7 +8,8 @@ const ToolsQuery = `{
       node {
         objectID: id
         name
-        url
+        homepage
+        source
         tags
         proprietary
         description
@@ -71,6 +72,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         commonmark: true,
@@ -88,10 +96,10 @@ module.exports = {
       resolve: `gatsby-source-git`,
       options: {
         name: `static-analysis-tools`,
-        remote: `https://github.com/jakubsacha/static-analysis.git`,
+        remote: `https://github.com/analysis-tools-dev/static-analysis.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
-        branch: `patch-1`,
-        // Tailor which files get imported eg. import the docs folder from a codebase.
+        branch: `master`,
+        // Tailor which files get imported e.g. import the docs folder from a codebase.
         patterns: `data/tools.yml`,
       },
     },
@@ -99,10 +107,10 @@ module.exports = {
       resolve: `gatsby-source-git`,
       options: {
         name: `static-analysis-tags`,
-        remote: `https://github.com/jakubsacha/static-analysis.git`,
+        remote: `https://github.com/analysis-tools-dev/static-analysis.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
-        branch: `patch-1`,
-        // Tailor which files get imported eg. import the docs folder from a codebase.
+        branch: `master`,
+        // Tailor which files get imported e.g. import the docs folder from a codebase.
         patterns: `data/tags.yml`,
       },
     },

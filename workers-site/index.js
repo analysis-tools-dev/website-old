@@ -1,5 +1,4 @@
 import { getAssetFromKV, mapRequestToAsset } from "@cloudflare/kv-asset-handler"
-import { upVote, downVote, getVotes } from "./votes"
 /**
  * The DEBUG flag will do two things that help during development:
  * 1. we will skip caching on the edge, which makes it easier to
@@ -28,16 +27,17 @@ async function router(event) {
   const url = new URL(event.request.url)
   const params = url.pathname.split("/")
   switch (params[1]) {
-    case "upVote":
-      await upVote(params[2])
-      return new Response("OK", { status: 200 })
-    case "downVote":
-      await downVote(params[2])
-      return new Response("OK", { status: 200 })
-    case "getVotes":
-      return new Response(JSON.stringify(await getVotes(params[2])), {
-        status: 200,
-      })
+    case "api":
+      const headers = {
+        "x-forwarded-for": event.request.headers.get("cf-connecting-ip"),
+        user_agent: event.request.headers.get("user-agent"),
+      }
+      const resp = await fetch(
+        `https://us-central1-analysis-tools-dev.cloudfunctions.net/${params[2]}${url.search}`,
+        { headers }
+      )
+      return new Response(await resp.text())
+
     default:
       return handleEvent(event)
   }

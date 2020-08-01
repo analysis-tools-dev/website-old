@@ -38,3 +38,8 @@
 .ais-SearchBox-loadingIndicator {
   right: 0;
 }
+
+.ais-SearchBox-input {
+  width: 100%;
+  outline: none;
+}

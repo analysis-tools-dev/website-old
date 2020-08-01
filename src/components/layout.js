@@ -1,83 +1,45 @@
 import React from "react"
 import { Link } from "gatsby"
-import "twin.macro"
+import tw, { styled } from "twin.macro"
 import { FaGithub } from "react-icons/fa"
 import Search from "./search"
 
 const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
 
+const NavLink = styled(props => <Link {...props} />)`
+  ${tw`transition-all duration-300 hover:bg-gray-400 rounded my-1 mx-1 p-2 sm:px-6`}
+`
+
 export default ({ children }) => {
   return (
     <div>
-      <nav tw="w-full py-4 bg-color3 shadow">
-        <div tw="w-full container mx-auto flex flex-wrap items-center justify-between">
-          <nav>
-            <ul tw="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-              <li>
-                <FaGithub tw="float-left mt-1" />
-                <a
-                  tw="hover:text-gray-200 hover:underline px-2"
-                  href="https://github.com/analysis-tools-dev/static-analysis"
-                >
-                  Github
-                </a>
-              </li>
-              <li tw="float-right">
-                <Link tw="hover:text-gray-200 hover:underline px-2" to="/about">
-                  About
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </nav>
-
       <header tw="w-full flex-row container mx-auto">
-        <div tw="flex items-center">
-          <Link
-            tw="w-2/6 font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
-            to="/"
-          >
-            <img src="/logo_black.svg" alt="Analysis tools logo" />
+        <div tw="md:flex items-center">
+          <Link to="/" tw="w-2/6 h-1 md:h-auto">
+            <img
+              src="/logo.svg"
+              tw="w-2/6 mx-auto md:w-full"
+              alt="Analysis tools logo"
+            />
           </Link>
 
-          <div tw="flex w-4/6">
+          <div tw="mx-5 mb-5 md:mb-0 md:w-4/6">
             <Search tw="w-full" collapse indices={searchIndices} />
           </div>
         </div>
       </header>
 
-      <nav
-        tw="w-full py-4 border-t border-b bg-gray-100"
-        x-data="{ open: false }"
-      >
-        <div tw="block sm:hidden">
-          <Link
-            to="/"
-            tw="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
-          >
-            Topics <i tw="ml-2"></i>
-          </Link>
-        </div>
-        <div tw="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-          <div tw="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <Link to="/" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Home
-            </Link>
-            <Link to="/tools" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Tools
-            </Link>
-            <Link to="/blog" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Blog
-            </Link>
-            <Link to="/videos" tw="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-              Videos
-            </Link>
+      <nav tw="w-full py-4 border-t border-b bg-gray-100">
+        <div tw="w-full">
+          <div tw="w-full container mx-auto flex flex-row items-center justify-center text-sm font-bold uppercase mt-0">
+            <NavLink to="/tools">Tools</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/sponsor">Sponsor</NavLink>
             <a
               href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
-              tw="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+              tw="transition-all duration-300 hover:bg-gray-400 rounded my-1 mx-1 p-2"
             >
-              Add tool
+              Contribute
             </a>
           </div>
         </div>
@@ -87,6 +49,14 @@ export default ({ children }) => {
         <section tw="w-full md:w-2/3 flex flex-col px-3">{children}</section>
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
+          <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+            <p tw="text-xl font-semibold pb-5">Sponsors</p>
+            <p tw="pb-2">
+              <a href="https://www.deepcode.ai/">
+                <img alt="DeepCode logo" src="/sponsors/deepcode.svg" />
+              </a>
+            </p>
+          </div>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">Write better software</p>
             <p tw="pb-2">
@@ -107,8 +77,8 @@ export default ({ children }) => {
             </p>
             <img src="/hero/hero.svg" alt="People analysing charts" />
             <Link
-              to="/about"
-              tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
+              to="/blog"
+              tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
             >
               Learn more
             </Link>
@@ -150,11 +120,6 @@ export default ({ children }) => {
 
       <footer tw="w-full border-t bg-white pb-12">
         <div tw="w-full container mx-auto flex flex-col items-center">
-          <div tw="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-            <a href="/about" tw="uppercase px-3">
-              About Us
-            </a>
-          </div>
           <div>
             Beautiful icons provided by{" "}
             <a href="https://icons8.com/icon/pack/files/dusk">icons8</a>
@@ -163,7 +128,7 @@ export default ({ children }) => {
               Hero vector illustration created by pch.vector - www.freepik.com
             </a>
           </div>
-          <div tw="uppercase pb-6">&copy; analysis-tools.dev</div>
+          <div tw="pb-6">&copy; analysis-tools.dev</div>
         </div>
       </footer>
     </div>
