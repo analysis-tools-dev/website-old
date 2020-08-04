@@ -20,12 +20,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <h1 tw="text-xl font-semibold pb-5">{post.frontmatter.title}</h1>
           <small>{post.frontmatter.date}</small>
         </header>
-        <section tw="py-5" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section
+          tw="py-5 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
         <hr />
       </article>
 
       <nav>
-        <ul tw="flex flex-wrap justify-between list-none p-0">
+        <ul tw="flex flex-wrap justify-between list-none p-0 pt-2 leading-loose">
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">

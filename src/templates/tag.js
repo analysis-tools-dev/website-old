@@ -5,9 +5,8 @@ import { Helmet } from "react-helmet"
 import "twin.macro"
 import ToolsList from "../components/tools-list"
 import SponsorBanner from "../components/sponsorbanner"
-import {getRandomInt} from "../../utils/random"
 
-const getIntroText = tools => {
+const getTitleText = tools => {
   if (tools.length < 3) {
     return "The best"
   } else {
@@ -15,38 +14,66 @@ const getIntroText = tools => {
   }
 }
 
-export default function Tag(d) {
+const Tag = d => {
   const tag = d.data.tagsYaml
   const tools = d.data.allToolsYaml.nodes
-  const introText = getIntroText(tools)
-
-  const bannerPosition = getRandomInt(tools.length);
-  const toolsBefore = tools.splice(0, bannerPosition);
-  const toolsAfter = tools;
+  const titleText = getTitleText(tools)
 
   return (
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          {introText} {tag.name} Static Analysis Tools and Linters
+          {titleText} {tag.name} static analysis tools and linters
         </title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-10">
-            {introText} {tag.name} static analysis tools
+          <h1 tw="text-3xl font-semibold ">
+            {titleText} {tag.name} static analysis tools
           </h1>
+          {d.data.markdownRemark && (
+            <div tw="pt-6">
+              <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
+              <p>
+                <span
+                  tw="inline"
+                  dangerouslySetInnerHTML={{
+                    __html: d.data.markdownRemark.excerpt,
+                  }}
+                />
+                <a
+                  tw="underline inline"
+                  href={d.data.markdownRemark.frontmatter.source}
+                >
+                  (Source)
+                </a>
+              </p>
+            </div>
+          )}
+        </div>
 
-          {toolsBefore.map(tool => (
+        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+          {/* Only showheader when we have the SEO text block above it */}
+          {d.data.markdownRemark && (
+            <h3 tw="text-xl font-semibold pb-5">
+              What are the best {tag.name} analysis tools?
+            </h3>
+          )}
+          {tools.map(tool => (
             <ToolsList tool={tool} key={tool.id} />
           ))}
           <SponsorBanner />
-
-          {toolsAfter.map(tool => (
-            <ToolsList tool={tool} key={tool.id} />
-          ))}
         </div>
+        <p tw="px-6 pb-6 text-gray-600">
+          Missing an entry? Please{" "}
+          <a
+            tw="underline"
+            href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
+          >
+            let us know.
+          </a>
+        </p>
       </article>
     </Layout>
   )
@@ -62,6 +89,14 @@ export const query = graphql`
       }
     }
 
+    markdownRemark(frontmatter: { tag: { eq: $tag } }) {
+      excerpt(format: HTML, pruneLength: 500)
+      frontmatter {
+        tag
+        source
+      }
+    }
+
     allToolsYaml(
       filter: { tags: { glob: $tag } }
       sort: { fields: childVotes___sum, order: DESC }
@@ -69,6 +104,7 @@ export const query = graphql`
       nodes {
         id
         name
+        proprietary
         description
         tags
         fields {
@@ -86,3 +122,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Tag

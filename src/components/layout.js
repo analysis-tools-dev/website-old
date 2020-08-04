@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
-import { FaGithub } from "react-icons/fa"
 import Search from "./search"
 
 const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
@@ -50,7 +49,7 @@ export default ({ children }) => {
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
-            <p tw="text-xl font-semibold pb-5">Sponsors</p>
+            <p tw="text-xl font-semibold pb-5">Sponsored by</p>
             <p tw="pb-2">
               <a href="https://www.deepcode.ai/">
                 <img alt="DeepCode logo" src="/sponsors/deepcode.svg" />
