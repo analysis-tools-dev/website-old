@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet"
 import "twin.macro"
 import ToolsList from "../components/tools-list"
 import SponsorBanner from "../components/sponsorbanner"
-import { getRandomInt } from "../../utils/random"
 
 const getTitleText = tools => {
   if (tools.length < 3) {
@@ -15,14 +14,10 @@ const getTitleText = tools => {
   }
 }
 
-export default function Tag(d) {
+const Tag = d => {
   const tag = d.data.tagsYaml
   const tools = d.data.allToolsYaml.nodes
   const titleText = getTitleText(tools)
-
-  const bannerPosition = getRandomInt(tools.length)
-  const toolsBefore = tools.splice(0, bannerPosition)
-  const toolsAfter = tools
 
   return (
     <Layout>
@@ -41,7 +36,8 @@ export default function Tag(d) {
             <div tw="pt-6">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
               <p>
-                <span tw="inline"
+                <span
+                  tw="inline"
                   dangerouslySetInnerHTML={{
                     __html: d.data.markdownRemark.excerpt,
                   }}
@@ -64,14 +60,10 @@ export default function Tag(d) {
               What are the best {tag.name} analysis tools?
             </h3>
           )}
-          {toolsBefore.map(tool => (
+          {tools.map(tool => (
             <ToolsList tool={tool} key={tool.id} />
           ))}
           <SponsorBanner />
-
-          {toolsAfter.map(tool => (
-            <ToolsList tool={tool} key={tool.id} />
-          ))}
         </div>
         <p tw="px-6 pb-6 text-gray-600">
           Missing an entry? Please{" "}
@@ -112,6 +104,7 @@ export const query = graphql`
       nodes {
         id
         name
+        proprietary
         description
         tags
         fields {
@@ -129,3 +122,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Tag
