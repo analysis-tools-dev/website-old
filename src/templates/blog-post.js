@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import "twin.macro"
+import { Helmet } from "react-helmet"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -10,6 +11,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{post.frontmatter.title} - Static analysis tools, linters, code quality</title>
+      </Helmet>
       <article>
         <header>
           <h1 tw="text-xl font-semibold pb-5">{post.frontmatter.title}</h1>

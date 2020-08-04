@@ -2,6 +2,7 @@ import { Link, graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
 import "twin.macro"
+import { Helmet } from "react-helmet"
 
 class BlogIndex extends React.Component {
   render() {
@@ -9,6 +10,10 @@ class BlogIndex extends React.Component {
     const posts = data.allMarkdownRemark.edges
     return (
       <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Blog - Static analysis tools, linters, code quality</title>
+      </Helmet>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
