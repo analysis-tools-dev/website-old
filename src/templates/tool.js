@@ -47,7 +47,7 @@ export default function BlogPost(d) {
           </div>
           <div tw="flex-auto pl-5">
             <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
-            { tool.fields.githubStats.stargazers_count && (
+            {tool.fields.githubStats.stargazers_count && (
               <ul tw="mb-3">
                 <span tw="mr-3" href={tool.source}>
                   <FaStar tw="mb-1 mr-2 inline-block" />
@@ -73,7 +73,11 @@ export default function BlogPost(d) {
             )}
             {tool.fields.screenshot && (
               <p tw="pb-3">
-                <img alt={`Screenshot of ${tool.name} website`} tw="border-4 max-w-full" src={tool.fields.screenshot} />
+                <img
+                  alt={`Screenshot of ${tool.name} website`}
+                  tw="border-4 max-w-full"
+                  src={tool.fields.screenshot}
+                />
               </p>
             )}
             <p tw="pb-3">{tool.description}</p>
@@ -119,9 +123,7 @@ export default function BlogPost(d) {
                 {tool.tags.map(tag => (
                   <li tw="mb-2 mr-1 inline-block" key={tag}>
                     <a href={"/tag/" + tag}>
-                      <span tw="bg-color-gray-200 px-2 py-1 rounded">
-                        {tag}
-                      </span>
+                      <span tw="bg-gray-300 px-2 py-1 rounded">{tag}</span>
                     </a>
                   </li>
                 ))}
