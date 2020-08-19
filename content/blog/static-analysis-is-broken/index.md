@@ -21,10 +21,10 @@ great tools for that!
 
 Those static analysis tools can be grouped into different categories:
 
-- formatters: these apply a predefined code-style automatically and make your
-  code consistent and pretty. 💅
-- linters: detect bugs and code smells 🔍
-- metalinters: combine many linters into one tool 🔗
+- Formatters: these apply a predefined code-style automatically and make your
+  code consistent and pretty
+- Linters: detect bugs and code smells
+- Metalinters: combine many linters into one tool
 
 Even within each category, there are more ways to group the tools. For example,
 you could split them into Rule-based or AST-based (and perhaps
