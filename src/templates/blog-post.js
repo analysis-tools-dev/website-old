@@ -13,14 +13,18 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     <Layout location={location} title={siteTitle}>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{post.frontmatter.title} - Static analysis tools, linters, code quality</title>
+        <title>
+          {post.frontmatter.title} - Static analysis tools, linters, code
+          quality
+        </title>
       </Helmet>
       <article>
         <header>
-          <h1 tw="text-xl font-semibold pb-5">{post.frontmatter.title}</h1>
-          <small>{post.frontmatter.date}</small>
+          <h1 tw="text-3xl font-semibold pb-5">{post.frontmatter.title}</h1>
+          <p>{post.frontmatter.date}</p>
         </header>
         <section
+          id="blogPostBody"
           tw="py-5 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />

@@ -43,3 +43,30 @@
   width: 100%;
   outline: none;
 }
+
+#blogPostBody {
+  color: #333333;
+  text-align: justify;
+  font-size: 1.1em;
+}
+
+#blogPostBody p {
+  margin-bottom: 1em;
+  line-height: 1.8em;
+}
+
+#blogPostBody h2 {
+  font-weight: bold;
+  font-size: 1.35em;
+  margin: 1.5em 0 1em;
+}
+
+#blogPostBody a {
+  text-decoration: underline;
+}
+
+#blogPostBody ul {
+  list-style: square;
+  margin-left: 2em;
+  margin-bottom: 1em;
+}

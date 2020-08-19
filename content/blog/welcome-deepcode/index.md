@@ -3,7 +3,7 @@ title: Welcome, DeepCode!
 date: "2020-07-16T00:00:00.000Z"
 ---
 
-Today we welcome DeepCode as our first sponsor. 🥳  
+Today we welcome DeepCode as our first sponsor.
 
 It makes us incredibly happy to see the backing of our community project
 from such a forward-thinking company.

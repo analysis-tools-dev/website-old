@@ -49,6 +49,23 @@ const ComponentName = ({ data }) => {
           </div>
         </div>
       </article>
+      <div tw="flex flex-col shadow my-4 w-full">
+        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+          <p tw="pb-5">Latest from the Blog</p>
+          {data["blog"].edges.map(e => (
+            <h1>
+              <Link to={`${e.node.childMarkdownRemark.fields.slug}`}>
+                <h1 tw="text-xl font-semibold pb-5 underline">
+                  {e.node.childMarkdownRemark.frontmatter.title}
+                </h1>
+                <p>
+                  {e.node.childMarkdownRemark.excerpt}
+                </p>
+              </Link>
+            </h1>
+          ))}
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -165,6 +182,28 @@ export const query = graphql`
     }
     allToolsYaml {
       totalCount
+    }
+    blog: allFile(
+      sort: { order: DESC, fields: childMarkdownRemark___frontmatter___date }
+      filter: {
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "blog" }
+      }
+      limit: 1
+    ) {
+      edges {
+        node {
+          childMarkdownRemark {
+            excerpt
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
     }
   }
 `

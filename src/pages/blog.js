@@ -10,18 +10,22 @@ class BlogIndex extends React.Component {
     const posts = data.allFile.edges
     return (
       <Layout>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Blog - Static analysis tools, linters, code quality</title>
-      </Helmet>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Blog - Static analysis tools, linters, code quality</title>
+        </Helmet>
         {posts.map(({ node }) => {
-          const title = node.childMarkdownRemark.frontmatter.title || node.childMarkdownRemark.fields.slug
+          const title =
+            node.childMarkdownRemark.frontmatter.title ||
+            node.childMarkdownRemark.fields.slug
           return (
             <div key={node.childMarkdownRemark.fields.slug}>
               <article tw="flex flex-col shadow my-4">
                 <div tw="bg-white flex flex-col justify-start p-6">
                   <h1 tw="text-xl font-semibold pb-5">
-                    <Link to={node.childMarkdownRemark.fields.slug}>{title}</Link>
+                    <Link to={node.childMarkdownRemark.fields.slug}>
+                      {title}
+                    </Link>
                   </h1>
                   <small>{node.childMarkdownRemark.frontmatter.date}</small>
                   <p
@@ -55,7 +59,7 @@ export const pageQuery = graphql`
       }
     }
     allFile(
-      sort: { order: DESC, fields: [name] }
+      sort: { order: DESC, fields: childMarkdownRemark___frontmatter___date }
       filter: {
         internal: { mediaType: { eq: "text/markdown" } }
         sourceInstanceName: { eq: "blog" }
