@@ -1,16 +1,16 @@
 ---
-title: Static Analysis Is Broken - Let’s Fix It
+title: Static Analysis Is Broken - Let’s Fix It!
 date: "2020-08-19T20:00:00.000Z"
 ---
 
 Static analysis is great! It helps improve code quality by inspecting source
 code without even running it. There are hundreds of great tools to choose from —
-many are free or open-source. Unfortunately, many projects still don’t make use
+many are free or [open-source](https://github.com/analysis-tools-dev). Unfortunately, many projects still don’t make use
 of static analysis tools for various reasons.
 
 Our mission is to fix that by building an open platform for comparing static
 analysis tools. All code is open-source and backed by the community. We’re proud
-to count 192 individual contributors on Github so far. With this website, we aim
+to count [192 individual contributors on Github](https://github.com/analysis-tools-dev/static-analysis/graphs/contributors) so far. With this website, we aim
 to make static analysis accessible to even more people.
 
 ## What Is Static Analysis?
@@ -21,13 +21,13 @@ great tools for that!
 
 Those static analysis tools can be grouped into different categories:
 
-- Formatters: these apply a predefined code-style automatically and make your
+- **Formatters:** these apply a predefined code-style automatically and make your
   code consistent and pretty
-- Linters: detect bugs and code smells
-- Metalinters: combine many linters into one tool
+- **Linters:** detect bugs and code smells
+- **Metalinters:** combine many linters into one tool
 
 Even within each category, there are more ways to group the tools. For example,
-you could split them into Rule-based or AST-based (and perhaps
+you could split them into [rule-based](http://www.j-paine.org/students/lectures/lect3/node5.html) or [AST-based](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (and perhaps
 machine-learning-based-) tools.
 
 There are also different ways to incorporate those tools into your workflow:
@@ -51,8 +51,8 @@ others.
 
 There almost seems to be a weird cargo-cult around some tools, even though they
 have long been deprecated and superseded by more powerful successors. For
-example, JSLint is heavily debated by the community. You might be better off
-using eslint for new projects these days.
+example, [JSLint is heavily debated by the community](https://github.com/analysis-tools-dev/static-analysis/issues/223). You might be better off
+using [eslint](https://analysis-tools.dev/tool/eslint) for new projects these days.
 
 We provide an easy way to answer the following questions:
 
@@ -65,8 +65,8 @@ With that, we hope to demystify static analysis a bit.
 
 ## Most Public Lists Are Outdated
 
-If you search for “static analysis” on Google, chances are, you end up on this
-list on Wikipedia. It provides a list of static analysis tools, and it’s
+If you search for “static analysis” on Google, chances are, you end up on [this
+list on Wikipedia](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis). It provides a list of static analysis tools, and it’s
 arguably the first contact point with static analysis for many people. It’s an
 honest first attempt, but quite frankly, its quality is poor for many reasons:
 
@@ -84,13 +84,13 @@ Instead, we put a lot of effort into consistent structure and work on better
 filtering functionality. We have tooling in place to make sure that all
 information is up-to-date.
 
-## All Static Analysis Tools Are Lumped Together
+## All Static Analysis Tools Get Lumped Together
 
 Remember the categories from above? To most websites, it’s all linters. That
 doesn’t help if you’re looking for a formatter or a machine-learning-based SAAS
 service for your CI pipeline. It’s very time-consuming and tedious to wade
 through a sea of websites, so people rarely do. It’s like ten thousand spoons
-when all you need is a knife. (It’s ironic if you didn’t get that reference.)
+when all you need is a knife. (It’s [ironic](https://www.azlyrics.com/lyrics/alanismorissette/ironic.html) if you didn’t get that reference.)
 
 ## No Fair Comparison Between The Tools
 
@@ -110,14 +110,15 @@ quality. Our mission is to establish analysis-tools.dev as a platform for
 comparing analysis tools, and we are committed to keep the site up-to-date and
 add features like video workshops in the future.
 
-Let us take the time to thank our sponsor, DeepCode. It is a real-time semantic
-code analysis service that is deeply rooted within the open-source community.
-They provide their service free of charge for open source — forever. You should
-go check out their site. It is great to see companies like DeepCode embrace open
-source and work with the community to establish higher standards for code
-quality.
+Let us take the time to thank our first sponsor, [DeepCode](https://www.deepcode.ai/).
+
+It is a real-time semantic code analysis service that is deeply rooted within
+the open-source community. They provide their service free of charge for open
+source — forever. You should go [check out their site](https://www.deepcode.ai/). It is great to see
+companies like DeepCode embrace open source and work with the community to
+establish higher standards for code quality.
 
 Help make this possible analysis-tools.dev offers a lot for free, but of course,
 it is not free to operate or develop. If it provides value for you or your
-company and you wish to support its development, consider donating on Github
-Sponsors. Thanks!
+company and you wish to support its development, consider donating on [Github
+Sponsors](https://github.com/sponsors/analysis-tools-dev/). Thanks!

@@ -61,6 +61,10 @@
   margin: 1.5em 0 1em;
 }
 
+#blogPostBody a {
+  text-decoration: underline;
+}
+
 #blogPostBody ul {
   list-style: square;
   margin-left: 2em;
