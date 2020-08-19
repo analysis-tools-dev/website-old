@@ -113,6 +113,12 @@ export default ({ children }) => {
                 <img tw="hover:opacity-75" alt="Go" src="/logos/go.svg" />
               </a>
             </div>
+            <Link
+              to="/tools"
+              tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
+            >
+              Show all
+            </Link>
           </div>
         </aside>
       </div>
