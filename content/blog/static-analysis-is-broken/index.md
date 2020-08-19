@@ -94,8 +94,8 @@ when all you need is a knife. (It’s [ironic](https://www.azlyrics.com/lyrics/a
 
 ## No Fair Comparison Between The Tools
 
-Companies just try to sell. The loudest voice on the market wins - not the best
-tool. More niche projects that would be a better fit are hard to find.
+Most companies just try to sell. The loudest voice on the market wins - not the
+best tool. More niche projects that would be a better fit are hard to find.
 
 It’s difficult to find out what the “community-endorsed” set of standard tools
 is. Therefore we support votings and discussions and work together with the
@@ -110,6 +110,8 @@ quality. Our mission is to establish analysis-tools.dev as a platform for
 comparing analysis tools, and we are committed to keep the site up-to-date and
 add features like video workshops in the future.
 
+## Thanks!
+
 Let us take the time to thank our first sponsor, [DeepCode](https://www.deepcode.ai/).
 
 It is a real-time semantic code analysis service that is deeply rooted within
@@ -118,7 +120,11 @@ source — forever. You should go [check out their site](https://www.deepcode.ai
 companies like DeepCode embrace open source and work with the community to
 establish higher standards for code quality.
 
+We would also like to thank all contributors on Github that helped get us to reach that milestone. You all deserve a special place in our hearts.
+
+## Support
+
 Help make this possible analysis-tools.dev offers a lot for free, but of course,
 it is not free to operate or develop. If it provides value for you or your
 company and you wish to support its development, consider donating on [Github
-Sponsors](https://github.com/sponsors/analysis-tools-dev/). Thanks!
+Sponsors](https://github.com/sponsors/analysis-tools-dev/).
