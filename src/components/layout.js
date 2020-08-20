@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
+import { FaCaretUp, FaCaretDown } from "react-icons/fa"
 import Search from "./search"
 
 const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
@@ -64,16 +65,6 @@ export default ({ children }) => {
               tools are peer-reviewed by fellow developers to meet high
               standards.
             </p>
-            <p class="text-justify">
-              {" "}
-              You can help to improve this list{" "}
-              <a href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
-                {" "}
-                on Github{" "}
-              </a>
-              and join our open community around code quality and solid
-              engineering standards!
-            </p>
             <img src="/hero/hero.svg" alt="People analysing charts" />
             <Link
               to="/blog"
@@ -81,6 +72,19 @@ export default ({ children }) => {
             >
               Learn more
             </Link>
+          </div>
+          <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+            <p tw="text-xl font-semibold pb-5">How to contribute</p>
+            <p class="text-justify">
+              You can help to improve this list by simply voting{" "}
+              <FaCaretUp tw="inline-block text-gray-600" />/<FaCaretDown tw="inline-block text-gray-600" />{" "}
+              for your favourite tool or adding a new one{" "}
+              <a href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
+                on Github&nbsp;<img src="/logos/github.svg" alt="GitHub mark logo" tw="w-4 h-4 inline-block" />
+              </a>.
+              Join our open community around code quality and solid engineering
+              standards!
+            </p>
           </div>
 
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
