@@ -32,7 +32,8 @@ Thanks for considering to contribute to this project. Here's how to get started:
 
     ```shell
     cd website/
-    gatsby develop
+    yarn install
+    yarn develop
     ```
 
 3.  **Open the source code and start editing!**
