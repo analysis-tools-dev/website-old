@@ -58,7 +58,7 @@ const ComponentName = ({ data }) => {
                 <h1 tw="text-xl font-semibold pb-5 underline">
                   {e.node.childMarkdownRemark.frontmatter.title}
                 </h1>
-                <p>
+                <p class="text-justify">
                   {e.node.childMarkdownRemark.excerpt}
                 </p>
               </Link>

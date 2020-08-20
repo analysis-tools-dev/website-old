@@ -58,13 +58,13 @@ export default ({ children }) => {
           </div>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">Write better software</p>
-            <p tw="pb-2">
-              On this page you can find static- and dynamic code analysis tools
+            <p class="text-justify">
+              On this page you can find static-&nbsp;and dynamic code analysis tools
               and linters that will help you improve your code quality. All
               tools are peer-reviewed by fellow developers to meet high
               standards.
             </p>
-            <p>
+            <p class="text-justify">
               {" "}
               You can help to improve this list{" "}
               <a href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
