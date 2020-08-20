@@ -79,7 +79,7 @@ export default ({ children }) => {
               You can help to improve this list by simply voting{" "}
               <FaCaretUp tw="inline-block text-gray-600" />/<FaCaretDown tw="inline-block text-gray-600" />{" "}
               for your favourite tool or adding a new one{" "}
-              <a href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
+              <a tw="underline" href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
                 on Github&nbsp;<img src="/logos/github.svg" alt="GitHub mark logo" tw="w-4 h-4 inline-block" />
               </a>.
               Join our open community around code quality and solid engineering
@@ -131,13 +131,13 @@ export default ({ children }) => {
         <div tw="w-full container mx-auto flex flex-col items-center">
           <div>
             Beautiful icons provided by{" "}
-            <a href="https://icons8.com/icon/pack/files/dusk">icons8</a>
+            <a tw="underline" href="https://icons8.com/icon/pack/files/dusk">icons8</a>
             &nbsp;&middot;&nbsp;
-            <a href="https://www.freepik.com/free-photos-vectors/background">
+            <a tw="underline" href="https://www.freepik.com/free-photos-vectors/background">
               Hero vector illustration created by pch.vector - www.freepik.com
             </a>
           </div>
-          <div tw="pb-6">&copy; analysis-tools.dev</div>
+          <div tw="pb-6">&copy; <a tw="underline" href="https://analysis-tools.dev/">analysis-tools.dev</a></div>
         </div>
       </footer>
     </div>
