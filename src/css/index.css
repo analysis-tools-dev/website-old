@@ -47,6 +47,7 @@
 #blogPostBody {
   color: #333333;
   text-align: justify;
+  hyphens: auto;
   font-size: 1.1em;
 }
 
@@ -69,4 +70,9 @@
   list-style: square;
   margin-left: 2em;
   margin-bottom: 1em;
+}
+
+.text-justify {
+  text-align: justify;
+  hyphens: auto;
 }

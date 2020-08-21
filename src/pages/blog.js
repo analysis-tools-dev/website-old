@@ -29,6 +29,7 @@ class BlogIndex extends React.Component {
                   </h1>
                   <small>{node.childMarkdownRemark.frontmatter.date}</small>
                   <p
+                    class="text-justify"
                     dangerouslySetInnerHTML={{
                       __html: node.childMarkdownRemark.excerpt,
                     }}

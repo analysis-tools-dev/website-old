@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
+import { FaCaretUp, FaCaretDown } from "react-icons/fa"
 import Search from "./search"
 
 const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
@@ -58,21 +59,11 @@ export default ({ children }) => {
           </div>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">Write better software</p>
-            <p tw="pb-2">
-              On this page you can find static- and dynamic code analysis tools
+            <p class="text-justify">
+              On this page you can find static-&nbsp;and dynamic code analysis tools
               and linters that will help you improve your code quality. All
               tools are peer-reviewed by fellow developers to meet high
               standards.
-            </p>
-            <p>
-              {" "}
-              You can help to improve this list{" "}
-              <a href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
-                {" "}
-                on Github{" "}
-              </a>
-              and join our open community around code quality and solid
-              engineering standards!
             </p>
             <img src="/hero/hero.svg" alt="People analysing charts" />
             <Link
@@ -81,6 +72,19 @@ export default ({ children }) => {
             >
               Learn more
             </Link>
+          </div>
+          <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+            <p tw="text-xl font-semibold pb-5">How to contribute</p>
+            <p class="text-justify">
+              You can help to improve this list by simply voting{" "}
+              <FaCaretUp tw="inline-block text-gray-600" />/<FaCaretDown tw="inline-block text-gray-600" />{" "}
+              for your favourite tool or adding a new one{" "}
+              <a tw="underline" href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
+                on Github&nbsp;<img src="/logos/github.svg" alt="GitHub mark logo" tw="w-4 h-4 inline-block" />
+              </a>.
+              Join our open community around code quality and solid engineering
+              standards!
+            </p>
           </div>
 
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
@@ -127,13 +131,13 @@ export default ({ children }) => {
         <div tw="w-full container mx-auto flex flex-col items-center">
           <div>
             Beautiful icons provided by{" "}
-            <a href="https://icons8.com/icon/pack/files/dusk">icons8</a>
+            <a tw="underline" href="https://icons8.com/icon/pack/files/dusk">icons8</a>
             &nbsp;&middot;&nbsp;
-            <a href="https://www.freepik.com/free-photos-vectors/background">
+            <a tw="underline" href="https://www.freepik.com/free-photos-vectors/background">
               Hero vector illustration created by pch.vector - www.freepik.com
             </a>
           </div>
-          <div tw="pb-6">&copy; analysis-tools.dev</div>
+          <div tw="pb-6">&copy; <a tw="underline" href="https://analysis-tools.dev/">analysis-tools.dev</a></div>
         </div>
       </footer>
     </div>
