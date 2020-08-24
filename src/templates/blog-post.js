@@ -18,17 +18,18 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           quality
         </title>
       </Helmet>
-      <article>
-        <header>
-          <h1 tw="text-3xl font-semibold pb-5">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <section
-          id="blogPostBody"
-          tw="py-5 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-        <hr />
+      <article tw="flex flex-col shadow my-4 w-full">
+        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+          <header>
+            <h1 tw="text-3xl font-semibold pb-5">{post.frontmatter.title}</h1>
+            <p>{post.frontmatter.date}</p>
+          </header>
+          <section
+            id="blogPostBody"
+            tw="py-5 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </div>
       </article>
 
       <nav>
