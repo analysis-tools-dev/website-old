@@ -32,11 +32,10 @@ const Sponsor = ({ data }) => {
           </p>
           <p tw="mb-3">
             We believe that this project should be completely open to avoid bias
-            and gatekeepers, which promote tools based on monetary interest and
-            not purely on quality. Since we want this to be a community project
-            and the code/assets are freely available to everyone, we’ll use
-            Github Sponsors + Open Collective for the funding. If you want to
-            help us on our mission, take a look at our Github Sponsoring page.
+            and gatekeepers, which promote tools purely based on monetary interest and
+            not on quality. Since we want this to be a community project
+            and the code/assets be freely available to everyone, we’ll use
+            Github Sponsors + Open Collective for funding. 
           </p>
           <p tw="mb-3">
             <a
