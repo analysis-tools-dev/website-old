@@ -49,11 +49,18 @@ export default ({ children }) => {
         <section tw="w-full md:w-2/3 flex flex-col px-3">{children}</section>
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
+            <p tw="text-gray-600" >Sponsored by</p>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
-            <p tw="text-xl font-semibold pb-5">Sponsored by</p>
             <p tw="pb-2">
               <a href="https://www.deepcode.ai/">
                 <img alt="DeepCode logo" src="/sponsors/deepcode.svg" />
+              </a>
+            </p>
+          </div>
+          <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+            <p tw="pb-2">
+              <a href="https://codescene.io/">
+                <img alt="CodeScene logo" src="/sponsors/codescene.png" />
               </a>
             </p>
           </div>
