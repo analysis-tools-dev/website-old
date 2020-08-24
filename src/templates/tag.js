@@ -54,15 +54,25 @@ const Tag = d => {
         </div>
 
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          {/* Only showheader when we have the SEO text block above it */}
+          {/* Only show header when we have the SEO text block above it */}
           {d.data.markdownRemark && (
             <h3 tw="text-xl font-semibold pb-5">
               What are the best {tag.name} analysis tools?
             </h3>
           )}
-          {tools.map(tool => (
-            <ToolsList tool={tool} key={tool.id} />
-          ))}
+          {tools
+            .filter(tool => !tool.deprecated)
+            .map(tool => (
+              <ToolsList tool={tool} key={tool.id} />
+            ))}
+          <h3 tw="text-xl font-semibold pb-5">Deprecated/unmaintained tools</h3>
+          {tools
+            .filter(tool => tool.deprecated)
+            .map(tool => (
+              <div tw="opacity-50">
+                <ToolsList tool={tool} key={tool.id} />
+              </div>
+            ))}
           <SponsorBanner />
         </div>
         <p tw="px-6 pb-6 text-gray-600">
@@ -105,6 +115,7 @@ export const query = graphql`
         id
         name
         proprietary
+        deprecated
         description
         tags
         fields {
