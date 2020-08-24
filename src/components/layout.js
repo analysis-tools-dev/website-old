@@ -85,7 +85,7 @@ export default ({ children }) => {
             <p class="text-justify">
               You can help to improve this list by simply voting{" "}
               <FaCaretUp tw="inline-block text-gray-600" />/<FaCaretDown tw="inline-block text-gray-600" />{" "}
-              for your favourite tool or adding a new one{" "}
+              for your favorite tool or adding a new one{" "}
               <a tw="underline" href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
                 on Github&nbsp;<img src="/logos/github.svg" alt="GitHub mark logo" tw="w-4 h-4 inline-block" />
               </a>.
