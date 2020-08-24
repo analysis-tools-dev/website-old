@@ -12,7 +12,10 @@ You can help make this website better!
 
 This project would not be possible without the generous support of our sponsors.
 
-<a href="https://deepcode.ai"><img width="200px" src="static/sponsors/deepcode.svg" /></a>
+<ul>
+  <li><a href="https://deepcode.ai"><img width="200px" src="static/sponsors/deepcode.svg" /></a></li>
+  <li><a href="https://codescene.io/"><img width="200px" src="static/sponsors/codescene.png" /></a></li>
+</ul>
 
 If you also want to support this project, head over to our [Github sponsors page](https://github.com/sponsors/analysis-tools-dev).
 
