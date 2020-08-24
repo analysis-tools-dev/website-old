@@ -19,6 +19,9 @@ const Tag = d => {
   const tools = d.data.allToolsYaml.nodes
   const titleText = getTitleText(tools)
 
+  const maintained = tools.filter(tool => !tool.deprecated)
+  const deprecated = tools.filter(tool => tool.deprecated)
+
   return (
     <Layout>
       <Helmet>
@@ -60,19 +63,19 @@ const Tag = d => {
               What are the best {tag.name} analysis tools?
             </h3>
           )}
-          {tools
-            .filter(tool => !tool.deprecated)
-            .map(tool => (
+          {maintained.map(tool => (
+            <ToolsList tool={tool} key={tool.id} />
+          ))}
+          {deprecated.length > 0 && (
+            <h3 tw="text-xl font-semibold pb-5">
+              Deprecated/unmaintained tools
+            </h3>
+          )}
+          {deprecated.map(tool => (
+            <div tw="opacity-50">
               <ToolsList tool={tool} key={tool.id} />
-            ))}
-          <h3 tw="text-xl font-semibold pb-5">Deprecated/unmaintained tools</h3>
-          {tools
-            .filter(tool => tool.deprecated)
-            .map(tool => (
-              <div tw="opacity-50">
-                <ToolsList tool={tool} key={tool.id} />
-              </div>
-            ))}
+            </div>
+          ))}
           <SponsorBanner />
         </div>
         <p tw="px-6 pb-6 text-gray-600">
