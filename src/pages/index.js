@@ -49,9 +49,9 @@ const ComponentName = ({ data }) => {
                 ))}
                 <Link
                   to={`/tag/${l}`}
-                  tw="rounded-full px-4 mr-2 bg-color2 text-white p-2 rounded-lg leading-none transition-all duration-300 hover:bg-blue-500"
+                  tw="rounded-full px-4 mr-2 bg-gray-400 text-white p-2 rounded leading-none transition-all duration-300 hover:bg-gray-600"
                 >
-                  Show all
+                  Show {data[l].totalCount - 3} more tools...
                 </Link>
               </div>
             ))}
@@ -102,6 +102,7 @@ export const query = graphql`
           }
         }
       }
+      totalCount
     }
     ruby: allToolsYaml(
       filter: { tags: { glob: "ruby" } }
@@ -120,6 +121,7 @@ export const query = graphql`
           }
         }
       }
+      totalCount
     }
     php: allToolsYaml(
       filter: { tags: { glob: "php" } }
@@ -138,6 +140,7 @@ export const query = graphql`
           }
         }
       }
+      totalCount
     }
     c: allToolsYaml(
       filter: { tags: { glob: "c" } }
@@ -156,6 +159,7 @@ export const query = graphql`
           }
         }
       }
+      totalCount
     }
     javascript: allToolsYaml(
       filter: { tags: { glob: "javascript" } }
@@ -174,6 +178,7 @@ export const query = graphql`
           }
         }
       }
+      totalCount
     }
     go: allToolsYaml(
       filter: { tags: { glob: "go" } }
@@ -192,6 +197,7 @@ export const query = graphql`
           }
         }
       }
+      totalCount
     }
     csharp: allToolsYaml(
       filter: { tags: { glob: "csharp" } }
@@ -210,6 +216,7 @@ export const query = graphql`
           }
         }
       }
+      totalCount
     }
     java: allToolsYaml(
       filter: { tags: { glob: "java" } }
@@ -228,6 +235,7 @@ export const query = graphql`
           }
         }
       }
+      totalCount
     }
     allToolsYaml {
       totalCount
