@@ -18,7 +18,7 @@ export default ({ children }) => {
           <Link to="/" tw="w-2/6 h-1 md:h-auto">
             <img
               src="/logo.svg"
-              tw="w-2/6 mx-auto md:w-full"
+              tw="w-4/6 mx-auto md:w-full"
               alt="Analysis tools logo"
             />
           </Link>
@@ -49,7 +49,7 @@ export default ({ children }) => {
         <section tw="w-full md:w-2/3 flex flex-col px-3">{children}</section>
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
-            <p tw="text-gray-600" >Sponsored by</p>
+          <p tw="text-gray-600">Sponsored by</p>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="pb-2">
               <a href="https://www.deepcode.ai/">
@@ -67,9 +67,9 @@ export default ({ children }) => {
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">Write better software</p>
             <p class="text-justify">
-              On this page you can find static-&nbsp;and dynamic code analysis tools
-              and linters that will help you improve your code quality. All
-              tools are peer-reviewed by fellow developers to meet high
+              On this page you can find static-&nbsp;and dynamic code analysis
+              tools and linters that will help you improve your code quality.
+              All tools are peer-reviewed by fellow developers to meet high
               standards.
             </p>
             <img src="/hero/hero.svg" alt="People analysing charts" />
@@ -84,13 +84,22 @@ export default ({ children }) => {
             <p tw="text-xl font-semibold pb-5">How to contribute</p>
             <p class="text-justify">
               You can help to improve this list by simply voting{" "}
-              <FaCaretUp tw="inline-block text-gray-600" />/<FaCaretDown tw="inline-block text-gray-600" />{" "}
-              for your favorite tool or adding a new one{" "}
-              <a tw="underline" href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md">
-                on Github&nbsp;<img src="/logos/github.svg" alt="GitHub mark logo" tw="w-4 h-4 inline-block" />
-              </a>.
-              Join our open community around code quality and solid engineering
-              standards!
+              <FaCaretUp tw="inline-block text-gray-600" />/
+              <FaCaretDown tw="inline-block text-gray-600" /> for your favorite
+              tool or adding a new one{" "}
+              <a
+                tw="underline"
+                href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
+              >
+                on Github&nbsp;
+                <img
+                  src="/logos/github.svg"
+                  alt="GitHub mark logo"
+                  tw="w-4 h-4 inline-block"
+                />
+              </a>
+              . Join our open community around code quality and solid
+              engineering standards!
             </p>
           </div>
 
@@ -132,13 +141,23 @@ export default ({ children }) => {
         <div tw="w-full container mx-auto flex flex-col items-center">
           <div>
             Beautiful icons provided by{" "}
-            <a tw="underline" href="https://icons8.com/icon/pack/files/dusk">icons8</a>
+            <a tw="underline" href="https://icons8.com/icon/pack/files/dusk">
+              icons8
+            </a>
             &nbsp;&middot;&nbsp;
-            <a tw="underline" href="https://www.freepik.com/free-photos-vectors/background">
+            <a
+              tw="underline"
+              href="https://www.freepik.com/free-photos-vectors/background"
+            >
               Hero vector illustration created by pch.vector - www.freepik.com
             </a>
           </div>
-          <div tw="pb-6">&copy; <a tw="underline" href="https://analysis-tools.dev/">analysis-tools.dev</a></div>
+          <div tw="pb-6">
+            &copy;{" "}
+            <a tw="underline" href="https://analysis-tools.dev/">
+              analysis-tools.dev
+            </a>
+          </div>
         </div>
       </footer>
     </div>

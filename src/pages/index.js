@@ -49,9 +49,9 @@ const ComponentName = ({ data }) => {
                 ))}
                 <Link
                   to={`/tag/${l}`}
-                  tw="rounded-full px-4 mr-2 bg-gray-400 text-white p-2 rounded leading-none transition-all duration-300 hover:bg-gray-600"
+                  tw="rounded-full px-4 mr-2 bg-gray-400 text-white p-2 rounded leading-none whitespace-no-wrap transition-all duration-300 hover:bg-gray-600"
                 >
-                  Show {data[l].totalCount - 3} more tools...
+                  Show {data[l].totalCount - 3} more
                 </Link>
               </div>
             ))}
