@@ -20,7 +20,16 @@ const ComponentName = ({ data }) => {
             Most Popular Analysis Tools by Programming Language
           </p>
           <div tw="grid grid-cols-2 gap-3 ">
-            {["python", "ruby", "php", "c", "javascript", "go"].map(l => (
+            {[
+              "python",
+              "ruby",
+              "php",
+              "c",
+              "javascript",
+              "go",
+              "csharp",
+              "java",
+            ].map(l => (
               <div key={l} tw="border-b border-gray-200 pb-5 px-2">
                 <Link to={`/tag/${l}`} tw="capitalize mb-4 block">
                   <img
@@ -47,12 +56,12 @@ const ComponentName = ({ data }) => {
               </div>
             ))}
           </div>
-            <Link
-              to="/tools"
-              tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
-            >
-              Show all languages
-            </Link>
+          <Link
+            to="/tools"
+            tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
+          >
+            Show all languages
+          </Link>
         </div>
       </article>
       <div tw="flex flex-col shadow my-4 w-full">
@@ -64,9 +73,7 @@ const ComponentName = ({ data }) => {
                 <h1 tw="text-xl font-semibold pb-5 underline">
                   {e.node.childMarkdownRemark.frontmatter.title}
                 </h1>
-                <p class="text-justify">
-                  {e.node.childMarkdownRemark.excerpt}
-                </p>
+                <p class="text-justify">{e.node.childMarkdownRemark.excerpt}</p>
               </Link>
             </h1>
           ))}
@@ -170,6 +177,42 @@ export const query = graphql`
     }
     go: allToolsYaml(
       filter: { tags: { glob: "go" } }
+      sort: { fields: childVotes___sum, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        name
+        fields {
+          slug
+        }
+        children {
+          ... on Votes {
+            sum
+            key
+          }
+        }
+      }
+    }
+    csharp: allToolsYaml(
+      filter: { tags: { glob: "csharp" } }
+      sort: { fields: childVotes___sum, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        name
+        fields {
+          slug
+        }
+        children {
+          ... on Votes {
+            sum
+            key
+          }
+        }
+      }
+    }
+    java: allToolsYaml(
+      filter: { tags: { glob: "java" } }
       sort: { fields: childVotes___sum, order: DESC }
       limit: 3
     ) {
