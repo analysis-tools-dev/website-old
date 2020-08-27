@@ -59,6 +59,13 @@ export default ({ children }) => {
           </div>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="pb-2">
+              <a href="https://deepsource.io/">
+                <img alt="Deepsource logo" src="/sponsors/deepsource.png" />
+              </a>
+            </p>
+          </div>
+          <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+            <p tw="pb-2">
               <a href="https://codescene.io/">
                 <img alt="CodeScene logo" src="/sponsors/codescene.png" />
               </a>
