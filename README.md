@@ -15,6 +15,7 @@ This project would not be possible without the generous support of our sponsors.
 <ul>
   <li><a href="https://deepcode.ai"><img width="200px" src="static/sponsors/deepcode.svg" /></a></li>
   <li><a href="https://deepsource.io/"><img width="200px" src="static/sponsors/deepsource.png" /></a></li>
+  <li><a href="https://www.viva64.com/pvs-download-analysis-tools.dev"><img height="100px" src="static/sponsors/pvs-studio.svg" /></a></li>
   <li><a href="https://codescene.io/"><img width="200px" src="static/sponsors/codescene.png" /></a></li>
 </ul>
 

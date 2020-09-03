@@ -66,16 +66,20 @@ const ComponentName = ({ data }) => {
       </article>
       <div tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <p tw="pb-5">Latest from the Blog</p>
+          <p tw="pb-5">Latest from our Blog</p>
           {data["blog"].edges.map(e => (
-            <h1>
-              <Link to={`${e.node.childMarkdownRemark.fields.slug}`}>
-                <h1 tw="text-xl font-semibold pb-5 underline">
-                  {e.node.childMarkdownRemark.frontmatter.title}
-                </h1>
-                <p class="text-justify">{e.node.childMarkdownRemark.excerpt}</p>
-              </Link>
-            </h1>
+            <div tw="p-3 w-full">
+              <h1>
+                <Link to={`${e.node.childMarkdownRemark.fields.slug}`}>
+                  <h1 tw="text-xl font-semibold pb-5 underline">
+                    {e.node.childMarkdownRemark.frontmatter.title}
+                  </h1>
+                  <p class="text-justify">
+                    {e.node.childMarkdownRemark.excerpt}
+                  </p>
+                </Link>
+              </h1>
+            </div>
           ))}
         </div>
       </div>
@@ -246,7 +250,7 @@ export const query = graphql`
         internal: { mediaType: { eq: "text/markdown" } }
         sourceInstanceName: { eq: "blog" }
       }
-      limit: 1
+      limit: 3
     ) {
       edges {
         node {

@@ -34,6 +34,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
       <div tw="relative shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-r-none">
         <SearchBox
           tw="w-full px-8"
+          autoFocus="false"
           translations={{
             placeholder: "Find analysis tools and linters...",
           }}
