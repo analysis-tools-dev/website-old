@@ -46,7 +46,9 @@ export default function BlogPost(d) {
             <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
           </div>
           <div tw="flex-auto pl-5">
-            <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
+            <a tw="underline" href={tool.homepage}>
+              <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
+            </a>
             {tool.fields.githubStats.stargazers_count && (
               <ul tw="mb-3">
                 <span tw="mr-3" href={tool.source}>
@@ -73,11 +75,13 @@ export default function BlogPost(d) {
             )}
             {tool.fields.screenshot && (
               <p tw="pb-3">
-                <img
-                  alt={`Screenshot of ${tool.name} website`}
-                  tw="border-4 max-w-full"
-                  src={tool.fields.screenshot}
-                />
+                <a href={tool.homepage}>
+                  <img
+                    alt={`Screenshot of ${tool.name} website`}
+                    tw="border-4 max-w-full"
+                    src={tool.fields.screenshot}
+                  />
+                </a>
               </p>
             )}
             <p tw="pb-3">{tool.description}</p>
