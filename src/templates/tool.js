@@ -113,8 +113,8 @@ export default function BlogPost(d) {
             )}
             {tool.deprecated ? (
               <p tw="mb-3">
-                <FaExclamationCircle tw="mb-1 mr-2 inline-block" />{" "}
-                Deprecated/Unmaintained{" "}
+                <FaExclamationCircle tw="text-red-500 mb-1 mr-2 inline-block" />{" "}
+                <span tw="text-red-800">Deprecated/Unmaintained </span>
               </p>
             ) : (
               <p tw="mb-3">
