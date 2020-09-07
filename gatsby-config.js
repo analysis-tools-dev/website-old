@@ -124,11 +124,11 @@ module.exports = {
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
         queries,
-        chunkSize: 10000, // default: 1000
+        chunkSize: 1000,
         settings: {
           // optional, any index settings
         },
-        enablePartialUpdates: true, // default: false
+        enablePartialUpdates: false, // default: false
         matchFields: ["slug", "modified"], // Array<String> default: ['modified']
       },
     },
