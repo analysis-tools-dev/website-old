@@ -61,7 +61,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
           }
         />
         <HitsWrapper
-          show={typeof query !== "undefined" && query.length > 0}
+          show={query.length > 0}
           asGrid="false"
           tw="max-h-200 overflow-scroll border shadow p-4 bg-white w-full absolute left-0"
         >

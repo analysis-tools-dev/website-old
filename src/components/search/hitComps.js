@@ -11,6 +11,13 @@ export const ToolsHit = clickHandler => ({ hit }) => (
       </h4>
       {hit.description}
       <Snippet attribute="description" hit={hit} tagName="mark" />
+
+      {/* {hit.tags.map((tag, index) => (
+        <Fragment key={tag}>
+          {index > 0 && `, `}
+          {tag}
+        </Fragment>
+      ))} */}
     </Link>
   </div>
 )
