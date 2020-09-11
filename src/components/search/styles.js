@@ -45,7 +45,7 @@ export const HitsWrapper = styled.div`
 `
 
 export const PoweredBy = () => (
-  <div tw="p-2">
+  <div tw="pt-2 pb-2 text-gray-500 text-right">
     Search powered by <a href="https://algolia.com">Algolia</a>
   </div>
 )
