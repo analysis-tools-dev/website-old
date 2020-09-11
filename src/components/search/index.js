@@ -60,21 +60,21 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             </svg>
           }
         />
-        <HitsWrapper
-          show={query.length > 0}
-          asGrid="false"
-          tw="max-h-200 overflow-scroll border shadow p-4 bg-white w-full absolute left-0"
-        >
-          {indices.map(({ name, title, hitComp }) => (
-            <Index key={name} indexName={name}>
-              <Results>
-                <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
-              </Results>
-            </Index>
-          ))}
-          <PoweredBy />
-        </HitsWrapper>
       </div>
+      <HitsWrapper
+        show={query.length > 0}
+        asGrid="false"
+        tw="max-h-200 overflow-scroll border shadow p-4 bg-white absolute w-full"
+      >
+        {indices.map(({ name, title, hitComp }) => (
+          <Index key={name} indexName={name}>
+            <Results>
+              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
+            </Results>
+          </Index>
+        ))}
+        <PoweredBy />
+      </HitsWrapper>
     </InstantSearch>
   )
 }

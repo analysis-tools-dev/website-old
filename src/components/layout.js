@@ -23,8 +23,8 @@ export default ({ children }) => {
             />
           </Link>
 
-          <div tw="mx-5 mb-5 md:mb-0 md:w-4/6">
-            <Search tw="w-full" collapse indices={searchIndices} />
+          <div tw="mx-5 mb-5 md:mb-0 md:w-4/6 relative">
+            <Search tw="w-full relative" collapse indices={searchIndices} />
           </div>
         </div>
       </header>
