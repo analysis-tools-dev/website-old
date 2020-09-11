@@ -73,6 +73,7 @@ export default function BlogPost(d) {
                 </span>
               </ul>
             )}
+            <p tw="pb-3">{tool.description}</p>
             {tool.fields.screenshot && (
               <p tw="pb-3">
                 <a href={tool.homepage}>
@@ -84,7 +85,6 @@ export default function BlogPost(d) {
                 </a>
               </p>
             )}
-            <p tw="pb-3">{tool.description}</p>
             <p tw="mb-3">
               <FaHome tw="mb-1 mr-2 inline-block" />
               <a tw="underline" href={tool.homepage}>
