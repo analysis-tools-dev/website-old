@@ -117,7 +117,7 @@ export const query = graphql`
       nodes {
         id
         name
-        proprietary
+        license
         deprecated
         description
         tags

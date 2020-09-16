@@ -11,7 +11,7 @@ const ToolsQuery = `{
         homepage
         source
         tags
-        proprietary
+        license
         description
         deprecated
         fields {
@@ -100,7 +100,7 @@ module.exports = {
         // Optionally supply a branch. If none supplied, you'll get the default branch.
         branch: `master`,
         // Tailor which files get imported e.g. import the docs folder from a codebase.
-        patterns: `data/tools.yml`,
+        patterns: `data/tools/*.yml`,
       },
     },
     {

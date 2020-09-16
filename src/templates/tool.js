@@ -21,12 +21,11 @@ import {
 import Utterances from "utterances-react"
 
 const getIntroText = tool => {
-  let license = "A Proprietary"
-  if (!tool.proprietary) {
-    license = "An Open Source"
+  let license = "proprietary"
+  if (tool.license.toLowerCase() != "proprietary") {
+    license = "open source"
   }
-  let taglist = tool.tags.join(", ")
-  return `${license} analysis tool for ${taglist}`
+  return `${license} analysis tool for ${tool.tags.join(", ")}`
 }
 
 export default function BlogPost(d) {
@@ -37,7 +36,7 @@ export default function BlogPost(d) {
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          {tool.name}, {introText}
+          {tool.name}: {introText}
         </title>
       </Helmet>
       <article tw="flex shadow my-4 w-full">
@@ -99,9 +98,9 @@ export default function BlogPost(d) {
                 </a>
               </p>
             )}
-            {tool.proprietary ? (
+            {tool.license ? (
               <p tw="mb-3">
-                <FaCopyright tw="mb-1 mr-2 inline-block" /> Proprietary{" "}
+                <FaCopyright tw="mb-1 mr-2 inline-block" /> {tool.license}{" "}
               </p>
             ) : (
               <p tw="mb-3">
@@ -160,7 +159,7 @@ export const query = graphql`
     toolsYaml(fields: { slug: { eq: $slug } }) {
       name
       description
-      proprietary
+      license
       deprecated
       homepage
       source
