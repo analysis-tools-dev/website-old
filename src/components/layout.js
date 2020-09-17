@@ -68,10 +68,16 @@ export default ({ children }) => {
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">Our Sponsors</p>
             <p tw="pb-10 text-justify">
-              This website is completely open source. We won't show ads or track
-              users. To fund our work, we fully rely on sponsors. Thanks to
-              them, we can keep the site free for everybody. Please check out
-              their offers below.
+              This website is completely{" "}
+              <a
+                tw="underline"
+                href="https://github.com/analysis-tools-dev/website/"
+              >
+                open source
+              </a>
+              . To fund our work, we fully rely on sponsors. Thanks to them, we
+              can keep the site free for everybody. Please check out their
+              offers below.
             </p>
             <p tw="pb-6">
               <a href="https://www.deepcode.ai?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
@@ -84,7 +90,7 @@ export default ({ children }) => {
               </a>
             </p>
             <p tw="pb-6">
-              <a href="https://www.viva64.com/pvs-download-analysis-tools.dev">
+              <a href="https://www.viva64.com/free-license?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
                 <img alt="PVS Studio logo" src="/sponsors/pvs-studio.svg" />
               </a>
             </p>
