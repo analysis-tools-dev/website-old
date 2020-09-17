@@ -17,7 +17,7 @@ const ComponentName = ({ data }) => {
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <p tw="text-xl font-semibold pb-5">
-            Most Popular Analysis Tools by Programming Language
+            Popular Static Analysis Tools by Language
           </p>
           <div tw="grid grid-cols-2 gap-3 ">
             {[
@@ -60,7 +60,7 @@ const ComponentName = ({ data }) => {
             to="/tools"
             tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
           >
-            Show all languages
+            Show all tools
           </Link>
         </div>
       </article>

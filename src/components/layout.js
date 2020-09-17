@@ -50,19 +50,18 @@ export default ({ children }) => {
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
-            <p tw="text-xl font-semibold pb-5">Write better software</p>
+            <p tw="text-xl font-semibold pb-5">Write Better Software</p>
             <p tw="text-justify">
-              On this page you can find static-&nbsp;and dynamic code analysis
-              tools and linters that will help you improve your code quality.
-              All tools are peer-reviewed by fellow developers to meet high
-              standards.
+              On this page you can find static code analysis tools and linters
+              that can help you improve code quality. All tools are
+              peer-reviewed by fellow developers to meet high standards.
             </p>
             <img src="/hero/hero.svg" alt="People analysing charts" />
             <Link
               to="/blog/our-mission"
               tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
             >
-              Learn more
+              Our mission
             </Link>
           </div>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
@@ -101,12 +100,12 @@ export default ({ children }) => {
             </p>
           </div>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
-            <p tw="text-xl font-semibold pb-5">How you can contribute</p>
+            <p tw="text-xl font-semibold pb-5">You Can Contribute!</p>
             <p class="text-justify">
-              You can help to improve this list by simply voting{" "}
+              You can help to improve this list by voting{" "}
               <FaCaretUp tw="inline-block text-gray-600" />/
               <FaCaretDown tw="inline-block text-gray-600" /> for your favorite
-              tool or adding a new one{" "}
+              tools or adding new ones{" "}
               <a
                 tw="underline"
                 href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
@@ -118,13 +117,11 @@ export default ({ children }) => {
                   tw="w-4 h-4 inline-block"
                 />
               </a>
-              . Join our open community around code quality and solid
-              engineering standards!
             </p>
           </div>
 
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
-            <p tw="text-xl font-semibold pb-5">Popular Languages</p>
+            <p tw="text-xl font-semibold pb-5">Popular Tools By Language</p>
             <div tw="grid grid-cols-3 gap-3">
               <a href="/tag/python">
                 <img
