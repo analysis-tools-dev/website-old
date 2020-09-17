@@ -1,26 +1,40 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Helmet } from "react-helmet"
 import "twin.macro"
 import ToolsList from "../components/tools-list"
 import SponsorBanner from "../components/sponsorbanner"
+import Select from "react-select"
 
 const getTitleText = tools => {
-  if (tools.length < 3) {
-    return "The best"
-  } else {
-    return `Best ${tools.length}`
+  let text = "Best"
+  if (tools.length > 3) {
+    text += ` ${tools.length}`
   }
+  return text
 }
 
 const Tag = d => {
-  const tag = d.data.tagsYaml
-  const tools = d.data.allToolsYaml.nodes
-  const titleText = getTitleText(tools)
+  const tag = d.data.tag
 
+  const licenses = d.data.licenses.distinct
+  const licenseOptions = licenses.map(license => {
+    return { value: license, label: license }
+  })
+
+  const tools = d.data.tools.nodes
+  const titleText = getTitleText(tools)
   const maintained = tools.filter(tool => !tool.deprecated)
   const deprecated = tools.filter(tool => tool.deprecated)
+
+  const [license, setLicense] = useState("")
+
+  const _filterLicense = e => {
+    console.log("aha")
+    console.log(e)
+    setLicense(e)
+  }
 
   return (
     <Layout>
@@ -31,6 +45,8 @@ const Tag = d => {
         </title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
+        License: <Select options={licenseOptions} onChange={e => _filterLicense(e)} />
+        {license.value}
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold ">
             {titleText} {tag.name} static analysis tools
@@ -55,7 +71,6 @@ const Tag = d => {
             </div>
           )}
         </div>
-
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           {/* Only show header when we have the SEO text block above it */}
           {d.data.markdownRemark && (
@@ -94,7 +109,7 @@ const Tag = d => {
 
 export const query = graphql`
   query($slug: String!, $tag: String!) {
-    tagsYaml(fields: { slug: { eq: $slug } }) {
+    tag: tagsYaml(fields: { slug: { eq: $slug } }) {
       name
       tag
       fields {
@@ -102,7 +117,7 @@ export const query = graphql`
       }
     }
 
-    markdownRemark(frontmatter: { tag: { eq: $tag } }) {
+    markdown: markdownRemark(frontmatter: { tag: { eq: $tag } }) {
       excerpt(format: HTML, pruneLength: 500)
       frontmatter {
         tag
@@ -110,7 +125,7 @@ export const query = graphql`
       }
     }
 
-    allToolsYaml(
+    tools: allToolsYaml(
       filter: { tags: { glob: $tag } }
       sort: { fields: childVotes___sum, order: DESC }
     ) {
@@ -133,6 +148,10 @@ export const query = graphql`
           }
         }
       }
+    }
+
+    licenses: allToolsYaml(filter: { tags: { glob: $tag } }) {
+      distinct(field: license)
     }
   }
 `
