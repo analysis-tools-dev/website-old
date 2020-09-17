@@ -89,7 +89,7 @@ export default ({ children }) => {
               </a>
             </p>
             <p tw="pb-6">
-              <a href="https://www.viva64.com/free-license?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
+              <a href="https://www.viva64.com/free-license">
                 <img alt="PVS Studio logo" src="/sponsors/pvs-studio.svg" />
               </a>
             </p>
