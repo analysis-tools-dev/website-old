@@ -1,5 +1,5 @@
 import React from "react"
-import { Highlight, Snippet } from "react-instantsearch-dom"
+import { Highlight } from "react-instantsearch-dom"
 import { Link } from "gatsby"
 import "twin.macro"
 

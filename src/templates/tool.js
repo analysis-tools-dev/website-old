@@ -22,7 +22,7 @@ import Utterances from "utterances-react"
 
 const getIntroText = tool => {
   let license = "proprietary"
-  if (tool.license.toLowerCase() != "proprietary") {
+  if (tool.license.toLowerCase() !== "proprietary") {
     license = "open source"
   }
   return `${license} analysis tool for ${tool.tags.join(", ")}`
