@@ -65,7 +65,7 @@ async function handleEvent(event) {
     const url = new URL(event.request.url);
     statsRequest.headers.set("X-Original-Url", url);
     statsRequest.headers.set("X-Original-Ip", event.request.headers.get('cf-connecting-ip'));
-    event.waitUntil(fetch("analysis-tools-dashflare.mre.workers.dev", statsRequest));
+    event.waitUntil(fetch("https://analysis-tools-dashflare.mre.workers.dev", statsRequest));
 
     return await getAssetFromKV(event, options)
   } catch (e) {
