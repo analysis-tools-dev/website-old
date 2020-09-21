@@ -19,22 +19,37 @@ import {
   FaTags,
 } from "react-icons/fa"
 import Utterances from "utterances-react"
+const { titleCase } = require("../../utils/str")
+const { getPopularTagString } = require("../../utils/tag")
 
 const getIntroText = tool => {
-  let license = "proprietary"
+  let votes = tool.children[0].sum
+  let tags = getPopularTagString(tool.tags, 3)
+  let text = `Static analysis tool for ${tags}`
   if (tool.license.toLowerCase() !== "proprietary") {
-    license = "open source"
+    text = `Free static analysis tool for ${tags} (${votes} votes)`
   }
-  return `${license} analysis tool for ${tool.tags.join(", ")}`
+  return titleCase(text)
+}
+
+const getMetaDescription = tool => {
+  let desc = tool.description
+  if (tool.fields.githubStats.stargazers_count) {
+    desc = `${desc} ${tool.fields.githubStats.stargazers_count} stars on Github.`
+  }
+  desc = `${desc} [${tool.license}]`
+  return desc
 }
 
 export default function BlogPost(d) {
   const tool = d.data.toolsYaml
   const introText = getIntroText(tool)
+  const metaDescription = getMetaDescription(tool)
   return (
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
+        <meta name="description" content={metaDescription} />
         <title>
           {tool.name}: {introText}
         </title>
