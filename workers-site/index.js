@@ -59,6 +59,14 @@ async function handleEvent(event) {
         bypassCache: true,
       }
     }
+
+    // Offload stats from the main thread
+    const statsRequest = new Request(event.request);
+    const url = new URL(event.request.url);
+    statsRequest.headers.set("X-Original-Url", url);
+    statsRequest.headers.set("X-Original-Ip", event.request.headers.get('cf-connecting-ip'));
+    event.waitUntil(fetch("stats.analysis-tools.dev", statsRequest));
+
     return await getAssetFromKV(event, options)
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
