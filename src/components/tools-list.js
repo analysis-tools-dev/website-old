@@ -11,8 +11,15 @@ export default function Tool({ tool }) {
       </div>
 
       <div tw="flex-auto pl-5">
-        <Link to={tool.fields.slug} tw="pb-4">
+        <Link to={tool.fields.slug} tw="pb-4 flex">
           <h4 tw="font-bold text-xl mb-3">{tool.name}</h4>
+          <ul tw="list-none flex ml-2 mt-1">
+            {tool.types.map(t => (
+              <li tw="mb-2 mr-1 w-6" key={t}>
+                <img src={`/icons/${t}.svg`} alt={`Type: ${t}`} />
+              </li>
+            ))}
+          </ul>
         </Link>
         <p tw="text-gray-600 mb-3">{tool.description}</p>
         <div>

@@ -121,6 +121,8 @@ export const query = graphql`
         deprecated
         description
         tags
+        types
+        categories
         fields {
           slug
         }

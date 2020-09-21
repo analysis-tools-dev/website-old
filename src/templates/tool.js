@@ -88,6 +88,17 @@ export default function BlogPost(d) {
               </ul>
             )}
             <p tw="pb-3">{tool.description}</p>
+            <div tw="flex mb-8">
+              <span tw="font-bold">Workflow integration:</span>
+              <ul tw="flex">
+                {tool.types.map(t => (
+                  <li tw="flex" key={t}>
+                    <img tw="self-start object-contain ml-2 w-6" src={`/icons/${t}.svg`} alt={`Type: ${t}`} />
+                    <div tw="flex-1">{t}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
             {tool.fields.screenshot && (
               <p tw="pb-3">
                 <a href={tool.homepage}>
@@ -179,6 +190,8 @@ export const query = graphql`
       homepage
       source
       tags
+      types
+      categories
       fields {
         slug
         screenshot
