@@ -39,7 +39,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
         <SearchBox
           tw="w-full px-8"
           translations={{
-            placeholder: "Find analysis tools and linters...",
+            placeholder: "Find analysis tools, formatters, and linters...",
           }}
           startValue=""
           submit={
