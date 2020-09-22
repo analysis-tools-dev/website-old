@@ -12,29 +12,35 @@ const limiter = new Bottleneck({
 })
 const throttledScreenshot = limiter.wrap(captureWebsite.file)
 const { slugify } = require("./slugify")
-const fs = require("fs") // Or `import fs from "fs";` with ESM
+const fs = require("fs")
 
 module.exports.getScreenshot = async url => {
+  console.log(url)
   try {
     if (!url) {
       return
     }
-    // Skip Github repos as they are mostly boring
-    if (url.includes("github.com")) {
-      return
-    }
-    // Remove protocol from url for nicer file names.
-    const urlClean = url.replace(/(^\w+:|^)\/\//, "")
 
-    const outPath = `static/screenshots/${slugify(urlClean)}.jpg`
+    let screenshotOptions = {
+      width: 1024,
+      scaleFactor: 0.5,
+      quality: 0.8,
+      overwrite: true,
+      type: "jpeg",
+    }
+    let outDir = `static/screenshots/websites`
+    if (url.includes("github.com")) {
+      outDir = `static/screenshots/github`
+      screenshotOptions.element = "#readme"
+      console.log(screenshotOptions)
+    }
+
+    // Remove protocol from url for nicer file names.
+    const urlClean = url.replace(/(^\w+:|^)\/\/(www)?/, "")
+    const outPath = `${outDir}/${slugify(urlClean)}.jpg`
+
     if (!fs.existsSync(outPath)) {
-      await throttledScreenshot(url, outPath, {
-        width: 1024,
-        scaleFactor: 0.5,
-        quality: 0.8,
-        overwrite: true,
-        type: "jpeg",
-      })
+      await throttledScreenshot(url, outPath, screenshotOptions)
     }
     // Strip away `static`, as Gatsby puts
     // those files into the server root on build.

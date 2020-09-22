@@ -2,7 +2,6 @@ const path = require(`path`)
 const { slugify } = require("./utils/slugify")
 const { getGithubStats } = require("./utils/githubStats")
 const { getScreenshot } = require("./utils/screenshot")
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // generate pages for slugs
 exports.createPages = async ({ graphql, actions }) => {
