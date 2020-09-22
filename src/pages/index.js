@@ -68,15 +68,13 @@ const ComponentName = ({ data }) => {
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <p tw="pb-5">Latest from our Blog</p>
           {data["blog"].edges.map(e => (
-            <div tw="p-3 w-full">
+            <div key={e.node.childMarkdownRemark.fields.slug} tw="p-3 w-full">
               <h1>
                 <Link to={`${e.node.childMarkdownRemark.fields.slug}`}>
                   <h1 tw="text-xl font-semibold pb-5 underline">
                     {e.node.childMarkdownRemark.frontmatter.title}
                   </h1>
-                  <p class="text-justify">
-                    {e.node.childMarkdownRemark.excerpt}
-                  </p>
+                  <p>{e.node.childMarkdownRemark.excerpt}</p>
                 </Link>
               </h1>
             </div>

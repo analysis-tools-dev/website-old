@@ -101,7 +101,7 @@ export default ({ children }) => {
           </div>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">You Can Contribute!</p>
-            <p class="text-justify">
+            <p>
               You can help to improve this list by voting{" "}
               <FaCaretUp tw="inline-block text-gray-600" />/
               <FaCaretDown tw="inline-block text-gray-600" /> for your favorite

@@ -29,7 +29,11 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     <InstantSearch
       searchClient={searchClient}
       indexName={indices[0].name}
-      onSearchStateChange={({ query }) => setQuery(query)}
+      onSearchStateChange={({ query }) => {
+        if (typeof query !== "undefined") {
+          setQuery(query)
+        }
+      }}
     >
       <div tw="relative shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-r-none">
         <SearchBox
