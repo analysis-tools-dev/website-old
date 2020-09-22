@@ -41,6 +41,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
           translations={{
             placeholder: "Find analysis tools and linters...",
           }}
+          startValue=""
           submit={
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -64,20 +65,22 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
           }
         />
       </div>
-      <HitsWrapper
-        show={query.length > 0}
-        asGrid="false"
-        tw="max-h-200 overflow-scroll border shadow bg-white absolute w-full"
-      >
-        {indices.map(({ name, title, hitComp }) => (
-          <Index key={name} indexName={name}>
-            <Results>
-              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
-            </Results>
-          </Index>
-        ))}
-        <PoweredBy />
-      </HitsWrapper>
+      {query && (
+        <HitsWrapper
+          show={query.length > 0}
+          asGrid="false"
+          tw="max-h-200 overflow-scroll border shadow bg-white absolute w-full"
+        >
+          {indices.map(({ name, title, hitComp }) => (
+            <Index key={name} indexName={name}>
+              <Results>
+                <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
+              </Results>
+            </Index>
+          ))}
+          <PoweredBy />
+        </HitsWrapper>
+      )}
     </InstantSearch>
   )
 }
