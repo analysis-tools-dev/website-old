@@ -60,40 +60,49 @@ export default function BlogPost(d) {
             <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
           </div>
           <div tw="flex-auto pl-5">
-            <a tw="underline" href={tool.homepage}>
+            <a tw="hover:underline" href={tool.homepage}>
               <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
             </a>
+            <p tw="pb-3 mb-4">{tool.description}</p>
             {tool.fields.githubStats.stargazers_count && (
-              <ul tw="mb-3">
-                <span tw="mr-3" href={tool.source}>
-                  <FaStar tw="mb-1 mr-2 inline-block" />
-                  {tool.fields.githubStats.stargazers_count}
-                </span>
-                <span tw="mr-3" href={tool.source}>
-                  <FaEye tw="mb-1 mr-2 inline-block" />
-                  {tool.fields.githubStats.watchers_count}
-                </span>
-                <span tw="mr-3" href={tool.source}>
-                  <FaExclamationCircle tw="mb-1 mr-2 inline-block" />
-                  {tool.fields.githubStats.open_issues_count}
-                </span>
-                <span tw="mr-3" href={tool.source}>
-                  <FaCodeBranch tw="mb-1 mr-2 inline-block" />
-                  {tool.fields.githubStats.forks_count}
-                </span>
-                <span tw="mr-3" href={tool.source}>
-                  <FaCalendarAlt tw="mb-1 mr-2 inline-block" />
-                  {tool.fields.githubStats.created_at}
-                </span>
-              </ul>
+              <div tw="flex">
+                <a tw="hover:underline" href={tool.source}>
+                  Github:
+                </a>
+                <ul tw="ml-2 mb-2">
+                  <span tw="mr-3" href={tool.source}>
+                    <FaStar tw="mb-1 mr-2 inline-block" />
+                    {tool.fields.githubStats.stargazers_count}
+                  </span>
+                  <span tw="mr-3" href={tool.source}>
+                    <FaEye tw="mb-1 mr-2 inline-block" />
+                    {tool.fields.githubStats.watchers_count}
+                  </span>
+                  <span tw="mr-3" href={tool.source}>
+                    <FaExclamationCircle tw="mb-1 mr-2 inline-block" />
+                    {tool.fields.githubStats.open_issues_count}
+                  </span>
+                  <span tw="mr-3" href={tool.source}>
+                    <FaCodeBranch tw="mb-1 mr-2 inline-block" />
+                    {tool.fields.githubStats.forks_count}
+                  </span>
+                  <span tw="mr-3" href={tool.source}>
+                    <FaCalendarAlt tw="mb-1 mr-2 inline-block" />
+                    {tool.fields.githubStats.created_at}
+                  </span>
+                </ul>
+              </div>
             )}
-            <p tw="pb-3">{tool.description}</p>
             <div tw="flex mb-8">
-              <span tw="font-bold">Workflow integration:</span>
+              <span>Workflow integration:</span>
               <ul tw="flex">
                 {tool.types.map(t => (
                   <li tw="flex" key={t}>
-                    <img tw="self-start object-contain ml-2 w-6" src={`/icons/${t}.svg`} alt={`Type: ${t}`} />
+                    <img
+                      tw="self-start object-contain ml-2 w-6"
+                      src={`/icons/${t}.svg`}
+                      alt={`Type: ${t}`}
+                    />
                     <div tw="flex-1">{t}</div>
                   </li>
                 ))}
@@ -113,7 +122,7 @@ export default function BlogPost(d) {
             <p tw="mb-3">
               <FaHome tw="mb-1 mr-2 inline-block" />
               <a tw="underline" href={tool.homepage}>
-                {tool.homepage}
+                Official {tool.name} Homepage
               </a>
             </p>
             {tool.source && (
