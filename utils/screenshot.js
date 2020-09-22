@@ -24,14 +24,15 @@ module.exports.getScreenshot = async url => {
     let screenshotOptions = {
       width: 1024,
       scaleFactor: 0.5,
-      quality: 0.8,
-      overwrite: true,
+      quality: 0.9,
+      overwrite: false,
       type: "jpeg",
     }
     let outDir = `static/screenshots/websites`
     if (url.includes("github.com")) {
       outDir = `static/screenshots/github`
-      screenshotOptions.element = "#readme"
+      screenshotOptions.waitForElement = ".markdown-body"
+      screenshotOptions.scrollToElement = ".markdown-body"
       console.log(screenshotOptions)
     }
 

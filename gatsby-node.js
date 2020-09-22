@@ -134,6 +134,7 @@ exports.onCreateNode = async ({ node, actions }) => {
       })
     }
 
+    console.log(node.homepage)
     const screenshot = await getScreenshot(node.homepage)
     if (screenshot) {
       createNodeField({
