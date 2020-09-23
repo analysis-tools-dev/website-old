@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet"
 import "twin.macro"
 import ToolsList from "../components/tools-list"
 import SponsorBanner from "../components/sponsorbanner"
+import { Img } from "react-image"
 
 const getTitleText = tools => {
   if (tools.length < 3) {
@@ -36,22 +37,28 @@ const Tag = d => {
             {titleText} {tag.name} static analysis tools
           </h1>
           {d.data.markdownRemark && (
-            <div tw="pt-6">
+            <div tw="pt-6 ">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
-              <p>
-                <span
-                  tw="inline"
-                  dangerouslySetInnerHTML={{
-                    __html: d.data.markdownRemark.excerpt,
-                  }}
+              <div tw="flex">
+                <Img
+                  style={{ width: 53 + "px", height: 53 + "px" }}
+                  src={[`/logos/${tag.name}.svg`, "/logos/fallback.svg"]}
                 />
-                <a
-                  tw="underline inline"
-                  href={d.data.markdownRemark.frontmatter.source}
-                >
-                  (Source)
-                </a>
-              </p>
+                <p tw="pl-5">
+                  <span
+                    tw="inline"
+                    dangerouslySetInnerHTML={{
+                      __html: d.data.markdownRemark.excerpt,
+                    }}
+                  />
+                  <a
+                    tw="underline inline"
+                    href={d.data.markdownRemark.frontmatter.source}
+                  >
+                    (Source)
+                  </a>
+                </p>
+              </div>
             </div>
           )}
         </div>

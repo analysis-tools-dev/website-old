@@ -36,6 +36,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
     "react-icons": "^3.10.0",
+    "react-image": "^4.0.3",
     "react-instantsearch-dom": "^6.5.0",
     "react-typography": "^0.16.19",
     "react-youtube": "^7.12.0",
