@@ -167,6 +167,18 @@ export default function BlogPost(d) {
                 ))}
               </ul>
             </div>
+            {tool.resources && (
+              <div tw="mb-4">
+                <h3 tw="mt-3 mb-2">Additional Resources</h3>
+                <ul tw="list-disc pl-4">
+                  {tool.resources.map(resource => (
+                    <li tw="hover:underline ml-4"  key={resource.title}>
+                      <a href={resource.url}>{resource.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div>
               <Utterances
                 repo="analysis-tools-dev/website-comments"
@@ -201,6 +213,10 @@ export const query = graphql`
       tags
       types
       categories
+      resources {
+        title
+        url
+      }
       fields {
         slug
         screenshot
