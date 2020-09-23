@@ -42,7 +42,7 @@ const getMetaDescription = tool => {
   return desc
 }
 
-export default function BlogPost(d) {
+export default function Tool(d) {
   const tool = d.data.toolsYaml
   const introText = getIntroText(tool)
   const metaDescription = getMetaDescription(tool)
@@ -152,7 +152,9 @@ export default function BlogPost(d) {
                 {tool.tags.map(tag => (
                   <li tw="mb-2 mr-1 inline-block" key={tag}>
                     <a href={"/tag/" + tag}>
-                      <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">{tag}</span>
+                      <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">
+                        {tag}
+                      </span>
                     </a>
                   </li>
                 ))}
