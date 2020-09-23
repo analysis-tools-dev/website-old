@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Vote from "../components/vote"
+import MainMedia from "../components/tool/main-media.js"
 
 import { Helmet } from "react-helmet"
 import "twin.macro"
@@ -108,17 +109,7 @@ export default function BlogPost(d) {
                 ))}
               </ul>
             </div>
-            {tool.fields.screenshot && (
-              <p tw="pb-3">
-                <a href={tool.homepage}>
-                  <img
-                    alt={`Screenshot of ${tool.name} website`}
-                    tw="border-4 max-w-full"
-                    src={tool.fields.screenshot}
-                  />
-                </a>
-              </p>
-            )}
+            <MainMedia tool={tool} />
             <p tw="mb-3">
               <FaHome tw="mb-1 mr-2 inline-block" />
               <a tw="underline" href={tool.homepage}>
@@ -161,7 +152,7 @@ export default function BlogPost(d) {
                 {tool.tags.map(tag => (
                   <li tw="mb-2 mr-1 inline-block" key={tag}>
                     <a href={"/tag/" + tag}>
-                      <span tw="bg-gray-300 px-2 py-1 rounded">{tag}</span>
+                      <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">{tag}</span>
                     </a>
                   </li>
                 ))}
@@ -172,7 +163,7 @@ export default function BlogPost(d) {
                 <h3 tw="mt-3 mb-2">Additional Resources</h3>
                 <ul tw="list-disc pl-4">
                   {tool.resources.map(resource => (
-                    <li tw="hover:underline ml-4"  key={resource.title}>
+                    <li tw="hover:underline ml-4" key={resource.title}>
                       <a href={resource.url}>{resource.title}</a>
                     </li>
                   ))}
