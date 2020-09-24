@@ -55,7 +55,10 @@ const ComponentName = ({ data }) => {
                       data.tools.nodes.filter(node => node.tags.includes(t.tag))
                         .length
                     }{" "}
-                    Tools
+                    {data.tools.nodes.filter(node => node.tags.includes(t.tag))
+                      .length > 1
+                      ? "Tools"
+                      : "Tool"}
                   </span>
                 </p>
               </li>
