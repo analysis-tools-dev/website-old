@@ -16,7 +16,9 @@ const ComponentName = ({ data }) => {
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-10">Tools for Various Programming Languages</h1>
+          <h1 tw="text-3xl font-semibold pb-10">
+            Tools for Various Programming Languages
+          </h1>
           <ul>
             {data.languages.nodes.map(t => (
               <li key={t.id}>
@@ -24,6 +26,13 @@ const ComponentName = ({ data }) => {
                   <strong>
                     <Link to={t.fields.slug}>{t.name}</Link>
                   </strong>
+                  <span tw="rounded-full px-2 py-1 ml-2 mb-3 bg-orange-300 text-white rounded-full leading-none inline-block">
+                    {
+                      data.tools.nodes.filter(node => node.tags.includes(t.tag))
+                        .length
+                    }{" "}
+                    Tools
+                  </span>
                 </p>
               </li>
             ))}
@@ -32,7 +41,9 @@ const ComponentName = ({ data }) => {
       </article>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-10">Tools for Markup Languages and More</h1>
+          <h1 tw="text-3xl font-semibold pb-10">
+            Tools for Markup Languages and More
+          </h1>
           <ul>
             {data.other.nodes.map(t => (
               <li key={t.id}>
@@ -40,6 +51,13 @@ const ComponentName = ({ data }) => {
                   <strong>
                     <Link to={t.fields.slug}>{t.name}</Link>
                   </strong>
+                  <span tw="rounded-full px-2 py-1 ml-2 mb-3 bg-orange-300 text-white rounded-full leading-none inline-block">
+                    {
+                      data.tools.nodes.filter(node => node.tags.includes(t.tag))
+                        .length
+                    }{" "}
+                    Tools
+                  </span>
                 </p>
               </li>
             ))}
@@ -53,8 +71,9 @@ const ComponentName = ({ data }) => {
 export const query = graphql`
   {
     languages: allTagsYaml(
-      filter: { type: { glob: "language" } } 
-      sort: { fields: name, order: ASC }) {
+      filter: { type: { glob: "language" } }
+      sort: { fields: name, order: ASC }
+    ) {
       nodes {
         id
         name
@@ -66,8 +85,9 @@ export const query = graphql`
       }
     }
     other: allTagsYaml(
-      filter: { type: { glob: "other" } } 
-      sort: { fields: name, order: ASC }) {
+      filter: { type: { glob: "other" } }
+      sort: { fields: name, order: ASC }
+    ) {
       nodes {
         id
         name
@@ -76,6 +96,15 @@ export const query = graphql`
         fields {
           slug
         }
+      }
+    }
+
+    tools: allToolsYaml {
+      nodes {
+        deprecated
+        tags
+        types
+        categories
       }
     }
   }
