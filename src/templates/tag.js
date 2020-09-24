@@ -78,7 +78,6 @@ const Tag = d => {
         </title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
-        {metaDescription}
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold ">
             {titleText} {tag.name} static analysis tools
