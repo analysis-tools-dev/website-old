@@ -5,11 +5,30 @@ import "twin.macro"
 import { Helmet } from "react-helmet"
 import { Img } from "react-image"
 
+const getMetaDescription = data => {
+  let langs = data.languages.totalCount
+  let other = data.other.totalCount
+  let total = langs + other
+
+  let maintained = data.tools.nodes.filter(node => node.deprecated !== true)
+  let toolsTotal = maintained.length
+  let proprietary = maintained.filter(node =>
+    node.license.includes("proprietary")
+  ).length
+  let free = toolsTotal - proprietary
+  let desc = `Linters, formatters, quality checkers for JS, Go, Rust, C, Ruby, Python, PHP and ${
+    total - 7
+  } more. Compare ${free} free and ${proprietary} commercial tools, which are all actively maintained in ${new Date().getFullYear()}.`
+  return desc
+}
+
 const ComponentName = ({ data }) => {
+  const metaDescription = getMetaDescription(data)
   return (
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
+        <meta name="description" content={metaDescription} />
         <title>
           Analysis tools, linters, code quality checkers for{" "}
           {data.languages.nodes.length.toString()} languages
@@ -92,6 +111,7 @@ export const query = graphql`
           slug
         }
       }
+      totalCount
     }
     other: allTagsYaml(
       filter: { type: { glob: "other" } }
@@ -106,11 +126,13 @@ export const query = graphql`
           slug
         }
       }
+      totalCount
     }
 
     tools: allToolsYaml {
       nodes {
         deprecated
+        license
         tags
         types
         categories
