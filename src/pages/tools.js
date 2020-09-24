@@ -22,7 +22,7 @@ const getMetaDescription = data => {
   return desc
 }
 
-const TagBadge = ({ t, data }) => {
+const Card = ({ t, data }) => {
   return (
     <Link to={t.fields.slug}>
       <div tw="py-5 flex items-center hover:bg-gray-100">
@@ -59,7 +59,7 @@ const ComponentName = ({ data }) => {
           <ul>
             {data.languages.nodes.map(t => (
               <li key={t.id}>
-                <TagBadge t={t} data={data} />
+                <Card t={t} data={data} />
               </li>
             ))}
           </ul>
@@ -73,7 +73,7 @@ const ComponentName = ({ data }) => {
           <ul>
             {data.other.nodes.map(t => (
               <li key={t.id}>
-                <TagBadge t={t} data={data} />
+                <Card t={t} data={data} />
               </li>
             ))}
           </ul>
