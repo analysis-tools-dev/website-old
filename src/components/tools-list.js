@@ -25,7 +25,7 @@ export default function Tool({ tool }) {
         <div>
           <ul tw="list-none max-w-sm inline-block align-top">
             {tool.tags.map(tag => (
-              <li tw="mb-2 mr-1 inline-block" key={tag}>
+              <li tw="mb-2 mr-1 inline-block" key={`${tool.fields.slug}${tag}`}>
                 <a href={"/tag/" + tag}>
                   <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">{tag}</span>
                 </a>

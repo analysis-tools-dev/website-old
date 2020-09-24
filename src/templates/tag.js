@@ -39,23 +39,23 @@ const Tag = d => {
           {d.data.markdownRemark && (
             <div tw="pt-6 ">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
-              <div tw="flex">
+              <div tw="flex flex-wrap sm:flex-no-wrap">
                 <Img
                   style={{ width: 53 + "px", height: 53 + "px" }}
-                  src={[`/logos/${tag.name}.svg`, "/logos/fallback.svg"]}
+                  src={[`/logos/${tag.tag}.svg`, "/logos/fallback.svg"]}
                 />
-                <p tw="pl-5">
+                <p tw="sm:pl-5">
                   <span
-                    tw="inline"
+                    tw="inline text-justify"
                     dangerouslySetInnerHTML={{
                       __html: d.data.markdownRemark.excerpt,
                     }}
                   />
                   <a
-                    tw="underline inline"
+                    tw="underline text-gray-600"
                     href={d.data.markdownRemark.frontmatter.source}
                   >
-                    (Source)
+                    (More info)
                   </a>
                 </p>
               </div>
@@ -79,7 +79,7 @@ const Tag = d => {
             </h3>
           )}
           {deprecated.map(tool => (
-            <div tw="opacity-50">
+            <div tw="opacity-50" key={`${tool.id}-div`} >
               <ToolsList tool={tool} key={tool.id} />
             </div>
           ))}
