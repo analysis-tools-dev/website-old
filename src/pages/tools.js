@@ -39,7 +39,7 @@ const Card = ({ t, data }) => {
   )
 }
 
-const ComponentName = ({ data }) => {
+const Tools = ({ data }) => {
   const metaDescription = getMetaDescription(data)
   return (
     <Layout>
@@ -127,4 +127,4 @@ export const query = graphql`
     }
   }
 `
-export default ComponentName
+export default Tools

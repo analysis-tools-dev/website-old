@@ -10,7 +10,7 @@ const getMetaDescription = data => {
   return desc
 }
 
-const ComponentName = ({ data }) => {
+const Index = ({ data }) => {
   const totalCount = data.allToolsYaml.totalCount.toString()
   const metaDescription = getMetaDescription(data)
   return (
@@ -275,4 +275,4 @@ export const query = graphql`
     }
   }
 `
-export default ComponentName
+export default Index

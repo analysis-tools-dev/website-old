@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import "twin.macro"
 
-const ComponentName = ({ data }) => {
+const NotFound = () => {
   return (
     <Layout>
       <div>
@@ -29,4 +29,4 @@ export const query = graphql`
     }
   }
 `
-export default ComponentName
+export default NotFound
