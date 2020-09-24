@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import "twin.macro"
 import { Helmet } from "react-helmet"
+import { Img } from "react-image"
 
 const ComponentName = ({ data }) => {
   return (
@@ -22,11 +23,15 @@ const ComponentName = ({ data }) => {
           <ul>
             {data.languages.nodes.map(t => (
               <li key={t.id}>
-                <p tw="pb-5">
-                  <strong>
+                <p tw="py-5 flex items-center">
+                  <Img
+                    tw="w-10"
+                    src={[`/logos/${t.tag}.svg`, "/logos/fallback.svg"]}
+                  />
+                  <strong tw="ml-2">
                     <Link to={t.fields.slug}>{t.name}</Link>
                   </strong>
-                  <span tw="rounded-full px-2 py-1 ml-2 mb-3 bg-orange-300 text-white rounded-full leading-none inline-block">
+                  <span tw="rounded-full px-2 py-1 ml-2 bg-orange-300 text-white rounded-full leading-none inline-block">
                     {
                       data.tools.nodes.filter(node => node.tags.includes(t.tag))
                         .length
@@ -47,11 +52,15 @@ const ComponentName = ({ data }) => {
           <ul>
             {data.other.nodes.map(t => (
               <li key={t.id}>
-                <p tw="pb-5">
-                  <strong>
+                <p tw="py-5 flex items-center">
+                  <Img
+                    tw="w-10"
+                    src={[`/logos/${t.tag}.svg`, "/logos/fallback.svg"]}
+                  />
+                  <strong tw="ml-2">
                     <Link to={t.fields.slug}>{t.name}</Link>
                   </strong>
-                  <span tw="rounded-full px-2 py-1 ml-2 mb-3 bg-orange-300 text-white rounded-full leading-none inline-block">
+                  <span tw="rounded-full px-2 py-1 ml-2 bg-orange-300 text-white rounded-full leading-none inline-block">
                     {
                       data.tools.nodes.filter(node => node.tags.includes(t.tag))
                         .length
