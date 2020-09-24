@@ -42,25 +42,27 @@ const ComponentName = ({ data }) => {
           <ul>
             {data.languages.nodes.map(t => (
               <li key={t.id}>
-                <p tw="py-5 flex items-center">
-                  <Img
-                    tw="w-10"
-                    src={[`/logos/${t.tag}.svg`, "/logos/fallback.svg"]}
-                  />
-                  <strong tw="ml-2">
-                    <Link to={t.fields.slug}>{t.name}</Link>
-                  </strong>
-                  <span tw="rounded-full px-2 py-1 ml-2 bg-orange-300 text-white rounded-full leading-none inline-block">
-                    {
-                      data.tools.nodes.filter(node => node.tags.includes(t.tag))
-                        .length
-                    }{" "}
-                    {data.tools.nodes.filter(node => node.tags.includes(t.tag))
-                      .length > 1
-                      ? "Tools"
-                      : "Tool"}
-                  </span>
-                </p>
+                <Link to={t.fields.slug}>
+                  <div tw="py-5 flex items-center hover:bg-gray-100">
+                    <Img
+                      tw="w-10"
+                      src={[`/logos/${t.tag}.svg`, "/logos/fallback.svg"]}
+                    />
+                    <strong tw="ml-2">{t.name}</strong>
+                    <span tw="rounded-full px-2 py-1 ml-2 bg-orange-300 hover:bg-orange-400 text-white rounded-full leading-none inline-block">
+                      {
+                        data.tools.nodes.filter(node =>
+                          node.tags.includes(t.tag)
+                        ).length
+                      }{" "}
+                      {data.tools.nodes.filter(node =>
+                        node.tags.includes(t.tag)
+                      ).length > 1
+                        ? "Tools"
+                        : "Tool"}
+                    </span>
+                  </div>
+                </Link>
               </li>
             ))}
           </ul>
@@ -74,22 +76,27 @@ const ComponentName = ({ data }) => {
           <ul>
             {data.other.nodes.map(t => (
               <li key={t.id}>
-                <p tw="py-5 flex items-center">
-                  <Img
-                    tw="w-10"
-                    src={[`/logos/${t.tag}.svg`, "/logos/fallback.svg"]}
-                  />
-                  <strong tw="ml-2">
-                    <Link to={t.fields.slug}>{t.name}</Link>
-                  </strong>
-                  <span tw="rounded-full px-2 py-1 ml-2 bg-orange-300 text-white rounded-full leading-none inline-block">
-                    {
-                      data.tools.nodes.filter(node => node.tags.includes(t.tag))
-                        .length
-                    }{" "}
-                    Tools
-                  </span>
-                </p>
+                <Link to={t.fields.slug}>
+                  <div tw="py-5 flex items-center hover:bg-gray-100">
+                    <Img
+                      tw="w-10"
+                      src={[`/logos/${t.tag}.svg`, "/logos/fallback.svg"]}
+                    />
+                    <strong tw="ml-2">{t.name}</strong>
+                    <span tw="rounded-full px-2 py-1 ml-2 bg-orange-300 hover:bg-orange-400 text-white rounded-full leading-none inline-block">
+                      {
+                        data.tools.nodes.filter(node =>
+                          node.tags.includes(t.tag)
+                        ).length
+                      }{" "}
+                      {data.tools.nodes.filter(node =>
+                        node.tags.includes(t.tag)
+                      ).length > 1
+                        ? "Tools"
+                        : "Tool"}
+                    </span>
+                  </div>
+                </Link>
               </li>
             ))}
           </ul>
