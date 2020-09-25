@@ -6,11 +6,19 @@ import "twin.macro"
 const NotFound = () => {
   return (
     <Layout>
-      <div>
-        <h1>Page not found!!!</h1>
-        Go to <Link to="/">home page</Link> or enjoy the picture:
-        <img src="https://picsum.photos/seed/picsum/800/600" alt="" />
-      </div>
+      <article tw="shadow my-4 w-full p-4">
+        <h1 tw="text-3xl font-semibold mb-5">Page not found</h1>
+        <p tw="p-4">
+          The page you are looking for does not exist.
+          <br />
+          How about going{" "}
+          <Link tw="underline" to="/">
+            back to the home page
+          </Link>
+          ?
+          <img tw="mt-4" src="https://picsum.photos/seed/picsum/800/600" alt="" />
+        </p>
+      </article>
     </Layout>
   )
 }
