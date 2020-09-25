@@ -6,9 +6,9 @@ import "twin.macro"
 const NotFound = () => {
   return (
     <Layout>
-      <article tw="shadow my-4 w-full p-4">
+      <article tw="shadow my-4 w-full p-8">
         <h1 tw="text-3xl font-semibold mb-5">Page not found</h1>
-        <p tw="p-4">
+        <p>
           The page you are looking for does not exist.
           <br />
           How about going{" "}
@@ -16,7 +16,11 @@ const NotFound = () => {
             back to the home page
           </Link>
           ?
-          <img tw="mt-4" src="https://picsum.photos/seed/picsum/800/600" alt="" />
+          <img
+            tw="mt-4"
+            src="https://picsum.photos/seed/picsum/800/600"
+            alt=""
+          />
         </p>
       </article>
     </Layout>
