@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="matlab.svg"
+   id="svg2216"
+   version="1.1"
+   width="512"
+   viewBox="0 0 512 512"
+   text-rendering="geometricPrecision"
+   shape-rendering="geometricPrecision"
+   image-rendering="optimizeQuality"
+   height="512"
+   fill-rule="evenodd"
+   clip-rule="evenodd">
+  <metadata
+     id="metadata2222">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2220" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg2216"
+     inkscape:window-maximized="0"
+     inkscape:window-y="23"
+     inkscape:window-x="0"
+     inkscape:cy="393.24414"
+     inkscape:cx="283.08766"
+     inkscape:zoom="0.55375771"
+     showgrid="false"
+     id="namedview2218"
+     inkscape:window-height="480"
+     inkscape:window-width="689"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <path
+     id="path2210"
+     fill="#ec7411"
+     d="m284.64 154.1c-6.15 19.98-43.06 101.86-53.21 111.5-5.83 10.19-11.49 17.24-20.52 24.14-4.38 3.33-21.77 14.93-22.33 16.78 30.45 6.06 33.94 40.82 48.24 67.24 46.12-.58 65.39-94.41 108.38-71.55 6.34 3.37 11.71 8.2 17.81 13.05 7.61 6.05 10.75 11.24 18.62 15.08-2.73-13.71-12.67-37.14-17.8-51.05-10.71-29-45.5-138.53-63.1-141.05-10.85 2.6-10.77 6.89-16.09 15.86z" />
+  <path
+     id="path2212"
+     fill="#6cc3ba"
+     d="m188.58 306.52c.56-1.85 17.95-13.45 22.33-16.78 9.03-6.9 14.69-13.95 20.52-24.14-10.66-7.55-20.78-15.53-31.83-23.46l-69.23 27.63c3.53 5.66 21.88 17.19 27.98 21.28 13.18 8.85 24.55 20.81 30.23 15.47z" />
+  <path
+     id="path2214"
+     fill="#425b59"
+     d="m199.6 242.14c11.05 7.93 21.17 15.91 31.83 23.46 10.15-9.64 47.06-91.52 53.21-111.5l-8.48 13.29c-31.65 55-62.01 32.29-76.56 74.75z" />
+</svg>

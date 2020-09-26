@@ -161,6 +161,10 @@ export default ({ children }) => {
               Beautiful icons provided by{" "}
               <a tw="underline" href="https://icons8.com/icon/pack/files/dusk">
                 icons8
+              </a>{" "}
+              and{" "}
+              <a tw="underline" href="https://www.flaticon.com/authors/freepik">
+                freepik
               </a>
             </li>
             <li>
