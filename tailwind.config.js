@@ -1,10 +1,6 @@
 module.exports = {
   purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
   theme: {
-    maxHeight: {
-      "200": "200px",
-      "70": "70px",
-    },
     extend: {
       colors: {
         color0: "#fff2e6ff",

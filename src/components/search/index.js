@@ -69,7 +69,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
         <HitsWrapper
           show={query.length > 0}
           asGrid="false"
-          tw="max-h-200 overflow-scroll border shadow bg-white absolute w-full"
+          tw="max-h-screen overflow-scroll border shadow bg-white absolute w-full"
         >
           {indices.map(({ name, title, hitComp }) => (
             <Index key={name} indexName={name}>
