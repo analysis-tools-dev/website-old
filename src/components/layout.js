@@ -4,7 +4,7 @@ import tw, { styled } from "twin.macro"
 import { FaCaretUp, FaCaretDown } from "react-icons/fa"
 import Search from "./search"
 
-const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
+const searchIndices = [{ name: `tools`, title: `Tools`, hitComp: `ToolsHit` }]
 
 const NavLink = styled(props => <Link {...props} />)`
   ${tw`transition-all duration-300 hover:bg-gray-400 rounded my-1 mx-1 p-2 sm:px-6`}
