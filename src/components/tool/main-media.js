@@ -1,6 +1,6 @@
 import React from "react"
 import "twin.macro"
-import YouTube from "react-youtube"
+import ReactPlayer from "react-player/lazy"
 
 const getVideo = resources => {
   if (!resources) {
@@ -8,17 +8,10 @@ const getVideo = resources => {
   }
   for (let i = 0; i < resources.length; i++) {
     let item = resources[i]
-    if (item.url.includes("youtube.com")) {
+    if (item.url.includes("youtube.com") || item.url.includes("vimeo.com")) {
       return item
     }
   }
-}
-
-// https://stackoverflow.com/a/8260383/270334
-const getVideoId = url => {
-  let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
-  let match = url.match(regExp)
-  return match && match[7].length === 11 ? match[7] : false
 }
 
 const MainMedia = ({ tool }) => {
@@ -26,8 +19,14 @@ const MainMedia = ({ tool }) => {
   let video = getVideo(tool.resources)
 
   if (video) {
-    let id = getVideoId(video.url)
-    return <YouTube tw="w-full mb-5" videoId={id} />
+    return (
+      <ReactPlayer
+        tw="max-w-full mb-5"
+        url={video.url}
+        width="100%"
+        controls="true"
+      />
+    )
   } else {
     return (
       screenshot && (
