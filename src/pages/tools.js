@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import "twin.macro"
 import { Helmet } from "react-helmet"
 import { Img } from "react-image"
+import { FaFilter } from "react-icons/fa"
 
 const getMetaDescription = data => {
   const langs = data.languages.totalCount
@@ -41,6 +42,16 @@ const Card = ({ t, data }) => {
 
 const Tools = ({ data }) => {
   const metaDescription = getMetaDescription(data)
+  const [search, setSearch] = useState("")
+
+  const filteredLanguages = data.languages.nodes.filter(lang => {
+    return lang.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
+  })
+
+  const filteredOther = data.other.nodes.filter(other => {
+    return other.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
+  })
+
   return (
     <Layout>
       <Helmet>
@@ -51,34 +62,49 @@ const Tools = ({ data }) => {
           {data.languages.nodes.length.toString()} languages
         </title>
       </Helmet>
-      <article tw="flex flex-col shadow my-4 w-full">
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-10">
-            Tools for Various Programming Languages
-          </h1>
-          <ul>
-            {data.languages.nodes.map(t => (
-              <li key={t.id}>
-                <Card t={t} data={data} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </article>
-      <article tw="flex flex-col shadow my-4 w-full">
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold pb-10">
-            Tools for Markup Languages and More
-          </h1>
-          <ul>
-            {data.other.nodes.map(t => (
-              <li key={t.id}>
-                <Card t={t} data={data} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </article>
+      <div tw="flex items-center shadow px-4 max-w-full">
+        <FaFilter tw="mr-2 inline-block" />
+        <span tw="font-bold pr-4 whitespace-no-wrap">Quick filter:</span>
+        <input
+          size="1"
+          tw="p-2 my-4 box-border w-full bg-gray-100 border"
+          type="text"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+      </div>
+      {filteredLanguages.length !== 0 && (
+        <article tw="flex flex-col shadow my-4 w-full">
+          <div tw="bg-white flex flex-col justify-start p-6 w-full">
+            <h1 tw="text-3xl font-semibold pb-10">
+              Tools for Various Programming Languages
+            </h1>
+            <ul>
+              {filteredLanguages.map(t => (
+                <li key={t.id}>
+                  <Card t={t} data={data} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      )}
+      {filteredOther.length !== 0 && (
+        <article tw="flex flex-col shadow my-4 w-full">
+          <div tw="bg-white flex flex-col justify-start p-6 w-full">
+            <h1 tw="text-3xl font-semibold pb-10">
+              Tools for Markup Languages and More
+            </h1>
+            <ul>
+              {filteredOther.map(t => (
+                <li key={t.id}>
+                  <Card t={t} data={data} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      )}
     </Layout>
   )
 }
