@@ -6,7 +6,7 @@ import "twin.macro"
 const NotFound = () => {
   return (
     <Layout>
-      <article tw="shadow my-4 w-full p-8">
+      <article tw="shadow w-full p-8">
         <h1 tw="text-3xl font-semibold mb-5">Page not found</h1>
         <p>
           The page you are looking for does not exist.

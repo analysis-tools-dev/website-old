@@ -52,7 +52,7 @@ export default ({ children }) => {
         <section tw="w-full md:w-2/3 flex flex-col px-3">{children}</section>
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
-          <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+          <div tw="w-full bg-white shadow flex flex-col p-6">
             <p tw="text-xl font-semibold pb-5">Write Better Software</p>
             <p tw="text-justify">
               On this page you can find static code analysis tools and linters

@@ -23,7 +23,7 @@ const Index = ({ data }) => {
           Languages
         </title>
       </Helmet>
-      <article tw="flex flex-col shadow my-4 w-full">
+      <article tw="flex flex-col shadow w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <p tw="text-xl font-semibold pb-5">
             Popular Static Analysis Tools by Language
