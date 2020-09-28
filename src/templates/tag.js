@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet"
 import "twin.macro"
 import ToolsList from "../components/tools-list"
 import SponsorBanner from "../components/sponsorbanner"
-import { Img } from "react-image"
 
 const getTitleText = tools => {
   if (tools.length < 3) {
@@ -86,9 +85,10 @@ const Tag = d => {
             <div tw="pt-6 ">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
               <div tw="flex flex-wrap sm:flex-no-wrap">
-                <Img
-                  style={{ width: 53 + "px", height: 53 + "px" }}
-                  src={[`/logos/${tag.tag}.svg`, "/logos/fallback.svg"]}
+                <img
+                  style={{ width: 64 + "px", height: 64 + "px" }}
+                  alt=""
+                  src={tag.fields.logo}
                 />
                 <p tw="sm:pl-5">
                   <span
@@ -152,6 +152,7 @@ export const query = graphql`
       tag
       fields {
         slug
+        logo
       }
     }
 

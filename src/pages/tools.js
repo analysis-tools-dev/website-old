@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import "twin.macro"
 import { Helmet } from "react-helmet"
-import { Img } from "react-image"
 import { FaFilter } from "react-icons/fa"
 
 const getMetaDescription = data => {
@@ -24,10 +23,11 @@ const getMetaDescription = data => {
 }
 
 const Card = ({ t, data }) => {
+  console.log(t.fields)
   return (
     <Link to={t.fields.slug}>
       <div tw="py-5 flex items-center hover:bg-gray-100">
-        <Img tw="w-10" src={[`/logos/${t.tag}.svg`, "/logos/fallback.svg"]} />
+        <img tw="w-10" alt="" src={t.fields.logo} />
         <strong tw="ml-2">{t.name}</strong>
         <span tw="rounded-full px-2 py-1 ml-2 bg-orange-300 hover:bg-orange-400 text-white rounded-full leading-none inline-block">
           {data.tools.nodes.filter(node => node.tags.includes(t.tag)).length}{" "}
@@ -122,6 +122,7 @@ export const query = graphql`
         type
         fields {
           slug
+          logo
         }
       }
       totalCount

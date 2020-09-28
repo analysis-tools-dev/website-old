@@ -1,8 +1,8 @@
 const path = require(`path`)
+const fs = require(`fs`)
 const { slugify } = require("./utils/slugify")
 const { getGithubStats } = require("./utils/githubStats")
 const { getScreenshot } = require("./utils/screenshot")
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // generate pages for slugs
 exports.createPages = async ({ graphql, actions }) => {
@@ -116,6 +116,16 @@ exports.onCreateNode = async ({ node, actions }) => {
       node,
       name: `slug`,
       value: `/tag/${slugify(node.tag)}`,
+    })
+
+    let logoPath = "/logos/fallback.svg"
+    if (fs.existsSync(`static/logos/${node.tag}.svg`)) {
+      logoPath = `/logos/${node.tag}.svg`
+    }
+    createNodeField({
+      node,
+      name: `logo`,
+      value: logoPath,
     })
   }
 
