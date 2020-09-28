@@ -82,16 +82,16 @@ const Tag = d => {
             {titleText} {tag.name} static analysis tools
           </h1>
           {d.data.markdownRemark && (
-            <div tw="pt-6 ">
+            <div tw="pt-6 w-full">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
-              <div tw="flex flex-wrap sm:flex-no-wrap">
+              <div tw="flex w-full">
                 <img
                   style={{ width: 64 + "px", height: 64 + "px" }}
                   alt=""
                   src={tag.fields.logo}
                 />
-                <p tw="sm:pl-5">
-                  <span
+                <div tw="pl-5">
+                  <p
                     tw="inline text-justify"
                     dangerouslySetInnerHTML={{
                       __html: d.data.markdownRemark.excerpt,
@@ -103,7 +103,7 @@ const Tag = d => {
                   >
                     (More info)
                   </a>
-                </p>
+                </div>
               </div>
             </div>
           )}
