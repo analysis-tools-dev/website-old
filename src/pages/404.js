@@ -16,11 +16,10 @@ const NotFound = () => {
             back to the home page
           </Link>
           ?
-          <img
-            tw="mt-4"
-            src="https://picsum.photos/seed/picsum/800/600"
-            alt=""
-          />
+          <a href="http://oppressive-silence.com/comic/oh-no-the-robots">
+            <img tw="mt-4" src="/404.jpg" alt="Comic by Ethan Vincent" />
+          </a>
+            Source: Ethan Vincent of <a href="http://oppressive-silence.com">oppressive-silence.com</a>
         </p>
       </article>
     </Layout>
