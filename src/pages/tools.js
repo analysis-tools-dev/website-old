@@ -23,7 +23,6 @@ const getMetaDescription = data => {
 }
 
 const Card = ({ t, data }) => {
-  console.log(t.fields)
   return (
     <Link to={t.fields.slug}>
       <div tw="py-5 flex items-center hover:bg-gray-100">
@@ -127,6 +126,7 @@ export const query = graphql`
       }
       totalCount
     }
+
     other: allTagsYaml(
       filter: { type: { glob: "other" } }
       sort: { fields: name, order: ASC }
