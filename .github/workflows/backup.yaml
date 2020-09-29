@@ -5,7 +5,6 @@ name: Backup
 on:
   schedule:
     - cron: "0 */24 * * *"
-  repository_dispatch:
 
 jobs:
   backup:
