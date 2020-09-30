@@ -138,6 +138,7 @@ export const query = graphql`
         type
         fields {
           slug
+          logo
         }
       }
       totalCount
