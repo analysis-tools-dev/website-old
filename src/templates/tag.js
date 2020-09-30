@@ -39,8 +39,8 @@ const getMetaDescription = (tag, tools) => {
 
   let desc = `${
     tools.length > 1
-      ? tools.length + " great linters and formatters "
-      : "Great linter "
+      ? tools.length + " great linters and formatters"
+      : "Great linter"
   } for ${tag.name}`
 
   if (tools.length > numExampleTools) {
@@ -159,7 +159,6 @@ export const query = graphql`
     markdownRemark(frontmatter: { tag: { eq: $tag } }) {
       excerpt(format: HTML, pruneLength: 500)
       frontmatter {
-        tag
         source
       }
     }
