@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet"
 import "twin.macro"
 import ToolsList from "../components/tools-list"
 import SponsorBanner from "../components/sponsorbanner"
+import { FaFilter } from "react-icons/fa"
+import FilterTags from "../components/filter-tags"
 
 const getTitleText = tools => {
   if (tools.length < 3) {
@@ -76,7 +78,11 @@ const Tag = d => {
           {titleText} {tag.name} static analysis tools and linters
         </title>
       </Helmet>
-      <article tw="flex flex-col shadow w-full">
+      {/* <div tw="flex items-center shadow px-4 max-w-full"> */}
+      <FaFilter tw="mr-2 inline-block" />
+      <FilterTags />
+      {/* </div> */}
+      <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold ">
             {titleText} {tag.name} static analysis tools
