@@ -1,6 +1,7 @@
 import React from "react"
 import "twin.macro"
 import ReactPlayer from "react-player/lazy"
+import Carousel from "react-multi-carousel"
 
 const getVideo = resources => {
   if (!resources) {
@@ -14,34 +15,52 @@ const getVideo = resources => {
   }
 }
 
-const MainMedia = ({ tool }) => {
-  let screenshot = tool.fields.screenshot
-  let video = getVideo(tool.resources)
-
-  if (video) {
-    return (
-      <ReactPlayer
-        tw="max-w-full mb-5"
-        url={video.url}
-        width="100%"
-        controls="true"
+const renders = {
+  video: video => (
+    <ReactPlayer tw="max-w-full" url={video.url} width="100%" controls="true" />
+  ),
+  image: image => (
+    <a href={image.url} tw="w-full text-center">
+      <img
+        alt={`Screenshot of ${image.name} website`}
+        tw="border-4 max-w-full inline-block"
+        src={image.src}
+        height="360"
       />
-    )
-  } else {
-    return (
-      screenshot && (
-        <div tw="mb-5">
-          <a href={tool.homepage}>
-            <img
-              alt={`Screenshot of ${tool.name} website`}
-              tw="border-4 max-w-full"
-              src={screenshot}
-            />
-          </a>
-        </div>
-      )
-    )
+    </a>
+  ),
+}
+
+const MainMedia = ({ tool }) => {
+  const { name, homepage, resources } = tool
+  let screenshot = { name, url: homepage, src: tool.fields.screenshot }
+  let video = getVideo(resources)
+  const items = [
+    { type: "image", source: screenshot },
+    { type: "video", source: video },
+  ]
+  const carouselProps = {
+    responsive: {
+      all: {
+        breakpoint: { max: 3000, min: 0 },
+        items: 1,
+      },
+    },
+    infinite: true,
+    showDots: true,
   }
+
+  return (
+    <div tw="mb-5">
+      <Carousel {...carouselProps}>
+        {items.map(item => (
+          <div tw="flex justify-center items-center h-full mb-5 pb-4">
+            {renders[item.type](item.source)}
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  )
 }
 
 export default MainMedia
