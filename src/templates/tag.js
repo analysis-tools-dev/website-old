@@ -178,6 +178,9 @@ export const query = graphql`
         categories
         fields {
           slug
+          githubStats {
+            stargazers_count
+          }
         }
         children {
           ... on Votes {
