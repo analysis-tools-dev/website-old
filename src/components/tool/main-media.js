@@ -35,10 +35,16 @@ const MainMedia = ({ tool }) => {
   const { name, homepage, resources } = tool
   let screenshot = { name, url: homepage, src: tool.fields.screenshot }
   let video = getVideo(resources)
-  const items = [
-    { type: "image", source: screenshot },
-    { type: "video", source: video },
-  ]
+  const items = []
+
+  if (screenshot) {
+    items.push({ type: "image", source: screenshot })
+  }
+
+  if (video) {
+    items.push({ type: "video", source: video })
+  }
+
   const carouselProps = {
     responsive: {
       all: {
@@ -52,13 +58,19 @@ const MainMedia = ({ tool }) => {
 
   return (
     <div tw="mb-5">
-      <Carousel {...carouselProps}>
-        {items.map(item => (
-          <div tw="flex justify-center items-center h-full mb-5 pb-4">
-            {renders[item.type](item.source)}
-          </div>
-        ))}
-      </Carousel>
+      {items.length > 1 ? (
+        <Carousel {...carouselProps}>
+          {items.map(item => (
+            <div tw="flex justify-center items-center h-full mb-5 pb-4">
+              {renders[item.type](item.source)}
+            </div>
+          ))}
+        </Carousel>
+      ) : (
+        <div tw="flex justify-center items-center h-full mb-5 pb-4">
+          {renders[items[0].type](items[0].source)}
+        </div>
+      )}
     </div>
   )
 }
