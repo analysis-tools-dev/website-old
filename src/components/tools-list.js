@@ -2,8 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 import "twin.macro"
 import Vote from "../components/vote"
+import { FaStar } from "react-icons/fa"
 
 export default function Tool({ tool }) {
+  const { githubStats } = tool.fields
   return (
     <div tw="my-3 flex border-b border-gray-200 pb-6">
       <div tw="flex-none w-12">
@@ -20,6 +22,14 @@ export default function Tool({ tool }) {
               </li>
             ))}
           </ul>
+          {githubStats.stargazers_count ? (
+            <div tw="w-full text-right">
+              <FaStar tw="mb-1  inline-block" />{" "}
+              {githubStats.stargazers_count || ""}
+            </div>
+          ) : (
+            ""
+          )}
         </Link>
         <p tw="text-gray-600 mb-3">{tool.description}</p>
         <div>
