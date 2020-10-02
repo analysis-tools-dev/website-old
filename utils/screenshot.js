@@ -15,7 +15,7 @@ const { slugify } = require("./slugify")
 const fs = require("fs")
 
 module.exports.getScreenshot = async url => {
-  console.log(url)
+  console.log(`Fetching screenshot for ${url}`)
   try {
     if (!url) {
       return
@@ -28,13 +28,15 @@ module.exports.getScreenshot = async url => {
       overwrite: false,
       type: "jpeg",
     }
+
     let outDir = `static/screenshots/websites`
     if (url.includes("github.com")) {
       outDir = `static/screenshots/github`
       screenshotOptions.waitForElement = ".markdown-body"
       screenshotOptions.scrollToElement = ".markdown-body"
-      console.log(screenshotOptions)
     }
+
+    fs.mkdirSync(outDir, { recursive: true });
 
     // Remove protocol from url for nicer file names.
     const urlClean = url.replace(/(^\w+:|^)\/\/(www)?/, "")
