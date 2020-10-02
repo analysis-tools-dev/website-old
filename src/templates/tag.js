@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Helmet } from "react-helmet"
 import "twin.macro"
 import ToolsList from "../components/tools-list"
 import SponsorBanner from "../components/sponsorbanner"
+import Select from "react-select"
 
 const getTitleText = tools => {
   if (tools.length < 3) {
@@ -64,8 +65,43 @@ const Tag = d => {
   const titleText = getTitleText(tools)
   const metaDescription = getMetaDescription(tag, tools)
 
-  const maintained = tools.filter(tool => !tool.deprecated)
-  const deprecated = tools.filter(tool => tool.deprecated)
+  const allMaintained = tools.filter(tool => !tool.deprecated)
+  const allDeprecated = tools.filter(tool => tool.deprecated)
+
+  const [maintained, setMaintained] = useState(allMaintained)
+  const [deprecated, setDeprecated] = useState(allDeprecated)
+
+  const categories = [
+    { value: "any", label: "Any" },
+    { value: "formatter", label: "Formatter" },
+    { value: "linter", label: "Linter" },
+  ]
+
+  const [selectedCategory, setSelectedCategory] = useState(categories[0])
+
+  const handleCategory = s => {
+    setSelectedCategory(s)
+    let newMaintained = allMaintained
+    let newDeprecated = allDeprecated
+
+    if (s.value === "formatter") {
+      newMaintained = allMaintained.filter(tool =>
+        tool.categories.includes("formatter")
+      )
+      newDeprecated = allDeprecated.filter(tool =>
+        tool.categories.includes("formatter")
+      )
+    } else if (s.value === "linter") {
+      newMaintained = allMaintained.filter(tool =>
+        tool.categories.includes("linter")
+      )
+      newDeprecated = allDeprecated.filter(tool =>
+        tool.categories.includes("linter")
+      )
+    }
+    setMaintained(newMaintained)
+    setDeprecated(newDeprecated)
+  }
 
   return (
     <Layout>
@@ -73,14 +109,24 @@ const Tag = d => {
         <meta charSet="utf-8" />
         <meta name="description" content={metaDescription} />
         <title>
-          {titleText} {tag.name} static analysis tools and linters
+          {titleText} {tag.name} Static Analysis Tools And Linters
         </title>
       </Helmet>
-      <article tw="flex flex-col shadow w-full">
+      <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold ">
-            {titleText} {tag.name} static analysis tools
+          <h1 tw="text-2xl font-semibold ">
+            {maintained.length + deprecated.length} {tag.name} Static Analysis
+            Tools
           </h1>
+          <div tw="flex items-center my-4 max-w-full">
+            Type:
+            <Select
+              tw="w-1/3 ml-3"
+              value={selectedCategory}
+              onChange={handleCategory}
+              options={categories}
+            />
+          </div>
           {d.data.markdownRemark && (
             <div tw="pt-6 w-full">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
@@ -117,7 +163,7 @@ const Tag = d => {
             </h3>
           )}
           {maintained.map(tool => (
-            <ToolsList tool={tool} key={tool.id} />
+            <ToolsList tool={tool} key={`${tool.id}-maintained`} />
           ))}
           {deprecated.length > 0 && (
             <h3 tw="text-xl font-semibold pb-5">
@@ -126,7 +172,7 @@ const Tag = d => {
           )}
           {deprecated.map(tool => (
             <div tw="opacity-50" key={`${tool.id}-div`}>
-              <ToolsList tool={tool} key={tool.id} />
+              <ToolsList tool={tool} key={`${tool.id}-deprecated`} />
             </div>
           ))}
           <SponsorBanner />
@@ -171,6 +217,7 @@ export const query = graphql`
         id
         name
         license
+        categories
         deprecated
         description
         tags

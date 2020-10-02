@@ -17,7 +17,7 @@ export default function Tool({ tool }) {
           <h4 tw="font-bold text-xl mb-3">{tool.name}</h4>
           <ul tw="list-none flex ml-2 mt-1">
             {tool.types.map(t => (
-              <li tw="mb-2 mr-1 w-6" key={t}>
+              <li tw="mb-2 mr-1 w-6" key={`${t}-types`}>
                 <img src={`/icons/${t}.svg`} alt={`Type: ${t}`} />
               </li>
             ))}
@@ -37,7 +37,9 @@ export default function Tool({ tool }) {
             {tool.tags.map(tag => (
               <li tw="mb-2 mr-1 inline-block" key={`${tool.fields.slug}${tag}`}>
                 <a href={"/tag/" + tag}>
-                  <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">{tag}</span>
+                  <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">
+                    {tag}
+                  </span>
                 </a>
               </li>
             ))}
