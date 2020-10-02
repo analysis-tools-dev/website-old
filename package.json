@@ -37,6 +37,8 @@
     "react-helmet": "^6.0.0",
     "react-icons": "^3.10.0",
     "react-instantsearch-dom": "^6.5.0",
+    "react-multi-carousel": "^2.5.5",
+    "react-player": "^2.6.2",
     "react-typography": "^0.16.19",
     "styled-components": "^5.1.0",
     "tailwindcss": "^1.4.6",

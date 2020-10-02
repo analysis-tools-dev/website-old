@@ -4,17 +4,26 @@ import Layout from "../components/layout"
 import "twin.macro"
 import { Helmet } from "react-helmet"
 
-const ComponentName = ({ data }) => {
+const getMetaDescription = data => {
   const totalCount = data.allToolsYaml.totalCount.toString()
+  const desc = `Overview of the best linters, formatters, quality checkers for JS, Go, Rust, C, Ruby, Python, PHP and more. Compare ${totalCount} tools to improve code quality for you and your team in ${new Date().getFullYear()}.`
+  return desc
+}
+
+const Index = ({ data }) => {
+  const totalCount = data.allToolsYaml.totalCount.toString()
+  const metaDescription = getMetaDescription(data)
   return (
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
+        <meta name="description" content={metaDescription} />
         <title>
-          Compare {totalCount}+ Analysis Tools For Python, Ruby, C, PHP, Go,...
+          Compare {totalCount} Static Analysis Tools For All Programming
+          Languages
         </title>
       </Helmet>
-      <article tw="flex flex-col shadow my-4 w-full">
+      <article tw="flex flex-col shadow w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <p tw="text-xl font-semibold pb-5">
             Popular Static Analysis Tools by Language
@@ -68,15 +77,13 @@ const ComponentName = ({ data }) => {
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <p tw="pb-5">Latest from our Blog</p>
           {data["blog"].edges.map(e => (
-            <div tw="p-3 w-full">
+            <div key={e.node.childMarkdownRemark.fields.slug} tw="p-3 w-full">
               <h1>
                 <Link to={`${e.node.childMarkdownRemark.fields.slug}`}>
                   <h1 tw="text-xl font-semibold pb-5 underline">
                     {e.node.childMarkdownRemark.frontmatter.title}
                   </h1>
-                  <p class="text-justify">
-                    {e.node.childMarkdownRemark.excerpt}
-                  </p>
+                  <p>{e.node.childMarkdownRemark.excerpt}</p>
                 </Link>
               </h1>
             </div>
@@ -268,4 +275,4 @@ export const query = graphql`
     }
   }
 `
-export default ComponentName
+export default Index

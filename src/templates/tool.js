@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Vote from "../components/vote"
+import MainMedia from "../components/tool/main-media.js"
 
 import { Helmet } from "react-helmet"
 import "twin.macro"
@@ -41,7 +42,7 @@ const getMetaDescription = tool => {
   return desc
 }
 
-export default function BlogPost(d) {
+export default function Tool(d) {
   const tool = d.data.toolsYaml
   const introText = getIntroText(tool)
   const metaDescription = getMetaDescription(tool)
@@ -54,134 +55,140 @@ export default function BlogPost(d) {
           {tool.name}: {introText}
         </title>
       </Helmet>
-      <article tw="flex shadow my-4 w-full">
-        <div tw="bg-white flex justify-start p-6 w-full">
-          <div tw="w-12 flex-none">
+      <article tw="shadow w-full">
+        <div tw="bg-white flex justify-start p-2 md:p-6 w-full">
+          <div tw="md:w-12 flex-none">
             <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
           </div>
-          <div tw="flex-auto pl-5">
+          <div tw="pl-2">
             <a tw="hover:underline" href={tool.homepage}>
               <h1 tw="text-3xl font-semibold mb-5">{tool.name}</h1>
             </a>
-            <p tw="pb-3 mb-4">{tool.description}</p>
-            {tool.fields.githubStats.stargazers_count && (
-              <div tw="flex">
-                <a tw="hover:underline" href={tool.source}>
-                  Github:
-                </a>
-                <ul tw="ml-2 mb-2">
-                  <span tw="mr-3" href={tool.source}>
-                    <FaStar tw="mb-1 mr-2 inline-block" />
-                    {tool.fields.githubStats.stargazers_count}
-                  </span>
-                  <span tw="mr-3" href={tool.source}>
-                    <FaEye tw="mb-1 mr-2 inline-block" />
-                    {tool.fields.githubStats.watchers_count}
-                  </span>
-                  <span tw="mr-3" href={tool.source}>
-                    <FaExclamationCircle tw="mb-1 mr-2 inline-block" />
-                    {tool.fields.githubStats.open_issues_count}
-                  </span>
-                  <span tw="mr-3" href={tool.source}>
-                    <FaCodeBranch tw="mb-1 mr-2 inline-block" />
-                    {tool.fields.githubStats.forks_count}
-                  </span>
-                  <span tw="mr-3" href={tool.source}>
-                    <FaCalendarAlt tw="mb-1 mr-2 inline-block" />
-                    {tool.fields.githubStats.created_at}
-                  </span>
-                </ul>
-              </div>
-            )}
-            <div tw="flex mb-8">
-              <span>Workflow integration:</span>
-              <ul tw="flex">
-                {tool.types.map(t => (
-                  <li tw="flex" key={t}>
-                    <img
-                      tw="self-start object-contain ml-2 w-6"
-                      src={`/icons/${t}.svg`}
-                      alt={`Type: ${t}`}
-                    />
-                    <div tw="flex-1">{t}</div>
-                  </li>
-                ))}
+            <p tw="pb-3">{tool.description}</p>
+          </div>
+        </div>
+        <div tw="px-4 md:pl-20 md:pr-6">
+          {tool.fields.githubStats.stargazers_count && (
+            <div tw="flex">
+              <a tw="hover:underline" href={tool.source}>
+                Github:
+              </a>
+              <ul tw="ml-2 mb-2">
+                <span tw="mr-3" href={tool.source}>
+                  <FaStar tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.stargazers_count}
+                </span>
+                <span tw="mr-3" href={tool.source}>
+                  <FaEye tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.watchers_count}
+                </span>
+                <span tw="mr-3" href={tool.source}>
+                  <FaExclamationCircle tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.open_issues_count}
+                </span>
+                <span tw="mr-3" href={tool.source}>
+                  <FaCodeBranch tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.forks_count}
+                </span>
+                <span tw="mr-3" href={tool.source}>
+                  <FaCalendarAlt tw="mb-1 mr-2 inline-block" />
+                  {tool.fields.githubStats.created_at}
+                </span>
               </ul>
             </div>
-            {tool.fields.screenshot && (
-              <p tw="pb-3">
-                <a href={tool.homepage}>
+          )}
+          <div tw="flex mb-8">
+            <span>Workflow integration:</span>
+            <ul tw="flex">
+              {tool.types.map(t => (
+                <li tw="flex" key={t}>
                   <img
-                    alt={`Screenshot of ${tool.name} website`}
-                    tw="border-4 max-w-full"
-                    src={tool.fields.screenshot}
+                    tw="self-start object-contain ml-2 w-6"
+                    src={`/icons/${t}.svg`}
+                    alt={`Type: ${t}`}
                   />
-                </a>
-              </p>
-            )}
+                  <div tw="flex-1">{t}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <MainMedia tool={tool} />
+          <p tw="mb-3">
+            <FaHome tw="mb-1 mr-2 inline-block" />
+            <a tw="underline" href={tool.homepage}>
+              Official {tool.name} Homepage
+            </a>
+          </p>
+          {tool.source && (
             <p tw="mb-3">
-              <FaHome tw="mb-1 mr-2 inline-block" />
-              <a tw="underline" href={tool.homepage}>
-                Official {tool.name} Homepage
+              <FaLink tw="mb-1 mr-2 inline-block" />
+              <a tw="underline" href={tool.source}>
+                {tool.source}
               </a>
             </p>
-            {tool.source && (
-              <p tw="mb-3">
-                <FaLink tw="mb-1 mr-2 inline-block" />
-                <a tw="underline" href={tool.source}>
-                  {tool.source}
-                </a>
-              </p>
-            )}
-            {tool.license ? (
-              <p tw="mb-3">
-                <FaCopyright tw="mb-1 mr-2 inline-block" /> {tool.license}{" "}
-              </p>
-            ) : (
-              <p tw="mb-3">
-                <FaOsi tw="mb-1 mr-2 inline-block" />{" "}
-                {tool.fields.githubStats.license
-                  ? tool.fields.githubStats.license.name
-                  : "Open Source"}
-              </p>
-            )}
-            {tool.deprecated ? (
-              <p tw="mb-3">
-                <FaExclamationCircle tw="text-red-500 mb-1 mr-2 inline-block" />{" "}
-                <span tw="text-red-800">Deprecated/Unmaintained </span>
-              </p>
-            ) : (
-              <p tw="mb-3">
-                <FaCheckCircle tw="mb-1 mr-2 inline-block" /> Maintained
-              </p>
-            )}
-            <div>
-              <FaTags tw="mb-1 mr-2 inline-block align-top" />
-              <ul tw="list-none max-w-sm inline-block align-top">
-                {tool.tags.map(tag => (
-                  <li tw="mb-2 mr-1 inline-block" key={tag}>
-                    <a href={"/tag/" + tag}>
-                      <span tw="bg-gray-300 px-2 py-1 rounded">{tag}</span>
-                    </a>
+          )}
+          {tool.license ? (
+            <p tw="mb-3">
+              <FaCopyright tw="mb-1 mr-2 inline-block" /> {tool.license}{" "}
+            </p>
+          ) : (
+            <p tw="mb-3">
+              <FaOsi tw="mb-1 mr-2 inline-block" />{" "}
+              {tool.fields.githubStats.license
+                ? tool.fields.githubStats.license.name
+                : "Open Source"}
+            </p>
+          )}
+          {tool.deprecated ? (
+            <p tw="mb-3">
+              <FaExclamationCircle tw="text-red-500 mb-1 mr-2 inline-block" />{" "}
+              <span tw="text-red-800">Deprecated/Unmaintained </span>
+            </p>
+          ) : (
+            <p tw="mb-3">
+              <FaCheckCircle tw="mb-1 mr-2 inline-block" /> Maintained
+            </p>
+          )}
+          <div>
+            <FaTags tw="mb-1 mr-2 inline-block align-top" />
+            <ul tw="list-none max-w-sm inline-block align-top">
+              {tool.tags.map(tag => (
+                <li tw="mb-2 mr-1 inline-block" key={tag}>
+                  <a href={"/tag/" + tag}>
+                    <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">
+                      {tag}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {tool.resources && (
+            <div tw="mb-4">
+              <h3 tw="mt-3 mb-2 font-bold">More Resources</h3>
+              <ul tw="list-disc">
+                {tool.resources.map(resource => (
+                  <li tw="underline ml-4 py-1" key={resource.title}>
+                    <a href={resource.url}>{resource.title}</a>
                   </li>
                 ))}
               </ul>
             </div>
-            <div>
-              <Utterances
-                repo="analysis-tools-dev/website-comments"
-                issueTerm="pathname"
-                label=""
-                theme="github-light"
-                crossorigin="anonymous"
-                async={false}
-                style={`
+          )}
+          <div>
+            <Utterances
+              repo="analysis-tools-dev/website-comments"
+              issueTerm="pathname"
+              label=""
+              theme="github-light"
+              crossorigin="anonymous"
+              async={false}
+              style={`
             & .utterances {
               max-width: 950px;
             }
           `}
-              />
-            </div>
+            />
           </div>
         </div>
       </article>
@@ -201,6 +208,10 @@ export const query = graphql`
       tags
       types
       categories
+      resources {
+        title
+        url
+      }
       fields {
         slug
         screenshot

@@ -41,10 +41,12 @@ const TagsQuery = `{
 const queries = [
   {
     query: ToolsQuery,
+    indexName: "tools",
     transformer: ({ data }) => data.allToolsYaml.edges.map(({ node }) => node),
   },
   {
     query: TagsQuery,
+    indexName: "tags",
     transformer: ({ data }) => data.allTagsYaml.edges.map(({ node }) => node),
   },
 ]
@@ -122,13 +124,12 @@ module.exports = {
         // Careful, not to prefix this with GATSBY_, since that way users can change
         // the data in the index.
         apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
         queries,
         chunkSize: 1000,
         settings: {
           // optional, any index settings
         },
-        enablePartialUpdates: false, // default: false
+        enablePartialUpdates: true,
         matchFields: ["slug", "modified"], // Array<String> default: ['modified']
       },
     },

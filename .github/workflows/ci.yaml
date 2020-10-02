@@ -10,6 +10,7 @@ on:
   schedule:
     - cron: "0 */12 * * *"
   repository_dispatch:
+    types: [rebuild]
   workflow_dispatch:
 
 jobs:
@@ -43,7 +44,6 @@ jobs:
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
           GITHUB_USERNAME: ${{ secrets.GATSBY_GITHUB_USERNAME }}
           GITHUB_TOKEN: ${{ secrets.GATSBY_GITHUB_TOKEN }}
 

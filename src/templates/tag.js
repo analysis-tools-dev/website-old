@@ -14,10 +14,55 @@ const getTitleText = tools => {
   }
 }
 
+const numToWord = num => {
+  switch (num) {
+    case 1:
+      return "one"
+    case 2:
+      return "two"
+    case 3:
+      return "three"
+    case 4:
+      return "four"
+    case 5:
+      return "five"
+    default:
+      return num
+  }
+}
+
+const getMetaDescription = (tag, tools) => {
+  const numExampleTools = 3
+  const topTools = tools.slice(0, numExampleTools).map(t => t.name)
+  const free = tools.filter(tool => !tool.license.includes("proprietary"))
+    .length
+
+  let desc = `${
+    tools.length > 1
+      ? tools.length + " great linters and formatters"
+      : "Great linter"
+  } for ${tag.name}`
+
+  if (tools.length > numExampleTools) {
+    desc += ` like `
+  } else {
+    desc += `: `
+  }
+  desc += `${topTools.join(", ")}`
+  if (free > 1) {
+    desc += ` including ${numToWord(free)} free ${
+      free === 1 ? "tool" : "tools"
+    }`
+  }
+  desc += `. Improve your code quality with tools rated by fellow developers.`
+  return desc
+}
+
 const Tag = d => {
   const tag = d.data.tagsYaml
   const tools = d.data.allToolsYaml.nodes
   const titleText = getTitleText(tools)
+  const metaDescription = getMetaDescription(tag, tools)
 
   const maintained = tools.filter(tool => !tool.deprecated)
   const deprecated = tools.filter(tool => tool.deprecated)
@@ -26,32 +71,40 @@ const Tag = d => {
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
+        <meta name="description" content={metaDescription} />
         <title>
           {titleText} {tag.name} static analysis tools and linters
         </title>
       </Helmet>
-      <article tw="flex flex-col shadow my-4 w-full">
+      <article tw="flex flex-col shadow w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold ">
             {titleText} {tag.name} static analysis tools
           </h1>
           {d.data.markdownRemark && (
-            <div tw="pt-6">
+            <div tw="pt-6 w-full">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
-              <p>
-                <span
-                  tw="inline"
-                  dangerouslySetInnerHTML={{
-                    __html: d.data.markdownRemark.excerpt,
-                  }}
+              <div tw="flex w-full">
+                <img
+                  style={{ width: 64 + "px", height: 64 + "px" }}
+                  alt=""
+                  src={tag.fields.logo}
                 />
-                <a
-                  tw="underline inline"
-                  href={d.data.markdownRemark.frontmatter.source}
-                >
-                  (Source)
-                </a>
-              </p>
+                <div tw="pl-5">
+                  <p
+                    tw="inline text-justify text-gray-600"
+                    dangerouslySetInnerHTML={{
+                      __html: d.data.markdownRemark.excerpt,
+                    }}
+                  />
+                  <a
+                    tw="underline text-gray-600"
+                    href={d.data.markdownRemark.frontmatter.source}
+                  >
+                    (More info)
+                  </a>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -72,7 +125,7 @@ const Tag = d => {
             </h3>
           )}
           {deprecated.map(tool => (
-            <div tw="opacity-50">
+            <div tw="opacity-50" key={`${tool.id}-div`}>
               <ToolsList tool={tool} key={tool.id} />
             </div>
           ))}
@@ -99,13 +152,13 @@ export const query = graphql`
       tag
       fields {
         slug
+        logo
       }
     }
 
     markdownRemark(frontmatter: { tag: { eq: $tag } }) {
       excerpt(format: HTML, pruneLength: 500)
       frontmatter {
-        tag
         source
       }
     }
@@ -125,6 +178,9 @@ export const query = graphql`
         categories
         fields {
           slug
+          githubStats {
+            stargazers_count
+          }
         }
         children {
           ... on Votes {

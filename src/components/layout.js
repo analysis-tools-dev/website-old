@@ -4,7 +4,10 @@ import tw, { styled } from "twin.macro"
 import { FaCaretUp, FaCaretDown } from "react-icons/fa"
 import Search from "./search"
 
-const searchIndices = [{ name: `Tools`, title: `Tools`, hitComp: `ToolsHit` }]
+const searchIndices = [
+  { name: `tags`, title: `Tags`, hitComp: `ToolsHit` },
+  { name: `tools`, title: `Tools`, hitComp: `ToolsHit` },
+]
 
 const NavLink = styled(props => <Link {...props} />)`
   ${tw`transition-all duration-300 hover:bg-gray-400 rounded my-1 mx-1 p-2 sm:px-6`}
@@ -49,7 +52,7 @@ export default ({ children }) => {
         <section tw="w-full md:w-2/3 flex flex-col px-3">{children}</section>
 
         <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
-          <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+          <div tw="w-full bg-white shadow flex flex-col p-6">
             <p tw="text-xl font-semibold pb-5">Write Better Software</p>
             <p tw="text-justify">
               On this page you can find static code analysis tools and linters
@@ -101,7 +104,7 @@ export default ({ children }) => {
           </div>
           <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
             <p tw="text-xl font-semibold pb-5">You Can Contribute!</p>
-            <p class="text-justify">
+            <p>
               You can help to improve this list by voting{" "}
               <FaCaretUp tw="inline-block text-gray-600" />/
               <FaCaretDown tw="inline-block text-gray-600" /> for your favorite
@@ -161,6 +164,10 @@ export default ({ children }) => {
               Beautiful icons provided by{" "}
               <a tw="underline" href="https://icons8.com/icon/pack/files/dusk">
                 icons8
+              </a>{" "}
+              and{" "}
+              <a tw="underline" href="https://www.flaticon.com/authors/freepik">
+                freepik
               </a>
             </li>
             <li>

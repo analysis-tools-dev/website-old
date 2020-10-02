@@ -10,7 +10,7 @@ const Sponsor = ({ data }) => {
         <meta charSet="utf-8" />
         <title>Sponsor - Static analysis tools, linters, code quality</title>
       </Helmet>
-      <article tw="flex flex-col shadow my-4 w-full">
+      <article tw="flex flex-col shadow w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold pb-10">
             <span role="img" aria-label="heart">

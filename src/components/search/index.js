@@ -29,14 +29,19 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     <InstantSearch
       searchClient={searchClient}
       indexName={indices[0].name}
-      onSearchStateChange={({ query }) => setQuery(query)}
+      onSearchStateChange={({ query }) => {
+        if (typeof query !== "undefined") {
+          setQuery(query)
+        }
+      }}
     >
       <div tw="relative shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-r-none">
         <SearchBox
           tw="w-full px-8"
           translations={{
-            placeholder: "Find analysis tools and linters...",
+            placeholder: "Find analysis tools, formatters, and linters...",
           }}
+          startValue=""
           submit={
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -60,20 +65,22 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
           }
         />
       </div>
-      <HitsWrapper
-        show={query.length > 0}
-        asGrid="false"
-        tw="max-h-200 overflow-scroll border shadow bg-white absolute w-full"
-      >
-        {indices.map(({ name, title, hitComp }) => (
-          <Index key={name} indexName={name}>
-            <Results>
-              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
-            </Results>
-          </Index>
-        ))}
-        <PoweredBy />
-      </HitsWrapper>
+      {query && (
+        <HitsWrapper
+          show={query.length > 0}
+          asGrid="false"
+          tw="max-h-screen overflow-scroll border shadow bg-white absolute w-full"
+        >
+          {indices.map(({ name, title, hitComp }) => (
+            <Index key={name} indexName={name}>
+              <Results>
+                <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
+              </Results>
+            </Index>
+          ))}
+          <PoweredBy />
+        </HitsWrapper>
+      )}
     </InstantSearch>
   )
 }
