@@ -68,21 +68,37 @@ const Tag = d => {
   const maintained = tools.filter(tool => !tool.deprecated)
   const deprecated = tools.filter(tool => tool.deprecated)
 
+  const [selectedMaintained, setSelectedMaintained] = useState(maintained)
+  const [selectedDeprecated, setSelectedDeprecated] = useState(deprecated)
+
   const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
+    { value: "any", label: "Any" },
+    { value: "formatter", label: "Formatter" },
+    { value: "linter", label: "Linter" },
   ]
 
-  const [selectedOption, setSelectedOption] = useState(null)
+  const [selectedOption, setSelectedOption] = useState(options[0])
 
   const handleChange = s => {
     setSelectedOption(s)
-    console.log(`Option selected:`, selectedOption)
-    // this.setState(
-    //   { selectedOption },
-    //   () => console.log(`Option selected:`, this.state.selectedOption)
-    // );
+    if (s.value === "any") {
+      setSelectedMaintained(maintained)
+      setSelectedDeprecated(deprecated)
+    } else if (s.value === "formatter") {
+      setSelectedMaintained(
+        maintained.filter(tool => tool.categories.includes("formatter"))
+      )
+      setSelectedDeprecated(
+        deprecated.filter(tool => tool.categories.includes("formatter"))
+      )
+    } else if (s.value === "linter") {
+      setSelectedMaintained(
+        maintained.filter(tool => tool.categories.includes("linter"))
+      )
+      setSelectedDeprecated(
+        deprecated.filter(tool => tool.categories.includes("linter"))
+      )
+    }
   }
 
   return (
@@ -91,21 +107,24 @@ const Tag = d => {
         <meta charSet="utf-8" />
         <meta name="description" content={metaDescription} />
         <title>
-          {titleText} {tag.name} static analysis tools and linters
+          {titleText} {tag.name} Static Analysis Tools And Linters
         </title>
       </Helmet>
-      <div tw="flex items-center shadow px-4 max-w-full">
-        <Select
-          value={selectedOption}
-          onChange={handleChange}
-          options={options}
-        />
-      </div>
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          <h1 tw="text-3xl font-semibold ">
-            {titleText} {tag.name} static analysis tools
+          <h1 tw="text-2xl font-semibold ">
+            {selectedMaintained.length + selectedDeprecated.length} {tag.name}{" "}
+            Static Analysis Tools
           </h1>
+          <div tw="flex items-center my-4 max-w-full">
+            Type:
+            <Select
+              tw="w-1/3 ml-3"
+              value={selectedOption}
+              onChange={handleChange}
+              options={options}
+            />
+          </div>
           {d.data.markdownRemark && (
             <div tw="pt-6 w-full">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
@@ -141,15 +160,15 @@ const Tag = d => {
               What are the best {tag.name} analysis tools?
             </h3>
           )}
-          {maintained.map(tool => (
+          {selectedMaintained.map(tool => (
             <ToolsList tool={tool} key={`${tool.id}-maintained`} />
           ))}
-          {deprecated.length > 0 && (
+          {selectedDeprecated.length > 0 && (
             <h3 tw="text-xl font-semibold pb-5">
               Deprecated/unmaintained tools
             </h3>
           )}
-          {deprecated.map(tool => (
+          {selectedDeprecated.map(tool => (
             <div tw="opacity-50" key={`${tool.id}-div`}>
               <ToolsList tool={tool} key={`${tool.id}-deprecated`} />
             </div>
@@ -196,6 +215,7 @@ export const query = graphql`
         id
         name
         license
+        categories
         deprecated
         description
         tags
