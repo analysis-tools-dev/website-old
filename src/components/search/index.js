@@ -2,14 +2,14 @@ import React, { useState } from "react"
 import {
   InstantSearch,
   Index,
+  SearchBox,
   Hits,
   connectStateResults,
 } from "react-instantsearch-dom"
-import "twin.macro"
 import algoliasearch from "algoliasearch/lite"
 import { HitsWrapper, PoweredBy } from "./styles"
-import { SearchBox } from "react-instantsearch-dom"
 import * as hitComps from "./hitComps"
+import "twin.macro"
 
 // Results informs the user that no matches could be found for a query
 // unless the number of hits is positive, i.e. `searchResults.nbHits > 0`.
@@ -73,6 +73,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
         >
           {indices.map(({ name, title, hitComp }) => (
             <Index key={name} indexName={name}>
+              {console.log(hitComps[hitComp])}
               <Results>
                 <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
               </Results>

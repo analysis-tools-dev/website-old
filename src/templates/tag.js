@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Helmet } from "react-helmet"
 import "twin.macro"
 import ToolsList from "../components/tools-list"
 import SponsorBanner from "../components/sponsorbanner"
+import Select from "react-select"
 
 const getTitleText = tools => {
   if (tools.length < 3) {
@@ -67,6 +68,23 @@ const Tag = d => {
   const maintained = tools.filter(tool => !tool.deprecated)
   const deprecated = tools.filter(tool => tool.deprecated)
 
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ]
+
+  const [selectedOption, setSelectedOption] = useState(null)
+
+  const handleChange = s => {
+    setSelectedOption(s)
+    console.log(`Option selected:`, selectedOption)
+    // this.setState(
+    //   { selectedOption },
+    //   () => console.log(`Option selected:`, this.state.selectedOption)
+    // );
+  }
+
   return (
     <Layout>
       <Helmet>
@@ -76,7 +94,14 @@ const Tag = d => {
           {titleText} {tag.name} static analysis tools and linters
         </title>
       </Helmet>
-      <article tw="flex flex-col shadow w-full">
+      <div tw="flex items-center shadow px-4 max-w-full">
+        <Select
+          value={selectedOption}
+          onChange={handleChange}
+          options={options}
+        />
+      </div>
+      <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold ">
             {titleText} {tag.name} static analysis tools
@@ -117,7 +142,7 @@ const Tag = d => {
             </h3>
           )}
           {maintained.map(tool => (
-            <ToolsList tool={tool} key={tool.id} />
+            <ToolsList tool={tool} key={`${tool.id}-maintained`} />
           ))}
           {deprecated.length > 0 && (
             <h3 tw="text-xl font-semibold pb-5">
@@ -126,7 +151,7 @@ const Tag = d => {
           )}
           {deprecated.map(tool => (
             <div tw="opacity-50" key={`${tool.id}-div`}>
-              <ToolsList tool={tool} key={tool.id} />
+              <ToolsList tool={tool} key={`${tool.id}-deprecated`} />
             </div>
           ))}
           <SponsorBanner />
