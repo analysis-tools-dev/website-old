@@ -65,40 +65,42 @@ const Tag = d => {
   const titleText = getTitleText(tools)
   const metaDescription = getMetaDescription(tag, tools)
 
-  const maintained = tools.filter(tool => !tool.deprecated)
-  const deprecated = tools.filter(tool => tool.deprecated)
+  const allMaintained = tools.filter(tool => !tool.deprecated)
+  const allDeprecated = tools.filter(tool => tool.deprecated)
 
-  const [selectedMaintained, setSelectedMaintained] = useState(maintained)
-  const [selectedDeprecated, setSelectedDeprecated] = useState(deprecated)
+  const [maintained, setMaintained] = useState(allMaintained)
+  const [deprecated, setDeprecated] = useState(allDeprecated)
 
-  const options = [
+  const categories = [
     { value: "any", label: "Any" },
     { value: "formatter", label: "Formatter" },
     { value: "linter", label: "Linter" },
   ]
 
-  const [selectedOption, setSelectedOption] = useState(options[0])
+  const [selectedCategory, setSelectedCategory] = useState(categories[0])
 
-  const handleChange = s => {
-    setSelectedOption(s)
-    if (s.value === "any") {
-      setSelectedMaintained(maintained)
-      setSelectedDeprecated(deprecated)
-    } else if (s.value === "formatter") {
-      setSelectedMaintained(
-        maintained.filter(tool => tool.categories.includes("formatter"))
+  const handleCategory = s => {
+    setSelectedCategory(s)
+    let newMaintained = allMaintained
+    let newDeprecated = allDeprecated
+
+    if (s.value === "formatter") {
+      newMaintained = allMaintained.filter(tool =>
+        tool.categories.includes("formatter")
       )
-      setSelectedDeprecated(
-        deprecated.filter(tool => tool.categories.includes("formatter"))
+      newDeprecated = allDeprecated.filter(tool =>
+        tool.categories.includes("formatter")
       )
     } else if (s.value === "linter") {
-      setSelectedMaintained(
-        maintained.filter(tool => tool.categories.includes("linter"))
+      newMaintained = allMaintained.filter(tool =>
+        tool.categories.includes("linter")
       )
-      setSelectedDeprecated(
-        deprecated.filter(tool => tool.categories.includes("linter"))
+      newDeprecated = allDeprecated.filter(tool =>
+        tool.categories.includes("linter")
       )
     }
+    setMaintained(newMaintained)
+    setDeprecated(newDeprecated)
   }
 
   return (
@@ -113,16 +115,16 @@ const Tag = d => {
       <article tw="flex flex-col shadow my-4 w-full">
         <div tw="bg-white flex flex-col justify-start p-6 w-full">
           <h1 tw="text-2xl font-semibold ">
-            {selectedMaintained.length + selectedDeprecated.length} {tag.name}{" "}
-            Static Analysis Tools
+            {maintained.length + deprecated.length} {tag.name} Static Analysis
+            Tools
           </h1>
           <div tw="flex items-center my-4 max-w-full">
             Type:
             <Select
               tw="w-1/3 ml-3"
-              value={selectedOption}
-              onChange={handleChange}
-              options={options}
+              value={selectedCategory}
+              onChange={handleCategory}
+              options={categories}
             />
           </div>
           {d.data.markdownRemark && (
@@ -160,15 +162,15 @@ const Tag = d => {
               What are the best {tag.name} analysis tools?
             </h3>
           )}
-          {selectedMaintained.map(tool => (
+          {maintained.map(tool => (
             <ToolsList tool={tool} key={`${tool.id}-maintained`} />
           ))}
-          {selectedDeprecated.length > 0 && (
+          {deprecated.length > 0 && (
             <h3 tw="text-xl font-semibold pb-5">
               Deprecated/unmaintained tools
             </h3>
           )}
-          {selectedDeprecated.map(tool => (
+          {deprecated.map(tool => (
             <div tw="opacity-50" key={`${tool.id}-div`}>
               <ToolsList tool={tool} key={`${tool.id}-deprecated`} />
             </div>
