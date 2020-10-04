@@ -21,6 +21,7 @@ export default ({ children }) => {
           <Link to="/" tw="w-2/6 h-1 md:h-auto">
             <img
               src="/logo.svg"
+              style={{ height: 120 + "px" }}
               tw="w-4/6 mx-auto md:w-full"
               alt="Analysis tools logo"
             />
