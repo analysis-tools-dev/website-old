@@ -121,7 +121,7 @@ const Tag = d => {
           <div tw="flex items-center my-4 max-w-full">
             Type:
             <Select
-              tw="w-1/3 ml-3"
+              tw="w-full ml-3"
               value={selectedCategory}
               onChange={handleCategory}
               options={categories}
