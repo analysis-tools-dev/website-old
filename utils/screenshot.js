@@ -32,11 +32,12 @@ module.exports.getScreenshot = async url => {
     let outDir = `static/screenshots/websites`
     if (url.includes("github.com")) {
       outDir = `static/screenshots/github`
-      screenshotOptions.waitForElement = ".markdown-body"
-      screenshotOptions.scrollToElement = ".markdown-body"
+      // https://github.com/sindresorhus/capture-website/issues/47
+      // screenshotOptions.waitForElement = ".markdown-body"
+      // screenshotOptions.scrollToElement = ".markdown-body"
     }
 
-    fs.mkdirSync(outDir, { recursive: true });
+    fs.mkdirSync(outDir, { recursive: true })
 
     // Remove protocol from url for nicer file names.
     const urlClean = url.replace(/(^\w+:|^)\/\/(www)?/, "")
