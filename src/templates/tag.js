@@ -78,28 +78,41 @@ const Tag = d => {
   ]
 
   const [selectedCategory, setSelectedCategory] = useState(categories[0])
+  let [categoryFilter, setCategoryFilter] = useState(tool => true)
 
   const handleCategory = s => {
     setSelectedCategory(s)
-    let newMaintained = allMaintained
-    let newDeprecated = allDeprecated
+    setCategoryFilter(t => t.includes(s.value))
+    updateTools()
+  }
 
-    if (s.value === "formatter") {
-      newMaintained = allMaintained.filter(tool =>
-        tool.categories.includes("formatter")
-      )
-      newDeprecated = allDeprecated.filter(tool =>
-        tool.categories.includes("formatter")
-      )
-    } else if (s.value === "linter") {
-      newMaintained = allMaintained.filter(tool =>
-        tool.categories.includes("linter")
-      )
-      newDeprecated = allDeprecated.filter(tool =>
-        tool.categories.includes("linter")
-      )
-    }
+  const integrations = [
+    { value: "any", label: "Any" },
+    { value: "cli", label: "Commandline" },
+    { value: "service", label: "Web-Service" },
+  ]
+
+  const [selectedIntegration, setSelectedIntegration] = useState(
+    integrations[0]
+  )
+  let [integrationFilter, setIntegrationFilter] = useState(tool => true)
+
+  const handleIntegration = s => {
+    setSelectedIntegration(s)
+    setIntegrationFilter(t => t.includes(s.value))
+    updateTools()
+  }
+
+  const updateTools = () => {
+    let newMaintained = maintained
+    console.log(categoryFilter)
+    newMaintained = newMaintained.filter(t => categoryFilter(t.categories))
+    newMaintained = newMaintained.filter(t => integrationFilter(t.types))
     setMaintained(newMaintained)
+
+    let newDeprecated = deprecated
+    newDeprecated = newDeprecated.filter(t => categoryFilter(t))
+    newDeprecated = newDeprecated.filter(t => integrationFilter(t))
     setDeprecated(newDeprecated)
   }
 
@@ -118,15 +131,56 @@ const Tag = d => {
             {maintained.length + deprecated.length} {tag.name} Static Analysis
             Tools
           </h1>
-          <div tw="flex items-center my-4 max-w-full">
-            Type:
+          <div tw="flex flex-row items-center justify-between my-4 w-full">
+            <label tw="inline-block mr-2" htmlFor="tool-type">
+              Tool type:
+            </label>
             <Select
-              tw="w-full ml-3"
+              id="tool-type"
+              tw="inline-block flex-1 flex-grow mr-6"
               value={selectedCategory}
               onChange={handleCategory}
               options={categories}
             />
+            <label tw="inline-block mr-2" htmlFor="integration">
+              Integration:
+            </label>
+            <Select
+              id="integration"
+              tw="inline-block flex-1 flex-grow"
+              value={selectedIntegration}
+              onChange={handleIntegration}
+              options={integrations}
+            />
           </div>
+        </div>
+
+        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+          {maintained.map(tool => (
+            <ToolsList tool={tool} key={`${tool.id}-maintained`} />
+          ))}
+          {deprecated.length > 0 && (
+            <h3 tw="text-xl font-semibold pb-5">
+              Deprecated/unmaintained tools
+            </h3>
+          )}
+          {deprecated.map(tool => (
+            <div tw="opacity-50" key={`${tool.id}-div`}>
+              <ToolsList tool={tool} key={`${tool.id}-deprecated`} />
+            </div>
+          ))}
+          <SponsorBanner />
+        </div>
+        <p tw="px-6 pb-6 text-gray-600">
+          Missing an entry? Please{" "}
+          <a
+            tw="underline"
+            href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
+          >
+            let us know.
+          </a>
+        </p>
+        <div tw="px-6 pb-6 text-gray-600">
           {d.data.markdownRemark && (
             <div tw="pt-6 w-full">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
@@ -154,38 +208,6 @@ const Tag = d => {
             </div>
           )}
         </div>
-
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
-          {/* Only show header when we have the SEO text block above it */}
-          {d.data.markdownRemark && (
-            <h3 tw="text-xl font-semibold pb-5">
-              What are the best {tag.name} analysis tools?
-            </h3>
-          )}
-          {maintained.map(tool => (
-            <ToolsList tool={tool} key={`${tool.id}-maintained`} />
-          ))}
-          {deprecated.length > 0 && (
-            <h3 tw="text-xl font-semibold pb-5">
-              Deprecated/unmaintained tools
-            </h3>
-          )}
-          {deprecated.map(tool => (
-            <div tw="opacity-50" key={`${tool.id}-div`}>
-              <ToolsList tool={tool} key={`${tool.id}-deprecated`} />
-            </div>
-          ))}
-          <SponsorBanner />
-        </div>
-        <p tw="px-6 pb-6 text-gray-600">
-          Missing an entry? Please{" "}
-          <a
-            tw="underline"
-            href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
-          >
-            let us know.
-          </a>
-        </p>
       </article>
     </Layout>
   )
