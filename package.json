@@ -16,6 +16,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@sentry/gatsby": "^5.25.0",
     "algoliasearch": "^4.2.0",
     "bottleneck": "^2.19.5",
     "capture-website": "^1.0.0",

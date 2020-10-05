@@ -133,5 +133,12 @@ module.exports = {
         matchFields: ["slug", "modified"], // Array<String> default: ['modified']
       },
     },
+    {
+      resolve: "@sentry/gatsby",
+      options: {
+        dsn: "https://ee77a43505304f92998feebcb57adac7@o457309.ingest.sentry.io/5453104",
+        sampleRate: 0.7,
+      },
+    },
   ],
 }
