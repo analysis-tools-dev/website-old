@@ -1,9 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
 @import url("~react-multi-carousel/lib/styles.css");
-
-.font-family-karla {
-  font-family: karla;
-}
 
 .ais-SearchBox-reset,
 .ais-SearchBox-loadingIndicator,
