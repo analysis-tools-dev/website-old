@@ -15,7 +15,7 @@ import "twin.macro"
 // unless the number of hits is positive, i.e. `searchResults.nbHits > 0`.
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
-    res && res.nbHits > 0 ? children : `No results for '${state.query}'`
+    res && res.nbHits > 0 ? children : ""
 )
 
 export default function Search({ indices, collapse, hitsAsGrid }) {
@@ -73,7 +73,6 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
         >
           {indices.map(({ name, title, hitComp }) => (
             <Index key={name} indexName={name}>
-              {console.log(hitComps[hitComp])}
               <Results>
                 <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
               </Results>
