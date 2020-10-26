@@ -44,13 +44,8 @@ async function router(event) {
 }
 
 async function handleEvent(event) {
+  const url = new URL(event.request.url);
   let options = {}
-
-  /**
-   * You can add custom logic to how we fetch your assets
-   * by configuring the function `mapRequestToAsset`
-   */
-  // options.mapRequestToAsset = handlePrefix(/^\/docs/)
 
   try {
     if (DEBUG) {
@@ -60,14 +55,37 @@ async function handleEvent(event) {
       }
     }
 
-    // Offload stats from the main thread
-    const statsRequest = new Request(event.request);
-    const url = new URL(event.request.url);
-    statsRequest.headers.set("X-Original-Url", url);
-    statsRequest.headers.set("X-Original-Ip", event.request.headers.get('cf-connecting-ip'));
-    event.waitUntil(fetch("https://analysis-tools-dashflare.mre.workers.dev", statsRequest));
+    const page = await getAssetFromKV(event, options)
 
-    return await getAssetFromKV(event, options)
+    // allow headers to be altered
+    let response = new Response(page.body, page)
+
+    if (/\.avif$/.test(url)) {
+      response.headers.set("Content-Type", "image/avif")
+      response.headers.set("Content-Disposition", "inline")
+    }
+
+    if (
+      /\.(avif|bmp|css|gif|jpg|jpeg|js|png|svg|tif|tiff|webp)(\?.*)?$/.test(url)
+    ) {
+      response.headers.set(
+        "Cache-Control",
+        "public, max-age=31536000, immutable"
+      )
+    }
+
+    // Offload stats from the main thread
+    const statsRequest = new Request(event.request)
+    statsRequest.headers.set("X-Original-Url", url)
+    statsRequest.headers.set(
+      "X-Original-Ip",
+      event.request.headers.get("cf-connecting-ip")
+    )
+    event.waitUntil(
+      fetch("https://analysis-tools-dashflare.mre.workers.dev", statsRequest)
+    )
+
+    return response
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
     if (!DEBUG) {
