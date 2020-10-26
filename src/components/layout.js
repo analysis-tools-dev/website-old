@@ -98,7 +98,7 @@ export default ({ children }) => {
             </p>
             <p tw="pb-6">
               <a href="https://codescene.io?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
-                <img alt="CodeScene logo" src="/sponsors/codescene.png" />
+                <img alt="CodeScene logo" src="/sponsors/codescene.svg" />
               </a>
             </p>
           </div>
