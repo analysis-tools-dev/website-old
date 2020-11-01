@@ -41,6 +41,7 @@ export const Form = styled.form`
   align-items: center;
 `
 export const HitsWrapper = styled.div`
+  z-index: 10;
   display: ${props => (props.show ? `grid` : `none`)};
 `
 
