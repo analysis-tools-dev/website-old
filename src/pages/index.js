@@ -50,14 +50,16 @@ const Index = ({ data }) => {
                   />
                   <span tw="text-xl font-semibold ml-3">{l}</span>
                 </Link>
-                {data[l].nodes.map(t => (
-                  <li key={`${l}_${t.fields.slug}`} tw="list-none">
-                    <span tw="rounded-full px-4 mr-4 mb-3 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
-                      {t.children[0].sum}
-                    </span>
-                    <Link to={t.fields.slug}>{t.name}</Link>
-                  </li>
-                ))}
+                <ul>
+                  {data[l].nodes.map(t => (
+                    <li key={`${l}_${t.fields.slug}`} tw="list-none">
+                      <span tw="rounded-full px-4 mr-4 mb-3 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
+                        {t.children[0].sum}
+                      </span>
+                      <Link to={t.fields.slug}>{t.name}</Link>
+                    </li>
+                  ))}
+                </ul>
                 <Link
                   to={`/tag/${l}`}
                   tw="rounded-full px-4 mr-2 bg-gray-400 text-white p-2 rounded leading-none whitespace-no-wrap transition-all duration-300 hover:bg-gray-600"
