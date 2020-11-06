@@ -32,9 +32,11 @@ module.exports.getScreenshot = async url => {
     let outDir = `static/screenshots/websites`
     if (url.includes("github.com")) {
       outDir = `static/screenshots/github`
-      // https://github.com/sindresorhus/capture-website/issues/47
-      // screenshotOptions.waitForElement = ".markdown-body"
-      // screenshotOptions.scrollToElement = ".markdown-body"
+      // We are using a fork of capture-website. Move back to official version
+      // once https://github.com/sindresorhus/capture-website/issues/47 is
+      // fixed.
+      screenshotOptions.waitForElement = "#readme"
+      screenshotOptions.scrollToElement = "#readme"
     }
 
     fs.mkdirSync(outDir, { recursive: true })
