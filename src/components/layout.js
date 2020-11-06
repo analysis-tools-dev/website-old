@@ -20,6 +20,8 @@ export default ({ children }) => {
         <div tw="md:flex items-center">
           <Link to="/" tw="w-2/6 h-1 md:h-auto">
             <img
+              width="328px"
+              height="91px"
               src="/logo.svg"
               tw="w-4/6 mx-auto md:w-full"
               alt="Analysis tools logo"
