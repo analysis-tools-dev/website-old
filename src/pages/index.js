@@ -42,6 +42,8 @@ const Index = ({ data }) => {
               <div key={l} tw="border-b border-gray-200 pb-5 px-2">
                 <Link to={`/tag/${l}`} tw="capitalize mb-4 block">
                   <img
+                    width="64px"
+                    height="64px"
                     tw="hover:opacity-75 inline"
                     alt={l}
                     src={`/logos/${l}.svg`}

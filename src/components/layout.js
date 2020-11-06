@@ -61,7 +61,12 @@ export default ({ children }) => {
               that can help you improve code quality. All tools are
               peer-reviewed by fellow developers to meet high standards.
             </p>
-            <img src="/hero/hero.svg" alt="People analysing charts" />
+            <img
+              width="269px"
+              height="204px"
+              src="/hero/hero.svg"
+              alt="People analysing charts"
+            />
             <Link
               to="/blog/static-analysis-is-broken-lets-fix-it"
               tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
@@ -85,22 +90,42 @@ export default ({ children }) => {
             </p>
             <p tw="pb-6">
               <a href="https://www.deepcode.ai?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
-                <img alt="DeepCode logo" src="/sponsors/deepcode.svg" />
+                <img
+                  width="269px"
+                  height="50px"
+                  alt="DeepCode logo"
+                  src="/sponsors/deepcode.svg"
+                />
               </a>
             </p>
             <p tw="pb-6">
               <a href="https://deepsource.io?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
-                <img alt="Deepsource logo" src="/sponsors/deepsource.png" />
+                <img
+                  width="269px"
+                  height="50px"
+                  alt="Deepsource logo"
+                  src="/sponsors/deepsource.png"
+                />
               </a>
             </p>
             <p tw="pb-6">
               <a href="https://www.viva64.com/free-license">
-                <img alt="PVS Studio logo" src="/sponsors/pvs-studio.svg" />
+                <img
+                  width="269px"
+                  height="50px"
+                  alt="PVS Studio logo"
+                  src="/sponsors/pvs-studio.svg"
+                />
               </a>
             </p>
             <p tw="pb-6">
               <a href="https://codescene.io?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
-                <img alt="CodeScene logo" src="/sponsors/codescene.svg" />
+                <img
+                  width="269px"
+                  height="50px"
+                  alt="CodeScene logo"
+                  src="/sponsors/codescene.svg"
+                />
               </a>
             </p>
           </div>
@@ -130,6 +155,8 @@ export default ({ children }) => {
             <div tw="grid grid-cols-3 gap-3">
               <a href="/tag/python">
                 <img
+                  width="64"
+                  height="64"
                   tw="hover:opacity-75"
                   alt="Python"
                   src="/logos/python.svg"
