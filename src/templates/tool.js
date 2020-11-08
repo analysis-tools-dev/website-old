@@ -42,11 +42,45 @@ const getMetaDescription = tool => {
   return desc
 }
 
-const getToolsWithSameTags = (tool, others, count) => {
+const getSimilarTools = (tool, others, count) => {
   const tags = tool.tags
   let matches = []
   for (const other of others) {
     if (tool.fields.slug === other.fields.slug) {
+      continue
+    }
+    const sameIntegrations = tool.types.filter(t => other.types.includes(t))
+    if (sameIntegrations.length === 0) {
+      continue
+    }
+    const matching = tags.filter(t => other.tags.includes(t))
+    if (matching.length >= 1) {
+      matches.push({
+        name: other.name,
+        slug: other.fields.slug,
+        matching: matching,
+      })
+    }
+  }
+  matches.sort((a, b) => (a.matching.length < b.matching.length ? 1 : -1))
+  return matches.slice(0, count)
+}
+
+const getFreeTools = (tool, others, count) => {
+  if (tool.license !== "proprietary") {
+    return []
+  }
+  let matches = []
+  const tags = tool.tags
+  for (const other of others) {
+    if (tool.fields.slug === other.fields.slug) {
+      continue
+    }
+    const sameIntegrations = tool.types.filter(t => other.types.includes(t))
+    if (sameIntegrations.length === 0) {
+      continue
+    }
+    if (other.license === "proprietary") {
       continue
     }
     const matching = tags.filter(t => other.tags.includes(t))
@@ -66,7 +100,8 @@ export default function Tool(d) {
   const tool = d.data.toolsYaml
   const introText = getIntroText(tool)
   const metaDescription = getMetaDescription(tool)
-  const sameTagTools = getToolsWithSameTags(tool, d.data.allToolsYaml.nodes, 5)
+  const similarTools = getSimilarTools(tool, d.data.allToolsYaml.nodes, 5)
+  const freeTools = getFreeTools(tool, d.data.allToolsYaml.nodes, 5)
   return (
     <Layout>
       <Helmet>
@@ -196,11 +231,25 @@ export default function Tool(d) {
               </ul>
             </div>
           )}
-          {sameTagTools.length > 0 && (
+          {freeTools.length > 0 && (
             <div tw="mb-4">
-              <h3 tw="mt-3 mb-2 text-3xl font-semibold">Alternative Tools</h3>
+              <h3 tw="mt-3 mb-2 text-3xl font-semibold">
+                Free/OSS Alterantives
+              </h3>
               <ul tw="list-disc">
-                {sameTagTools.map(tool => (
+                {freeTools.map(tool => (
+                  <li tw="underline ml-4 py-1" key={tool.slug}>
+                    <a href={tool.slug}>{tool.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {similarTools.length > 0 && (
+            <div tw="mb-4">
+              <h3 tw="mt-3 mb-2 text-3xl font-semibold">Similar Tools</h3>
+              <ul tw="list-disc">
+                {similarTools.map(tool => (
                   <li tw="underline ml-4 py-1" key={tool.slug}>
                     <a href={tool.slug}>{tool.name}</a>
                   </li>
@@ -251,7 +300,6 @@ export const query = graphql`
         githubStats {
           stargazers_count
           created_at(formatString: "YYYY")
-          # archived
           forks_count
           language
           license {
@@ -281,8 +329,18 @@ export const query = graphql`
       nodes {
         name
         tags
+        types
+        license
         fields {
           slug
+        }
+        children {
+          ... on Votes {
+            sum
+            downVotes
+            upVotes
+            key
+          }
         }
       }
     }
