@@ -42,10 +42,31 @@ const getMetaDescription = tool => {
   return desc
 }
 
+const getToolsWithSameTags = (tool, others, count) => {
+  const tags = tool.tags
+  let matches = []
+  for (const other of others) {
+    if (tool.fields.slug === other.fields.slug) {
+      continue
+    }
+    const matching = tags.filter(t => other.tags.includes(t))
+    if (matching.length >= 1) {
+      matches.push({
+        name: other.name,
+        slug: other.fields.slug,
+        matching: matching,
+      })
+    }
+  }
+  matches.sort((a, b) => (a.matching.length < b.matching.length ? 1 : -1))
+  return matches.slice(0, count)
+}
+
 export default function Tool(d) {
   const tool = d.data.toolsYaml
   const introText = getIntroText(tool)
   const metaDescription = getMetaDescription(tool)
+  const sameTagTools = getToolsWithSameTags(tool, d.data.allToolsYaml.nodes, 5)
   return (
     <Layout>
       <Helmet>
@@ -175,6 +196,18 @@ export default function Tool(d) {
               </ul>
             </div>
           )}
+          {sameTagTools.length > 0 && (
+            <div tw="mb-4">
+              <h3 tw="mt-3 mb-2 text-3xl font-semibold">Alternative Tools</h3>
+              <ul tw="list-disc">
+                {sameTagTools.map(tool => (
+                  <li tw="underline ml-4 py-1" key={tool.slug}>
+                    <a href={tool.slug}>{tool.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div>
             <Utterances
               repo="analysis-tools-dev/website-comments"
@@ -241,6 +274,15 @@ export const query = graphql`
           downVotes
           upVotes
           key
+        }
+      }
+    }
+    allToolsYaml(filter: { deprecated: { ne: false } }) {
+      nodes {
+        name
+        tags
+        fields {
+          slug
         }
       }
     }
