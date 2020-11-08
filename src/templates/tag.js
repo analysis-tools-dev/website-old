@@ -131,12 +131,15 @@ const Tag = d => {
             <div tw="pt-6 w-full">
               <h3 tw="text-xl font-semibold pb-5">What is {tag.name}?</h3>
               <div tw="flex w-full">
-                <img
-                  style={{ width: 64 + "px", height: 64 + "px" }}
-                  alt=""
-                  src={tag.fields.logo}
-                />
-                <div tw="pl-5">
+                <div tw="flex-initial">
+                  <img
+                    width="64px"
+                    height="64px"
+                    alt=""
+                    src={tag.fields.logo}
+                  />
+                </div>
+                <div tw="flex-1 pl-5">
                   <p
                     tw="inline text-justify text-gray-600"
                     dangerouslySetInnerHTML={{
