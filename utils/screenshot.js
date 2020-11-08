@@ -15,42 +15,40 @@ const { slugify } = require("./slugify")
 const fs = require("fs")
 
 module.exports.getScreenshot = async url => {
+  let screenshotOptions = {
+    width: 1024,
+    scaleFactor: 0.5,
+    quality: 0.9,
+    overwrite: false,
+    type: "jpeg",
+  }
+
+  let outDir = `static/screenshots/websites`
+  if (url.includes("github.com")) {
+    outDir = `static/screenshots/github`
+    // We are using a fork of capture-website. Move back to official version
+    // once https://github.com/sindresorhus/capture-website/issues/47 is
+    // resolved.
+    screenshotOptions.waitForElement = "#readme"
+    screenshotOptions.scrollToElement = "#readme"
+  }
+
+  // Remove protocol from url for nicer file names.
+  const urlClean = url.replace(/(^\w+:|^)\/\/(www)?/, "")
+  const outPath = `${outDir}/${slugify(urlClean)}.jpg`
+  // Strip away `static`, as Gatsby puts
+  // those files into the server root on build.
+  const outURL = outPath.replace(/^static/, "")
+
+  if (fs.existsSync(outPath)) {
+    return outURL
+  }
+
   console.log(`Fetching screenshot for ${url}`)
   try {
-    if (!url) {
-      return
-    }
-
-    let screenshotOptions = {
-      width: 1024,
-      scaleFactor: 0.5,
-      quality: 0.9,
-      overwrite: false,
-      type: "jpeg",
-    }
-
-    let outDir = `static/screenshots/websites`
-    if (url.includes("github.com")) {
-      outDir = `static/screenshots/github`
-      // We are using a fork of capture-website. Move back to official version
-      // once https://github.com/sindresorhus/capture-website/issues/47 is
-      // fixed.
-      screenshotOptions.waitForElement = "#readme"
-      screenshotOptions.scrollToElement = "#readme"
-    }
-
     fs.mkdirSync(outDir, { recursive: true })
-
-    // Remove protocol from url for nicer file names.
-    const urlClean = url.replace(/(^\w+:|^)\/\/(www)?/, "")
-    const outPath = `${outDir}/${slugify(urlClean)}.jpg`
-
-    if (!fs.existsSync(outPath)) {
-      await throttledScreenshot(url, outPath, screenshotOptions)
-    }
-    // Strip away `static`, as Gatsby puts
-    // those files into the server root on build.
-    return outPath.replace(/^static/, "")
+    await throttledScreenshot(url, outPath, screenshotOptions)
+    return outURL
   } catch (err) {
     console.log(err)
     return
