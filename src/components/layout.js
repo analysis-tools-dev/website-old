@@ -94,7 +94,7 @@ export default ({ children }) => {
                   width="269px"
                   height="50px"
                   alt="DeepCode logo"
-                  src="/sponsors/deepcode.svg"
+                  src="/sponsors/deepcode.png"
                 />
               </a>
             </p>
