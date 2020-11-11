@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Vote from "../components/vote"
 import MainMedia from "../components/tool/main-media.js"
@@ -59,11 +59,13 @@ const getSimilarTools = (tool, others, count) => {
         name: other.name,
         slug: other.fields.slug,
         matching: matching,
+        votes: other.children[0].sum,
       })
     }
   }
   matches.sort((a, b) => (a.matching.length < b.matching.length ? 1 : -1))
-  return matches.slice(0, count)
+  let top = matches.slice(0, count)
+  return top.sort((a, b) => (a.votes < b.votes ? 1 : -1))
 }
 
 const getFreeTools = (tool, others, count) => {
@@ -89,11 +91,13 @@ const getFreeTools = (tool, others, count) => {
         name: other.name,
         slug: other.fields.slug,
         matching: matching,
+        votes: other.children[0].sum,
       })
     }
   }
   matches.sort((a, b) => (a.matching.length < b.matching.length ? 1 : -1))
-  return matches.slice(0, count)
+  let top = matches.slice(0, count)
+  return top.sort((a, b) => (a.votes < b.votes ? 1 : -1))
 }
 
 export default function Tool(d) {
@@ -238,8 +242,11 @@ export default function Tool(d) {
               </h3>
               <ul tw="list-disc">
                 {freeTools.map(tool => (
-                  <li tw="underline ml-4 py-1" key={`${tool.slug}-free`}>
-                    <a href={tool.slug}>{tool.name}</a>
+                  <li key={`${tool.slug}-free`} tw="list-none">
+                    <span tw="rounded-full px-4 mr-4 mb-3 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
+                      {tool.votes}
+                    </span>
+                    <Link to={tool.slug}>{tool.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -250,8 +257,11 @@ export default function Tool(d) {
               <h3 tw="mt-3 mb-2 text-3xl font-semibold">Similar Tools</h3>
               <ul tw="list-disc">
                 {similarTools.map(tool => (
-                  <li tw="underline ml-4 py-1" key={`${tool.slug}-similar`}>
-                    <a href={tool.slug}>{tool.name}</a>
+                  <li key={`${tool.slug}-similar`} tw="list-none">
+                    <span tw="rounded-full px-4 mr-4 mb-3 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
+                      {tool.votes}
+                    </span>
+                    <Link to={tool.slug}>{tool.name}</Link>
                   </li>
                 ))}
               </ul>
