@@ -238,7 +238,7 @@ export default function Tool(d) {
               </h3>
               <ul tw="list-disc">
                 {freeTools.map(tool => (
-                  <li tw="underline ml-4 py-1" key={tool.slug}>
+                  <li tw="underline ml-4 py-1" key={`${tool.slug}-free`}>
                     <a href={tool.slug}>{tool.name}</a>
                   </li>
                 ))}
@@ -250,7 +250,7 @@ export default function Tool(d) {
               <h3 tw="mt-3 mb-2 text-3xl font-semibold">Similar Tools</h3>
               <ul tw="list-disc">
                 {similarTools.map(tool => (
-                  <li tw="underline ml-4 py-1" key={tool.slug}>
+                  <li tw="underline ml-4 py-1" key={`${tool.slug}-similar`}>
                     <a href={tool.slug}>{tool.name}</a>
                   </li>
                 ))}
