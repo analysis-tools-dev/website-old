@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import { Link } from "gatsby"
 import "twin.macro"
 import { Helmet } from "react-helmet"
 
@@ -19,9 +20,9 @@ const Sponsor = ({ data }) => {
             Sponsor
           </h1>
           <p tw="mb-3">
-            We found that this project is attracting a lot of engineers that
-            care about code-quality and solid engineering standards. We think
-            this is a great opportunity to advertise solid analysis tools and
+            This project attracts a lot of engineers that care about
+            code-quality and high engineering standards. We think this is an
+            excellent opportunity to advertise solid analysis tools and
             workshops to a professional target audience.
           </p>
           <p tw="mb-3">
@@ -31,19 +32,19 @@ const Sponsor = ({ data }) => {
             </b>
           </p>
           <p tw="mb-3">
-            We believe that this project should be completely open to avoid bias
-            and gatekeepers, which promote tools purely based on monetary interest and
-            not on quality. Since we want this to be a community project
-            and the code/assets be freely available to everyone, we’ll use
-            Github Sponsors + Open Collective for funding. 
+            We believe that this project should be entirely open to avoid bias
+            and gatekeepers, which promote tools purely based on monetary
+            interest and not on quality. Since we want this to be a community
+            project and the code/assets to be freely available to everyone,
+            we’ll use Github Sponsors + Open Collective for funding.
           </p>
           <p tw="mb-3">
-            <a
-              tw="underline"
-              href="https://github.com/sponsors/analysis-tools-dev/"
+            <Link
+              to="https://github.com/sponsors/analysis-tools-dev/"
+              tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
             >
-              Check out our Github Sponsors page here
-            </a>
+              More info
+            </Link>
           </p>
         </div>
       </article>
