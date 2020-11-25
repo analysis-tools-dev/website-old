@@ -14,26 +14,30 @@ const Compare = d => {
         <table tw="w-full overflow-x-auto block border">
           <thead>
             <tr>
-              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Votes</th>
-              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Tool</th>
-              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Category</th>
-              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Type</th>
-              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Tags</th>
-              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">License</th>
+              <th tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">Votes</th>
+              <th tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">Tool</th>
+              <th tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">
+                Category
+              </th>
+              <th tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">Type</th>
+              <th tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">Tags</th>
+              <th tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">
+                License
+              </th>
             </tr>
           </thead>
           <tbody tw="divide-y">
             {tools.map(tool => (
               <tr>
-                <td tw="text-center py-2">{tool.children[0].sum}</td>
-                <td tw="text-center py-2">
+                <td tw="text-center md:py-2">{tool.children[0].sum}</td>
+                <td tw="text-center md:py-2">
                   <Link to={tool.fields.slug} tw="underline">
                     {tool.name}
                   </Link>
                 </td>
-                <td tw="text-center py-2">{tool.categories.join(", ")}</td>
-                <td tw="text-center py-2">{tool.types.join(", ")}</td>
-                <td tw="text-center py-2">
+                <td tw="text-center md:py-2">{tool.categories.join(", ")}</td>
+                <td tw="text-center md:py-2">{tool.types.join(", ")}</td>
+                <td tw="text-center md:py-2">
                   <ul tw="list-none max-w-sm inline-block align-top">
                     {tool.tags &&
                       tool.tags.slice(0, 3).map(tag => (
@@ -57,7 +61,7 @@ const Compare = d => {
                     )}
                   </ul>
                 </td>
-                <td tw="text-center py-2">{tool.license}</td>
+                <td tw="text-center md:py-2">{tool.license}</td>
               </tr>
             ))}
           </tbody>
