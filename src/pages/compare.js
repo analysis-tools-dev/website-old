@@ -8,15 +8,17 @@ const Compare = d => {
   return (
     <Layout>
       <article tw="shadow w-full p-8">
-        <h1 tw="text-3xl font-semibold pb-10">Compare All Tools</h1>
+        <h1 tw="text-3xl font-semibold pb-10">
+          Comparing {tools.length} Analysis Tools
+        </h1>
         <table class="table-fixed relative border">
           <thead>
             <tr>
               <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Tool</th>
               <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Category</th>
               <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Type</th>
-              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">License</th>
               <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Tags</th>
+              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">License</th>
             </tr>
           </thead>
           <tbody tw="divide-y">
@@ -29,7 +31,6 @@ const Compare = d => {
                 </td>
                 <td tw="text-center py-2">{tool.categories.join(", ")}</td>
                 <td tw="text-center py-2">{tool.types.join(", ")}</td>
-                <td tw="text-center py-2">{tool.license}</td>
                 <td tw="text-center py-2">
                   <ul tw="list-none max-w-sm inline-block align-top">
                     {tool.tags &&
@@ -54,6 +55,7 @@ const Compare = d => {
                     )}
                   </ul>
                 </td>
+                <td tw="text-center py-2">{tool.license}</td>
               </tr>
             ))}
           </tbody>
