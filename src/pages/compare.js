@@ -9,51 +9,49 @@ const Compare = d => {
     <Layout>
       <article tw="shadow w-full p-8">
         <h1 tw="text-3xl font-semibold pb-10">Compare All Tools</h1>
-        <table class="table-auto w-full relative border">
+        <table class="table-fixed relative border">
           <thead>
             <tr>
-              <th tw="sticky top-0 px-6 py-3 text-gray-900 bg-gray-100">
-                Tool
-              </th>
-              <th tw="sticky top-0 px-6 py-3 text-gray-900 bg-gray-100">
-                Category
-              </th>
-              <th tw="sticky top-0 px-6 py-3 text-gray-900 bg-gray-100">
-                Type
-              </th>
-              <th tw="sticky top-0 px-6 py-3 text-gray-900 bg-gray-100">
-                License
-              </th>
-              <th tw="sticky top-0 px-6 py-3 text-gray-900 bg-gray-100">
-                Tags
-              </th>
+              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Tool</th>
+              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Category</th>
+              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Type</th>
+              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">License</th>
+              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Tags</th>
             </tr>
           </thead>
           <tbody tw="divide-y">
             {tools.map(tool => (
               <tr>
-                <td tw="px-6 py-4 text-center">
+                <td tw="text-center">
                   <Link to={tool.fields.slug} tw="underline pb-4 flex">
                     {tool.name}
                   </Link>
                 </td>
-                <td tw="px-6 py-4 text-center">{tool.categories.join(", ")}</td>
-                <td tw="px-6 py-4 text-center">{tool.types.join(", ")}</td>
-                <td tw="px-6 py-4 text-center">{tool.license}</td>
-                <td tw="px-6 py-4 text-center">
+                <td tw="text-center py-2">{tool.categories.join(", ")}</td>
+                <td tw="text-center py-2">{tool.types.join(", ")}</td>
+                <td tw="text-center py-2">{tool.license}</td>
+                <td tw="text-center py-2">
                   <ul tw="list-none max-w-sm inline-block align-top">
-                    {tool.tags.map(tag => (
-                      <li
-                        tw="mb-2 mr-1 inline-block"
-                        key={`${tool.fields.slug}${tag}`}
-                      >
-                        <a href={"/tag/" + tag}>
-                          <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">
-                            {tag}
-                          </span>
-                        </a>
-                      </li>
-                    ))}
+                    {tool.tags &&
+                      tool.tags.slice(0, 3).map(tag => (
+                        <li
+                          tw="mb-2 mr-1 inline-block"
+                          key={`${tool.fields.slug}${tag}`}
+                        >
+                          <a href={"/tag/" + tag}>
+                            <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">
+                              {tag}
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    {tool.tags.length > 3 && (
+                      <a href={tool.fields.slug}>
+                        <span tw="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded">
+                          more...
+                        </span>
+                      </a>
+                    )}
                   </ul>
                 </td>
               </tr>
