@@ -9,7 +9,7 @@ const Compare = d => {
     <Layout>
       <article tw="shadow w-full p-2 md:p-8">
         <h1 tw="text-3xl font-semibold pb-10">
-          Comparing {tools.length} Analysis Tools
+          Compare {tools.length} Analysis Tools
         </h1>
         <table tw="w-full overflow-x-auto block border">
           <thead>
