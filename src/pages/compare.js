@@ -14,6 +14,7 @@ const Compare = d => {
         <table class="table-fixed relative border">
           <thead>
             <tr>
+              <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Votes</th>
               <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Tool</th>
               <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Category</th>
               <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Type</th>
@@ -24,8 +25,9 @@ const Compare = d => {
           <tbody tw="divide-y">
             {tools.map(tool => (
               <tr>
-                <td tw="text-center">
-                  <Link to={tool.fields.slug} tw="underline pb-4 flex">
+                <td tw="text-center py-2">{tool.children[0].sum}</td>
+                <td tw="text-center py-2">
+                  <Link to={tool.fields.slug} tw="underline">
                     {tool.name}
                   </Link>
                 </td>
@@ -81,6 +83,14 @@ export const query = graphql`
           slug
           githubStats {
             stargazers_count
+          }
+        }
+        children {
+          ... on Votes {
+            sum
+            downVotes
+            upVotes
+            key
           }
         }
       }
