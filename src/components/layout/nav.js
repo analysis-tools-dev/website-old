@@ -14,12 +14,6 @@ const Nav = () => {
           <NavLink to="/tools">Categories</NavLink>
           <NavLink to="/blog">Blog</NavLink>
           <NavLink to="/sponsor">Sponsor</NavLink>
-          <a
-            href="https://github.com/analysis-tools-dev/static-analysis/blob/master/CONTRIBUTING.md"
-            tw="transition-all duration-300 hover:bg-gray-400 rounded my-1 mx-1 p-2"
-          >
-            Contribute
-          </a>
         </div>
       </div>
     </nav>

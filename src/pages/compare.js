@@ -7,11 +7,11 @@ const Compare = d => {
   const tools = d.data.allToolsYaml.nodes
   return (
     <Layout>
-      <article tw="shadow w-full p-8">
+      <article tw="shadow w-full p-2 md:p-8">
         <h1 tw="text-3xl font-semibold pb-10">
           Comparing {tools.length} Analysis Tools
         </h1>
-        <table class="table-fixed relative border">
+        <table tw="w-full overflow-x-auto block border">
           <thead>
             <tr>
               <th tw="sticky top-0 py-2 text-gray-900 bg-gray-100">Votes</th>
