@@ -26,9 +26,6 @@ module.exports.getScreenshot = async url => {
   let outDir = `static/screenshots/websites`
   if (url.includes("github.com")) {
     outDir = `static/screenshots/github`
-    // We are using a fork of capture-website. Move back to official version
-    // once https://github.com/sindresorhus/capture-website/issues/47 is
-    // resolved.
     screenshotOptions.waitForElement = "#readme"
     screenshotOptions.scrollToElement = "#readme"
   }

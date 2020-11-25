@@ -19,7 +19,7 @@
     "@sentry/gatsby": "^5.25.0",
     "algoliasearch": "^4.2.0",
     "bottleneck": "^2.19.5",
-    "capture-website": "mre/capture-website#fix-scrollToElement",
+    "capture-website": "^1.2.5",
     "gatsby": "^2.21.21",
     "gatsby-cli": "^2.12.60",
     "gatsby-plugin-algolia": "^0.11.0",
