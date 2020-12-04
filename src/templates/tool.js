@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Vote from "../components/vote"
 import MainMedia from "../components/tool/main-media.js"
@@ -42,10 +42,70 @@ const getMetaDescription = tool => {
   return desc
 }
 
+const getSimilarTools = (tool, others, count) => {
+  const tags = tool.tags
+  let matches = []
+  for (const other of others) {
+    if (tool.fields.slug === other.fields.slug) {
+      continue
+    }
+    const sameIntegrations = tool.types.filter(t => other.types.includes(t))
+    if (sameIntegrations.length === 0) {
+      continue
+    }
+    const matching = tags.filter(t => other.tags.includes(t))
+    if (matching.length >= 1) {
+      matches.push({
+        name: other.name,
+        slug: other.fields.slug,
+        matching: matching,
+        votes: other.children[0].sum,
+      })
+    }
+  }
+  matches.sort((a, b) => (a.matching.length < b.matching.length ? 1 : -1))
+  let top = matches.slice(0, count)
+  return top.sort((a, b) => (a.votes < b.votes ? 1 : -1))
+}
+
+const getFreeTools = (tool, others, count) => {
+  if (tool.license !== "proprietary") {
+    return []
+  }
+  let matches = []
+  const tags = tool.tags
+  for (const other of others) {
+    if (tool.fields.slug === other.fields.slug) {
+      continue
+    }
+    const sameIntegrations = tool.types.filter(t => other.types.includes(t))
+    if (sameIntegrations.length === 0) {
+      continue
+    }
+    if (other.license === "proprietary") {
+      continue
+    }
+    const matching = tags.filter(t => other.tags.includes(t))
+    if (matching.length >= 1) {
+      matches.push({
+        name: other.name,
+        slug: other.fields.slug,
+        matching: matching,
+        votes: other.children[0].sum,
+      })
+    }
+  }
+  matches.sort((a, b) => (a.matching.length < b.matching.length ? 1 : -1))
+  let top = matches.slice(0, count)
+  return top.sort((a, b) => (a.votes < b.votes ? 1 : -1))
+}
+
 export default function Tool(d) {
   const tool = d.data.toolsYaml
   const introText = getIntroText(tool)
   const metaDescription = getMetaDescription(tool)
+  const similarTools = getSimilarTools(tool, d.data.allToolsYaml.nodes, 5)
+  const freeTools = getFreeTools(tool, d.data.allToolsYaml.nodes, 5)
   return (
     <Layout>
       <Helmet>
@@ -175,6 +235,38 @@ export default function Tool(d) {
               </ul>
             </div>
           )}
+          {freeTools.length > 0 && (
+            <div tw="mb-4">
+              <h3 tw="mt-3 mb-2 text-3xl font-semibold">
+                Free/OSS Alterantives
+              </h3>
+              <ul tw="list-disc">
+                {freeTools.map(tool => (
+                  <li key={`${tool.slug}-free`} tw="list-none">
+                    <span tw="rounded-full px-4 mr-4 mb-3 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
+                      {tool.votes}
+                    </span>
+                    <Link to={tool.slug}>{tool.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {similarTools.length > 0 && (
+            <div tw="mb-4">
+              <h3 tw="mt-3 mb-2 text-3xl font-semibold">Similar Tools</h3>
+              <ul tw="list-disc">
+                {similarTools.map(tool => (
+                  <li key={`${tool.slug}-similar`} tw="list-none">
+                    <span tw="rounded-full px-4 mr-4 mb-3 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
+                      {tool.votes}
+                    </span>
+                    <Link to={tool.slug}>{tool.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div>
             <Utterances
               repo="analysis-tools-dev/website-comments"
@@ -219,7 +311,6 @@ export const query = graphql`
         githubStats {
           stargazers_count
           created_at(formatString: "YYYY")
-          # archived
           forks_count
           language
           license {
@@ -242,6 +333,25 @@ export const query = graphql`
           downVotes
           upVotes
           key
+        }
+      }
+    }
+    allToolsYaml(filter: { deprecated: { ne: false } }) {
+      nodes {
+        name
+        tags
+        types
+        license
+        fields {
+          slug
+        }
+        children {
+          ... on Votes {
+            sum
+            downVotes
+            upVotes
+            key
+          }
         }
       }
     }

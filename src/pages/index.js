@@ -24,7 +24,7 @@ const Index = ({ data }) => {
         </title>
       </Helmet>
       <article tw="flex flex-col shadow w-full">
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+        <div tw="bg-white flex flex-col justify-start p-4 sm:p-6 w-full">
           <p tw="text-xl font-semibold pb-5">
             Popular Static Analysis Tools by Language
           </p>
@@ -39,26 +39,35 @@ const Index = ({ data }) => {
               "csharp",
               "java",
             ].map(l => (
-              <div key={l} tw="border-b border-gray-200 pb-5 px-2">
-                <Link to={`/tag/${l}`} tw="capitalize mb-4 block">
+              <div key={l} tw="border-b border-gray-200 pb-5">
+                <Link
+                  to={`/tag/${l}`}
+                  tw="capitalize mb-4 flex flex-col sm:flex-row sm:items-center"
+                >
                   <img
+                    width="64px"
+                    height="64px"
                     tw="hover:opacity-75 inline"
                     alt={l}
                     src={`/logos/${l}.svg`}
                   />
-                  <span tw="text-xl font-semibold ml-3">{l}</span>
+                  <span tw="text-xl font-semibold sm:ml-3">{l}</span>
                 </Link>
-                {data[l].nodes.map(t => (
-                  <li key={`${l}_${t.fields.slug}`} tw="list-none">
-                    <span tw="rounded-full px-4 mr-4 mb-3 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
-                      {t.children[0].sum}
-                    </span>
-                    <Link to={t.fields.slug}>{t.name}</Link>
-                  </li>
-                ))}
+                <ul>
+                  {data[l].nodes.map(t => (
+                    <li key={`${l}_${t.fields.slug}`} tw="list-none mb-2">
+                      <span tw="rounded-full px-4 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
+                        {t.children[0].sum}
+                      </span>
+                      <span tw="ml-2">
+                        <Link to={t.fields.slug}>{t.name}</Link>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
                 <Link
                   to={`/tag/${l}`}
-                  tw="rounded-full px-4 mr-2 bg-gray-400 text-white p-2 rounded leading-none whitespace-no-wrap transition-all duration-300 hover:bg-gray-600"
+                  tw="inline-block w-auto px-4 mt-2 bg-gray-400 text-white p-2 rounded leading-none whitespace-no-wrap transition-all duration-300 hover:bg-gray-600"
                 >
                   Show {data[l].totalCount - 3} more
                 </Link>

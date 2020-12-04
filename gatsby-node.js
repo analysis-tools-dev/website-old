@@ -99,7 +99,6 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-// generate slugs for our data
 exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions
 
