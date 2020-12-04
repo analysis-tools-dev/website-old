@@ -25,7 +25,10 @@ const MainMedia = ({ tool }) => {
   }
 
   if (video) {
-    items.push({ type: "video", source: video })
+    const thumbJson = (tool.fields.thumbnail_string) ? 
+        JSON.parse(tool.fields.thumbnail_string) : {}
+
+    items.push({ type: "video", source: video, thumbnail: thumbJson})
   }
 
   return (

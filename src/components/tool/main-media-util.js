@@ -11,43 +11,6 @@ import {
   getSliderSetting
 } from "./main-media-util-helper"
 
-/**
- * 
- * **Credits**  
- *    Author : yangshun
- *    Gist link : https://gist.github.com/yangshun/9892961
- */
-const parseVideo = url => {
-  url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(&\S+)?/);
-
-  const type = RegExp.$3.indexOf("youtu") > -1 ? "youtube" :
-              RegExp.$3.indexOf("vimeo") > -1 ? "vimeo" 
-              : undefined
-
-  return {
-    type: type,
-    id: RegExp.$6
-  }
-}
-
-const getVideoThumbnailUrl = async url => {
-  const video = parseVideo(url)
-  if (video.type === "youtube")
-    return video.id ? "https://img.youtube.com/vi/" + video.id + "/maxresdefault.jpg" : "#"
-  if (video.type === "vimeo") {
-    const fetched = (async videoId => {
-      let result = {}
-      try {
-        const response = await fetch("https://vimeo.com/api/v2/video/" + videoId + ".json")
-        result = await response.json()
-        return result[0].thumbnail_large
-      } catch (e) {
-        console.error("Error while fetching Vimeo video data", e)
-      }
-    })
-    return fetched(video.id)
-  }
-}
 
 const renderMainMediaDisplayElement = {
   video: video => {
@@ -121,7 +84,7 @@ export const MainMediaUtil = ({data}) => {
   const populateVideoThumbnails = async () => {
     items.map(async item => {
       if (item.type !== "video") return
-      const url = await getVideoThumbnailUrl(item.source.url)
+      const url = item.thumbnail[item.source.url]
       const target = document.querySelector("#" + item.source.key + "_img")
       target.setAttribute("src", url)
     })
