@@ -3,7 +3,7 @@ const fs = require(`fs`)
 const { slugify } = require("./utils/slugify")
 const { getGithubStats } = require("./utils/githubStats")
 const { getScreenshot } = require("./utils/screenshot")
-
+const { getThumbnailString } = require("./utils/thumbnail")
 // generate pages for slugs
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -152,5 +152,14 @@ exports.onCreateNode = async ({ node, actions }) => {
         value: screenshot,
       })
     }
+
+    const thumbnailString = await getThumbnailString(node.resources) 
+    if (thumbnailString) { 
+      createNodeField({ 
+        node, 
+        name: `thumbnail_string`, 
+        value: thumbnailString, 
+      }) 
+    } 
   }
 }

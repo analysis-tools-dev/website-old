@@ -307,6 +307,7 @@ export const query = graphql`
       fields {
         slug
         screenshot
+        thumbnail_string
         githubStats {
           stargazers_count
           created_at(formatString: "YYYY")
