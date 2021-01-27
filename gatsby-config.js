@@ -117,6 +117,28 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `dynamic-analysis-tools`,
+        remote: `https://github.com/analysis-tools-dev/dynamic-analysis.git`,
+        // Optionally supply a branch. If none supplied, you'll get the default branch.
+        branch: `master`,
+        // Tailor which files get imported e.g. import the docs folder from a codebase.
+        patterns: `data/tools/*.yml`,
+      },
+    },
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `dynamic-analysis-tags`,
+        remote: `https://github.com/analysis-tools-dev/dynamic-analysis.git`,
+        // Optionally supply a branch. If none supplied, you'll get the default branch.
+        branch: `master`,
+        // Tailor which files get imported e.g. import the docs folder from a codebase.
+        patterns: `data/tags.yml`,
+      },
+    },
+    {
       // This plugin must be placed last in your list of plugins to ensure that it can query all the GraphQL data
       resolve: `gatsby-plugin-algolia`,
       options: {

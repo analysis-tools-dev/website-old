@@ -46,10 +46,12 @@ const Tools = ({ data }) => {
   const filteredLanguages = data.languages.nodes.filter(lang => {
     return lang.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
   })
+  console.log(filteredLanguages);
 
   const filteredOther = data.other.nodes.filter(other => {
     return other.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
   })
+
 
   return (
     <Layout>
