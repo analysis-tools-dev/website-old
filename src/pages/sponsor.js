@@ -17,12 +17,12 @@ const Sponsor = ({ data }) => {
             <span role="img" aria-label="heart">
               ❤️
             </span>{" "}
-            Sponsor
+            Reach Thousands Of Devs Interested In Code Quality
           </h1>
           <p tw="mb-3">
             This project attracts a lot of engineers that care about
             code-quality and high engineering standards. We think this is an
-            excellent opportunity to advertise solid analysis tools and
+            excellent opportunity to highlight solid analysis tools and
             workshops to a professional target audience.
           </p>
           <p tw="mb-3">
@@ -39,11 +39,15 @@ const Sponsor = ({ data }) => {
             we’ll use Github Sponsors + Open Collective for funding.
           </p>
           <p tw="mb-3">
+            If you believe in the same values, don't hestitate to reach out via mail at
+            &#104;&#101;&#108;&#108;&#111;&#064;&#097;&#110;&#097;&#108;&#121;&#115;&#105;&#115;&#045;&#116;&#111;&#111;&#108;&#115;&#046;&#100;&#101;&#118;
+          </p>
+          <p tw="mb-3">
             <Link
               to="https://github.com/sponsors/analysis-tools-dev/"
               tw="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 duration-300 transition-all flex items-center justify-center px-2 py-3 mt-4"
             >
-              More info
+              More Info On Github Sponsors
             </Link>
           </p>
         </div>
