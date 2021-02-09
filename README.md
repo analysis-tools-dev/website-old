@@ -40,7 +40,7 @@ Thanks for considering to contribute to this project. Here's how to get started:
     ```shell
     cd website/
     yarn install
-    yarn develop
+    yarn dev
     ```
 
 3.  **Open the source code and start editing!**
