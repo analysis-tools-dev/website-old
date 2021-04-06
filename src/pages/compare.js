@@ -80,7 +80,6 @@ export const query = graphql`
         discussion
         license
         name
-        proprietary
         tags
         types
         fields {
