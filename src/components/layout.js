@@ -1,6 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
-import tw, { styled } from "twin.macro"
 import Header from "./layout/header"
 import Nav from "./layout/nav"
 import Aside from "./layout/aside"

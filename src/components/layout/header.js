@@ -1,6 +1,5 @@
 import React from "react"
 import Search from "../search"
-import tw, { styled } from "twin.macro"
 import { Link } from "gatsby"
 
 const searchIndices = [
