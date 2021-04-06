@@ -27,31 +27,40 @@ If you also want to support this project, head over to our [Github sponsors page
 
 Thanks for considering to contribute to this project. Here's how to get started:
 
-1.  **Clone the repo**
+1. **Install the required tools**
 
-    ```shell
-    git@github.com:analysis-tools-dev/website.git
-    ```
+For development, you need [Webpack](https://webpack.js.org/guides/getting-started/) and [Yarn](https://yarnpkg.com/):
 
-2.  **Start developing.**
+```
+npm install webpack webpack-cli --save-dev
+npm install -g yarn
+```
 
-    Navigate into your new site’s directory and start it up.
+2. **Clone the repo**
 
-    ```shell
-    cd website/
-    yarn install
-    yarn dev
-    ```
+```shell
+git@github.com:analysis-tools-dev/website.git
+```
 
-3.  **Open the source code and start editing!**
+3. **Start developing.**
 
-    Your site is now running at `http://localhost:8000`!
+Navigate into your new site’s directory and start it up.
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+```shell
+cd website/
+yarn install
+yarn dev
+```
 
-    Open the `website` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+4. **Open the source code and start editing!**
 
-4.  **Send us a pull request**
+Your site is now running at `http://localhost:8000`!
 
-    Once you're happy with your changes, please send us a pull request and we'll review it promptly.
-    Don't be afraid to make small changes or ask for feedback early. We're happy to help!
+_Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+
+Open the `website` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+
+5.  **Send us a pull request**
+
+Once you're happy with your changes, please send us a pull request and we'll review it promptly.
+Don't be afraid to make small changes or ask for feedback early. We're happy to help!
