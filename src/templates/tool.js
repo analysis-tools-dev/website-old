@@ -20,6 +20,8 @@ import {
   FaTags,
 } from "react-icons/fa"
 import Utterances from "utterances-react"
+import Chart from "../components/chart"
+
 const { titleCase } = require("../../utils/str")
 const { getPopularTagString } = require("../../utils/tag")
 
@@ -281,6 +283,15 @@ export default function Tool(d) {
             }
           `}
             />
+
+          </div>
+          <div>
+            <Chart/>
+         
+            
+          </div>
+          <div>
+         
           </div>
         </div>
       </article>
