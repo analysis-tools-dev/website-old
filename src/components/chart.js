@@ -1,6 +1,8 @@
 
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import "twin.macro"
+
  
 const DATA = [
   {
@@ -850,15 +852,11 @@ function Graph() {
   };
  
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        textAlign: "center",
-      }}
-    >
-      <br />
-      <h2>star history</h2>
-      <br />
+  
+    <div tw="mb-4">
+  
+      <h3 tw="mt-3 mb-2 font-bold">Star History</h3>
+    
       <ReactApexChart
         options={options}
         series={series}
