@@ -1,7 +1,11 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Vote from "../components/vote"
+
 import Layout from "../components/layout_wide"
 import "twin.macro"
+
+
 
 const Compare = d => {
   const tools = d.data.allToolsYaml.nodes
@@ -28,8 +32,10 @@ const Compare = d => {
           </thead>
           <tbody tw="divide-y">
             {tools.map(tool => (
-              <tr>
-                <td tw="text-center md:py-2">{tool.children[0].sum}</td>
+            <tr>
+              <td tw="text-center md:py-2">
+            <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
+          </td>
                 <td tw="text-center md:py-2">
                   <Link to={tool.fields.slug} tw="underline">
                     {tool.name}
