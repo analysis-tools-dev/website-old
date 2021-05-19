@@ -147,13 +147,5 @@ module.exports = {
       },
     },
     "gatsby-plugin-postcss",
-    {
-      resolve: "gatsby-plugin-purgecss",
-      options: {
-        printRejected: false,
-        develop: false,
-        tailwind: true,
-      },
-    },
   ],
 }

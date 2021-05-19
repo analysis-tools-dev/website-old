@@ -44,7 +44,6 @@
     "gatsby-plugin-algolia": "^0.20.0",
     "gatsby-plugin-emotion": "^6.5.0",
     "gatsby-plugin-postcss": "^4.5.0",
-    "gatsby-plugin-purgecss": "^6.0.2",
     "gatsby-plugin-react-helmet": "^4.5.0",
     "gatsby-plugin-sitemap": "^4.1.0",
     "gatsby-plugin-typography": "^3.5.0",
