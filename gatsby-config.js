@@ -56,6 +56,13 @@ module.exports = {
     title: `Analysis Tools`,
     siteUrl: `https://analysis-tools.dev`,
   },
+  flags: {
+    DEV_SSR: true,
+    FAST_DEV: true,
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
+  },
   plugins: [
     `gatsby-transformer-votes`,
     `gatsby-plugin-sitemap`,
