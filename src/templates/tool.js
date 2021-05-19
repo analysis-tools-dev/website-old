@@ -31,9 +31,9 @@ const getIntroText = tool => {
   }
 
   let votes = tool.children[0].sum
-  if (votes == 0) {
+  if (votes === 0) {
     text += " and Alternatives + Comparison"
-  } else if (votes == 1) {
+  } else if (votes === 1) {
     text += ` (${votes} vote)`
   } else {
     text += ` (${votes} votes)`
@@ -251,7 +251,7 @@ export default function Tool(d) {
               <ul tw="list-disc">
                 {freeTools.map(tool => (
                   <li key={`${tool.slug}-free`} tw="list-none">
-                    <span tw="rounded-full px-4 mr-4 mb-3 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
+                    <span tw="rounded-full px-4 mr-4 mb-3 bg-yellow-300 text-white p-2 rounded-full leading-none inline-block">
                       {tool.votes}
                     </span>
                     <Link to={tool.slug}>{tool.name}</Link>
@@ -266,7 +266,7 @@ export default function Tool(d) {
               <ul tw="list-disc">
                 {similarTools.map(tool => (
                   <li key={`${tool.slug}-similar`} tw="list-none">
-                    <span tw="rounded-full px-4 mr-4 mb-3 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
+                    <span tw="rounded-full px-4 mr-4 mb-3 bg-yellow-300 text-white p-2 rounded-full leading-none inline-block">
                       {tool.votes}
                     </span>
                     <Link to={tool.slug}>{tool.name}</Link>
