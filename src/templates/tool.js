@@ -24,11 +24,19 @@ const { titleCase } = require("../../utils/str")
 const { getPopularTagString } = require("../../utils/tag")
 
 const getIntroText = tool => {
-  let votes = tool.children[0].sum
   let tags = getPopularTagString(tool.tags, 3)
   let text = `Static analysis tool for ${tags}`
   if (tool.license.toLowerCase() !== "proprietary") {
-    text = `Free static analysis tool for ${tags} (${votes} votes)`
+    text = `Free static analysis tool for ${tags}`
+  }
+
+  let votes = tool.children[0].sum
+  if (votes == 0) {
+    text += " and Alternatives + Comparison"
+  } else if (votes == 1) {
+    text += ` (${votes} vote)`
+  } else {
+    text += ` (${votes} votes)`
   }
   return titleCase(text)
 }
@@ -112,7 +120,7 @@ export default function Tool(d) {
         <meta charSet="utf-8" />
         <meta name="description" content={metaDescription} />
         <title>
-          {tool.name}: {introText}
+          {tool.name} - {introText}
         </title>
       </Helmet>
       <article tw="shadow w-full">
@@ -254,7 +262,7 @@ export default function Tool(d) {
           )}
           {similarTools.length > 0 && (
             <div tw="mb-4">
-              <h3 tw="mt-3 mb-2 text-3xl font-semibold">Similar Tools</h3>
+              <h3 tw="mt-3 mb-2 text-xl font-semibold">Alternative Tools</h3>
               <ul tw="list-disc">
                 {similarTools.map(tool => (
                   <li key={`${tool.slug}-similar`} tw="list-none">
