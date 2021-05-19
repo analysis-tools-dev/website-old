@@ -1,12 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
-import tw, { styled } from "twin.macro"
+import "twin.macro"
 import Header from "./layout/header"
 import Nav from "./layout/nav"
 import Aside from "./layout/aside"
 import Footer from "./layout/footer"
 
-export default ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <div>
       <Header />
@@ -19,3 +18,5 @@ export default ({ children }) => {
     </div>
   )
 }
+
+export default Layout
