@@ -39,7 +39,7 @@ npm install -g yarn
 2. **Clone the repo**
 
 ```shell
-git@github.com:analysis-tools-dev/website.git
+git clone git@github.com:analysis-tools-dev/website.git
 ```
 
 3. **Start developing.**
