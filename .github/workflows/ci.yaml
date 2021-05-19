@@ -23,7 +23,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: "13.8.0"
+          node-version: "14"
 
       - uses: actions/cache@v1
         id: node_modules
