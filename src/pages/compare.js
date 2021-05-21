@@ -37,7 +37,7 @@ tools = tools.sort();
                   </Link>
                 </td>
                 <td tw="text-center px-6 py-2">{tool.categories.join(", ")}</td>
-                <td tw="text-center px-6 py-2">{tool.types.join(", ")}</td>
+                <td tw="text-center px-6 py-2 ">{tool.types.join(", ")}</td>
                 <td tw="text-center px-6 py-2">
                   <ul tw="list-none max-w-sm inline-block align-top">
                     {tool.tags &&
@@ -62,7 +62,7 @@ tools = tools.sort();
                     )}
                   </ul>
                 </td>
-                <td tw="text-center md:py-4">{tool.license}</td>
+                <td tw="text-center px-6 py-2">{tool.license}</td>
               </tr>
             )
 )}
