@@ -7,7 +7,6 @@ import "twin.macro"
 
 const Compare = d => {
 let tools = d.data.allToolsYaml.nodes;
-tools.filter(tool => parseInt(tool.children[0].sum) >= 10)
 tools = tools.sort();
   return (
     <Layout>
