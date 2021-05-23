@@ -56,6 +56,13 @@ module.exports = {
     title: `Analysis Tools`,
     siteUrl: `https://analysis-tools.dev`,
   },
+  flags: {
+    DEV_SSR: true,
+    FAST_DEV: true,
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
+  },
   plugins: [
     `gatsby-transformer-votes`,
     `gatsby-plugin-sitemap`,
@@ -129,16 +136,16 @@ module.exports = {
         settings: {
           // optional, any index settings
         },
-        enablePartialUpdates: true,
-        matchFields: ["slug", "modified"], // Array<String> default: ['modified']
       },
     },
     {
       resolve: "@sentry/gatsby",
       options: {
-        dsn: "https://ee77a43505304f92998feebcb57adac7@o457309.ingest.sentry.io/5453104",
+        dsn:
+          "https://ee77a43505304f92998feebcb57adac7@o457309.ingest.sentry.io/5453104",
         sampleRate: 0.7,
       },
     },
+    "gatsby-plugin-postcss",
   ],
 }

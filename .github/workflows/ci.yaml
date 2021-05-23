@@ -23,7 +23,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: "13.8.0"
+          node-version: "14"
 
       - uses: actions/cache@v1
         id: node_modules
@@ -67,12 +67,3 @@ jobs:
         with:
           name: Lighthouse reports
           path: lighthouse-reports/
-      # - name: Check Lighthouse performance budget
-      #   uses: foo-software/lighthouse-check-status-action@master
-      #   with:
-      #     outputDirectory: build/lighthouse-reports/
-      #     minAccessibilityScore: "70"
-      #     minBestPracticesScore: "90"
-      #     minSeoScore: "70"
-      # The following check is not advised as performance varies greatly between runs.
-      # minPerformanceScore: "50"

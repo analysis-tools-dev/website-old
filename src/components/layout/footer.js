@@ -1,7 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
-import tw, { styled } from "twin.macro"
-import { FaCaretUp, FaCaretDown } from "react-icons/fa"
+import "twin.macro"
 
 const Footer = () => {
   return (
