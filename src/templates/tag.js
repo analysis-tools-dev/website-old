@@ -140,7 +140,7 @@ const Tag = d => {
                   />
                 </div>
                 <div tw="flex-1 pl-5">
-                  <p
+                  <div
                     tw="inline text-justify text-gray-600"
                     dangerouslySetInnerHTML={{
                       __html: d.data.markdownRemark.excerpt,

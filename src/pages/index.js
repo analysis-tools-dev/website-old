@@ -56,7 +56,7 @@ const Index = ({ data }) => {
                 <ul>
                   {data[l].nodes.map(t => (
                     <li key={`${l}_${t.fields.slug}`} tw="list-none mb-2">
-                      <span tw="rounded-full px-4 bg-orange-300 text-white p-2 rounded-full leading-none inline-block">
+                      <span tw="rounded-full px-4 bg-yellow-300 text-white p-2 rounded-full leading-none inline-block">
                         {t.children[0].sum}
                       </span>
                       <span tw="ml-2">
@@ -67,7 +67,7 @@ const Index = ({ data }) => {
                 </ul>
                 <Link
                   to={`/tag/${l}`}
-                  tw="inline-block w-auto px-4 mt-2 bg-gray-400 text-white p-2 rounded leading-none whitespace-no-wrap transition-all duration-300 hover:bg-gray-600"
+                  tw="inline-block w-auto px-4 mt-2 bg-gray-400 text-white p-2 rounded leading-none whitespace-nowrap transition-all duration-300 hover:bg-gray-600"
                 >
                   Show {data[l].totalCount - 3} more
                 </Link>

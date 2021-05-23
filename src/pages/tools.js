@@ -28,7 +28,7 @@ const Card = ({ t, data }) => {
       <div tw="py-5 flex items-center hover:bg-gray-100">
         <img tw="w-10" alt="" src={t.fields.logo} />
         <strong tw="ml-2">{t.name}</strong>
-        <span tw="rounded-full px-2 py-1 ml-2 bg-orange-300 hover:bg-orange-400 text-white rounded-full leading-none inline-block">
+        <span tw="rounded-full px-2 py-1 ml-2 bg-yellow-300 hover:bg-yellow-400 text-white rounded-full leading-none inline-block">
           {data.tools.nodes.filter(node => node.tags.includes(t.tag)).length}{" "}
           {data.tools.nodes.filter(node => node.tags.includes(t.tag)).length > 1
             ? "Tools"
@@ -63,7 +63,7 @@ const Tools = ({ data }) => {
       </Helmet>
       <div tw="flex items-center shadow px-4 max-w-full">
         <FaFilter tw="mr-2 inline-block" />
-        <span tw="font-bold pr-4 whitespace-no-wrap">Quick filter:</span>
+        <span tw="font-bold pr-4 whitespace-nowrap">Quick filter:</span>
         <input
           size="1"
           tw="p-2 my-4 box-border w-full bg-gray-100 border"
