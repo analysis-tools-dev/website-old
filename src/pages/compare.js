@@ -1,34 +1,76 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import Vote from "../components/vote"
 import Layout from "../components/layout_wide"
 import "twin.macro"
 
-
 const Compare = d => {
-let tools = d.data.allToolsYaml.nodes;
-tools = tools.filter(t =>t.children[0].sum >= 10)
-tools = tools.sort();
+  let tools = d.data.allToolsYaml.nodes
+  tools = tools.filter(t => t.children[0].sum >= 10)
+  tools = tools.sort()
+
+  const [toolsFiltered, setToolsFiltered] = useState(tools)
+  const [showProprietary, setShowProprietary] = useState(false)
+
+  const filterTools = showProprietary => {
+    setShowProprietary(!showProprietary)
+    console.log(showProprietary)
+    tools = tools.filter(t => {
+      if (showProprietary) {
+        return true
+      } else {
+        return t.license !== "proprietary"
+      }
+    })
+    setToolsFiltered(tools)
+  }
+
   return (
     <Layout>
       <article tw="shadow w-full p-2 md:p-8">
-        <h1 tw="text-3xl font-semibold pb-10">Compare {tools.length} Analysis Tools</h1>
+        <h1 tw="text-3xl font-semibold pb-10">
+          Compare {tools.length} Analysis Tools
+        </h1>
+        <div tw="p-8 bg-gray-300">
+          <input
+            onChange={() => filterTools(showProprietary)}
+            type="checkbox"
+            id="showproprietary"
+            name="showproprietary"
+            value="true"
+          ></input>
+          <label tw="ml-2" for="showproprietary">
+            Hide proprietary tools
+          </label>
+        </div>
         <table tw="w-full overflow-x-auto block border">
           <thead>
             <tr>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">Votes</th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">Tool</th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">Category</th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">Type</th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">Tags</th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">License</th>
+              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
+                Votes
+              </th>
+              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
+                Tool
+              </th>
+              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
+                Category
+              </th>
+              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
+                Type
+              </th>
+              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
+                Tags
+              </th>
+              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
+                License
+              </th>
             </tr>
           </thead>
           <tbody tw="divide-y">
-            {tools.map(tool => (
+            {toolsFiltered.map(tool => (
               <tr>
-              <td tw="text-center px-6 py-2">
-                <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
+                <td tw="text-center px-6 py-2">
+                  <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
                 </td>
                 <td tw="text-center px-6 py-2">
                   <Link to={tool.fields.slug} tw="underline">
@@ -63,8 +105,7 @@ tools = tools.sort();
                 </td>
                 <td tw="text-center px-6 py-2">{tool.license}</td>
               </tr>
-            )
-)}
+            ))}
           </tbody>
         </table>
       </article>
@@ -101,4 +142,3 @@ export const query = graphql`
   }
 `
 export default Compare
-
