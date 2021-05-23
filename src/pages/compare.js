@@ -7,12 +7,12 @@ import "twin.macro"
 
 const Compare = d => {
 let tools = d.data.allToolsYaml.nodes;
+tools = tools.filter(t =>t.children[0].sum >= 10)
 tools = tools.sort();
   return (
     <Layout>
       <article tw="shadow w-full p-2 md:p-8">
         <h1 tw="text-3xl font-semibold pb-10">Compare {tools.length} Analysis Tools</h1>
-        
         <table tw="w-full overflow-x-auto block border">
           <thead>
             <tr>
