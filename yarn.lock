@@ -1105,10 +1105,14 @@
     regenerator-runtime "^0.13.4"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@babel/runtime@^7.3.1", "@babel/runtime@^7.8.3":
 =======
 "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.9.2":
 >>>>>>> 8409acd5df0ecf0f8037bc2f3c8a708fee76b9ff
+=======
+"@babel/runtime@^7.12.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.9.2":
+>>>>>>> cca1a7c849e3ca854ddde4b47771c576be178a10
   version "7.14.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
   integrity sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
@@ -3545,6 +3549,7 @@ clone-response@1.0.2, clone-response@^1.0.2:
     mimic-response "^1.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 clsx@^1.0.4:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
@@ -3568,6 +3573,9 @@ collapse-white-space@^1.0.0, collapse-white-space@^1.0.2:
 =======
 collapse-white-space@^1.0.2:
 >>>>>>> 8409acd5df0ecf0f8037bc2f3c8a708fee76b9ff
+=======
+collapse-white-space@^1.0.2:
+>>>>>>> cca1a7c849e3ca854ddde4b47771c576be178a10
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/collapse-white-space/-/collapse-white-space-1.0.6.tgz#e63629c0016665792060dbbeb79c42239d2c5287"
   integrity sha512-jEovNnrhMuqyCcjfEJA56v0Xq8SkIoPKDyaHahwo3POf4qcSXqMYuwNcOTzp74vTsR9Tn08z4MxWqAhcekogkQ==
@@ -7065,6 +7073,7 @@ human-signals@^1.1.1:
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 hyphenate-style-name@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
@@ -7074,6 +7083,9 @@ iconv-lite@0.4.24, iconv-lite@^0.4.17, iconv-lite@^0.4.24:
 =======
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
 >>>>>>> 8409acd5df0ecf0f8037bc2f3c8a708fee76b9ff
+=======
+iconv-lite@0.4.24, iconv-lite@^0.4.24:
+>>>>>>> cca1a7c849e3ca854ddde4b47771c576be178a10
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
   integrity sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
@@ -7491,6 +7503,7 @@ is-hexadecimal@^1.0.0:
   integrity sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 is-in-browser@^1.0.2, is-in-browser@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/is-in-browser/-/is-in-browser-1.1.3.tgz#56ff4db683a078c6082eb95dad7dc62e1d04f835"
@@ -7506,6 +7519,8 @@ is-installed-globally@^0.1.0:
 
 =======
 >>>>>>> 8409acd5df0ecf0f8037bc2f3c8a708fee76b9ff
+=======
+>>>>>>> cca1a7c849e3ca854ddde4b47771c576be178a10
 is-installed-globally@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/is-installed-globally/-/is-installed-globally-0.4.0.tgz#9a0fd407949c30f86eb6959ef1b7994ed0b7b520"
@@ -12098,6 +12113,7 @@ svgo@^2.3.0:
   integrity sha512-fz4IKjNO6HDPgIQxu4IxwtubtbSfGEAJUq/IXyTPIkGhWck/faiiwfkvsB8LnBkKLvSoyNNIY6d13lZprJMc9Q==
   dependencies:
 <<<<<<< HEAD
+<<<<<<< HEAD
     chalk "^2.4.1"
     coa "^2.0.2"
     css-select "^2.0.0"
@@ -12117,6 +12133,8 @@ symbol-observable@1.2.0, symbol-observable@^1.2.0:
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
 =======
+=======
+>>>>>>> cca1a7c849e3ca854ddde4b47771c576be178a10
     "@trysound/sax" "0.1.1"
     chalk "^4.1.0"
     commander "^7.1.0"
@@ -12124,7 +12142,10 @@ symbol-observable@1.2.0, symbol-observable@^1.2.0:
     css-tree "^1.1.2"
     csso "^4.2.0"
     stable "^0.1.8"
+<<<<<<< HEAD
 >>>>>>> 8409acd5df0ecf0f8037bc2f3c8a708fee76b9ff
+=======
+>>>>>>> cca1a7c849e3ca854ddde4b47771c576be178a10
 
 sync-fetch@0.3.0:
   version "0.3.0"
