@@ -1,5 +1,9 @@
 @import url("~react-multi-carousel/lib/styles.css");
 
+html {
+  @apply text-white
+}
+
 .ais-SearchBox-reset,
 .ais-SearchBox-loadingIndicator,
 .ais-SearchBox-submit {
@@ -38,6 +42,12 @@
 .ais-SearchBox-input {
   width: 100%;
   outline: none;
+  background-color: #1f364d;
+}
+
+.ais-SearchBox-input::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
 }
 
 #blogPostBody {

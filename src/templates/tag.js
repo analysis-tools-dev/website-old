@@ -113,7 +113,7 @@ const Tag = d => {
         </title>
       </Helmet>
       <article tw="flex flex-col shadow my-4 w-full">
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+        <div tw="flex flex-col justify-start p-6 w-full">
           <h1 tw="text-2xl font-semibold ">
             {maintained.length + deprecated.length} {tag.name} Static Analysis
             Tools
@@ -158,7 +158,7 @@ const Tag = d => {
           )}
         </div>
 
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+        <div tw="flex flex-col justify-start p-6 w-full">
           {/* Only show header when we have the SEO text block above it */}
           {d.data.markdownRemark && (
             <h3 tw="text-xl font-semibold pb-5">

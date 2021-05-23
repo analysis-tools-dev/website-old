@@ -31,7 +31,7 @@ export default function Tool({ tool }) {
             ""
           )}
         </Link>
-        <p tw="text-gray-600 mb-3">{tool.description}</p>
+        <p tw="mb-3">{tool.description}</p>
         <div>
           <ul tw="list-none max-w-sm inline-block align-top">
             {tool.tags.map(tag => (

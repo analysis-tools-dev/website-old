@@ -3,7 +3,7 @@ import "twin.macro"
 
 const Footer = () => {
   return (
-    <footer tw="w-full border-t bg-white pb-12">
+    <footer tw="w-full border-t pb-12">
       <div tw="w-full container mx-auto flex flex-col items-center">
         <ul tw="text-center text-gray-600">
           <li>

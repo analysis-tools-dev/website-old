@@ -21,7 +21,7 @@ class BlogIndex extends React.Component {
           return (
             <div key={node.childMarkdownRemark.fields.slug}>
               <article tw="flex flex-col shadow my-4">
-                <div tw="bg-white flex flex-col justify-start p-6">
+                <div tw="flex flex-col justify-start p-6">
                   <h1 tw="text-xl font-semibold pb-5">
                     <Link to={node.childMarkdownRemark.fields.slug}>
                       {title}

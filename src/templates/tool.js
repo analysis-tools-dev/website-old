@@ -124,7 +124,7 @@ export default function Tool(d) {
         </title>
       </Helmet>
       <article tw="shadow w-full">
-        <div tw="bg-white flex justify-start p-2 md:p-6 w-full">
+        <div tw="flex justify-start p-2 md:p-6 w-full">
           <div tw="md:w-12 flex-none">
             <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
           </div>

@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import "twin.macro"
 import { Helmet } from "react-helmet"
+import "tailwindcss/tailwind.css"
+import "../styles/global.css"
 
 const getMetaDescription = data => {
   const totalCount = data.allToolsYaml.totalCount.toString()
@@ -24,7 +26,7 @@ const Index = ({ data }) => {
         </title>
       </Helmet>
       <article tw="flex flex-col shadow w-full">
-        <div tw="bg-white flex flex-col justify-start p-4 sm:p-6 w-full">
+        <div tw="flex flex-col justify-start p-4 sm:p-6 w-full">
           <p tw="text-xl font-semibold pb-5">
             Popular Static Analysis Tools by Language
           </p>
@@ -83,7 +85,7 @@ const Index = ({ data }) => {
         </div>
       </article>
       <div tw="flex flex-col shadow my-4 w-full">
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+        <div tw="flex flex-col justify-start p-6 w-full">
           <p tw="pb-5">Latest from our Blog</p>
           {data["blog"].edges.map(e => (
             <div key={e.node.childMarkdownRemark.fields.slug} tw="p-3 w-full">

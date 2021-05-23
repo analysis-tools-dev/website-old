@@ -12,7 +12,7 @@ const Sponsor = ({ data }) => {
         <title>Sponsor - Static analysis tools, linters, code quality</title>
       </Helmet>
       <article tw="flex flex-col shadow w-full">
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+        <div tw="flex flex-col justify-start p-6 w-full">
           <h1 tw="text-3xl font-semibold pb-10">
             <span role="img" aria-label="heart">
               ❤️

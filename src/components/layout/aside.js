@@ -6,7 +6,7 @@ import { FaCaretUp, FaCaretDown } from "react-icons/fa"
 const Aside = () => {
   return (
     <aside tw="w-full md:w-1/3 flex flex-col items-center px-3">
-      <div tw="w-full bg-white shadow flex flex-col p-6">
+      <div tw="w-full shadow flex flex-col p-6">
         <p tw="text-xl font-semibold pb-5">Write Better Software</p>
         <p tw="text-justify text-gray-600">
           On this page you can find static code analysis tools and linters that
@@ -26,7 +26,7 @@ const Aside = () => {
           Our mission
         </Link>
       </div>
-      <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+      <div tw="w-full shadow flex flex-col my-4 p-6">
         <p tw="text-xl font-semibold pb-5">Our Sponsors</p>
         <p tw="pb-10 text-justify text-gray-600">
           This website is completely{" "}
@@ -80,7 +80,7 @@ const Aside = () => {
           </a>
         </p>
       </div>
-      <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+      <div tw="w-full shadow flex flex-col my-4 p-6">
         <p tw="text-xl font-semibold pb-5">You Can Contribute!</p>
         <p tw="text-gray-600">
           You can help to improve this list by voting{" "}
@@ -101,7 +101,7 @@ const Aside = () => {
         </p>
       </div>
 
-      <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
+      <div tw="w-full shadow flex flex-col my-4 p-6">
         <p tw="text-xl font-semibold pb-5">Popular Tools By Language</p>
         <div tw="grid grid-cols-3 gap-3">
           <a href="/tag/python">

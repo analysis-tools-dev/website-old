@@ -7,7 +7,7 @@ import Footer from "./layout/footer"
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div tw="bg-cblue-600">
       <Header />
       <Nav />
       <div tw="container mx-auto flex flex-wrap py-6">

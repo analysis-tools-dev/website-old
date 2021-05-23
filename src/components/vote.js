@@ -35,7 +35,7 @@ export default function Vote({ k, sum }) {
       <VoteLink hasVoted={hasVoted} onClick={() => vote("Up")}>
         <FaCaretUp tw="m-auto" />
       </VoteLink>
-      <span tw="block text-color4 font-bold">{votes}</span>
+      <span tw="block font-bold">{votes}</span>
       <VoteLink hasVoted={hasVoted} onClick={() => vote("Down")}>
         <FaCaretDown tw="m-auto" />
       </VoteLink>

@@ -7,7 +7,7 @@ const NavLink = styled(props => <Link {...props} />)`
 `
 const Nav = () => {
   return (
-    <nav tw="w-full py-4 border-t border-b bg-gray-100">
+    <nav tw="w-full py-2 bg-cblue-200">
       <div tw="w-full">
         <div tw="w-full container mx-auto flex flex-row items-center justify-center text-sm font-bold uppercase mt-0">
           <NavLink to="/compare">Compare</NavLink>

@@ -19,7 +19,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </title>
       </Helmet>
       <article tw="flex flex-col shadow w-full">
-        <div tw="bg-white flex flex-col justify-start p-6 w-full">
+        <div tw="flex flex-col justify-start p-6 w-full">
           <header>
             <h1 tw="text-3xl font-semibold pb-5">{post.frontmatter.title}</h1>
             <p>{post.frontmatter.date}</p>

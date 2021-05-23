@@ -35,7 +35,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
         }
       }}
     >
-      <div tw="relative shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-inner rounded-r-none">
+      <div tw="bg-cblue-200 relative shadow appearance-none border rounded w-full py-3 px-3 text-white leading-tight focus:outline-none focus:shadow-inner rounded-r-none">
         <SearchBox
           tw="w-full px-8"
           translations={{
@@ -69,7 +69,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
         <HitsWrapper
           show={query.length > 0}
           asGrid="false"
-          tw="max-h-screen overflow-scroll border shadow bg-white absolute w-full"
+          tw="max-h-screen overflow-scroll border shadow absolute w-full"
         >
           {indices.map(({ name, title, hitComp }) => (
             <Index key={name} indexName={name}>

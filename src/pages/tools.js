@@ -74,7 +74,7 @@ const Tools = ({ data }) => {
       </div>
       {filteredLanguages.length !== 0 && (
         <article tw="flex flex-col shadow my-4 w-full">
-          <div tw="bg-white flex flex-col justify-start p-6 w-full">
+          <div tw="flex flex-col justify-start p-6 w-full">
             <h1 tw="text-3xl font-semibold pb-10">
               Tools for Various Programming Languages
             </h1>
@@ -90,7 +90,7 @@ const Tools = ({ data }) => {
       )}
       {filteredOther.length !== 0 && (
         <article tw="flex flex-col shadow my-4 w-full">
-          <div tw="bg-white flex flex-col justify-start p-6 w-full">
+          <div tw="flex flex-col justify-start p-6 w-full">
             <h1 tw="text-3xl font-semibold pb-10">
               Tools for Markup Languages and More
             </h1>
