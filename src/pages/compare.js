@@ -93,7 +93,7 @@ heading.sort(function(a,b){
                   </ul>
                 </td>
 
-                <td tw="text-center md:py-2">
+                <td tw="text-center px-6 py-2">
                 <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
                 </td>
               </tr>
