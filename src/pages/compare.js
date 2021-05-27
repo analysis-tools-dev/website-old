@@ -1,13 +1,13 @@
-import React, { useState } from "react"
+import React , { useState } from "react"
 import { Link, graphql } from "gatsby"
-import Vote from "../components/vote"
 import Layout from "../components/layout_wide"
+import Vote from "../components/vote"
 import "twin.macro"
 
 const Compare = d => {
-  let tools = d.data.allToolsYaml.nodes
-  tools = tools.filter(t => t.children[0].sum >= 10)
-  tools = tools.sort()
+let tools = d.data.allToolsYaml.nodes;
+// tools = tools.filter(t =>t.children[0].sum >= 10)
+tools = tools.sort();
 
   const [toolsFiltered, setToolsFiltered] = useState(tools)
   const [showProprietary, setShowProprietary] = useState(false)
@@ -25,10 +25,16 @@ const Compare = d => {
     setToolsFiltered(tools)
   }
 
+const heading= ["Votes","Tool","Category","Type","Tags","License"]
+heading.sort(function(a,b){
+    if(a < b){return -1;}
+    if(a > b){return 1;}
+    return 0;
+})
   return (
     <Layout>
       <article tw="shadow w-full p-2 md:p-8">
-        <h1 tw="text-3xl font-semibold pb-10">
+       <h1 tw="text-3xl font-semibold pb-10">
           Compare {tools.length} Analysis Tools
         </h1>
         <div tw="p-8 bg-gray-300">
@@ -45,41 +51,24 @@ const Compare = d => {
         </div>
         <table tw="w-full overflow-x-auto block border">
           <thead>
-            <tr>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
-                Votes
-              </th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
-                Tool
-              </th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
-                Category
-              </th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
-                Type
-              </th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
-                Tags
-              </th>
-              <th tw="sticky top-0 px-6 py-2 text-gray-900 bg-gray-100">
-                License
-              </th>
+            <tr key={heading} tw="flex-auto">
+                {heading.map((heading) =>(
+                <th tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">{heading}</th>
+                ))}
             </tr>
           </thead>
           <tbody tw="divide-y">
             {toolsFiltered.map(tool => (
               <tr>
-                <td tw="text-center px-6 py-2">
-                  <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
-                </td>
-                <td tw="text-center px-6 py-2">
+                <td tw="text-center md:py-2">{tool.categories.join(", ")}</td>
+                <td tw="text-center md:py-2">{tool.license}</td>
+                  <td tw="text-center md:py-2">
                   <Link to={tool.fields.slug} tw="underline">
                     {tool.name}
                   </Link>
                 </td>
-                <td tw="text-center px-6 py-2">{tool.categories.join(", ")}</td>
-                <td tw="text-center px-6 py-2 ">{tool.types.join(", ")}</td>
-                <td tw="text-center px-6 py-2">
+                <td tw="text-center md:py-2">{tool.types.join(", ")}</td>
+                  <td tw="text-center md:py-2">
                   <ul tw="list-none max-w-sm inline-block align-top">
                     {tool.tags &&
                       tool.tags.slice(0, 3).map(tag => (
@@ -103,7 +92,10 @@ const Compare = d => {
                     )}
                   </ul>
                 </td>
-                <td tw="text-center px-6 py-2">{tool.license}</td>
+
+                <td tw="text-center md:py-2">
+                <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
+                </td>
               </tr>
             ))}
           </tbody>
@@ -112,6 +104,7 @@ const Compare = d => {
     </Layout>
   )
 }
+
 export const query = graphql`
   {
     allToolsYaml {
