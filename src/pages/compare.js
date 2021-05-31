@@ -5,13 +5,14 @@ import Vote from "../components/vote"
 import "twin.macro"
 
 const Compare = d => {
-  let tools = d.data.allToolsYaml.nodes;
+let tools = d.data.allToolsYaml.nodes;
   // tools = tools.filter(t =>t.children[0].sum >= 10)
-  tools = tools.sort();
+  // tools = tools.sort();
 
   const [toolsFiltered, setToolsFiltered] = useState(tools)
   const [showProprietary, setShowProprietary] = useState(false)
 
+  
   const filterTools = showProprietary => {
     setShowProprietary(!showProprietary)
     console.log(showProprietary)
@@ -30,7 +31,12 @@ const Compare = d => {
     if (a < b) { return -1; }
     if (a > b) { return 1; }
     return 0;
-  })
+  });
+
+
+  const [filter, setFilter] = useState('');
+
+
   return (
     <Layout>
       <article tw="shadow w-full p-2 md:p-8">
@@ -51,23 +57,23 @@ const Compare = d => {
         </div>
         <table tw="w-full overflow-x-auto block border">
           <thead>
-            <tr key={heading} tw="flex-auto">
+            <tr tw="flex-auto">
               {heading.map((heading) => (
-                <th tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">{heading}</th>
+                <th key={heading} tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">{heading}</th>
               ))}
+         
             </tr>
+           
           </thead>
+           <tr tw="flex-auto">
+           <input id="filter"name="filter"type="text"value={filter}onChange={event => setFilter(event.target.value)}/>
+            </tr>
           <tbody tw="divide-y">
-            {toolsFiltered.map(tool => (
+            {toolsFiltered.filter(tool => tools.includes(filter) || filter === '')
+                          .map(tool => (
               <tr>
                 <td tw="text-center md:py-2">{tool.categories.join(", ")}</td>
                 <td tw="text-center md:py-2">{tool.license}</td>
-                <td tw="text-center md:py-2">
-                  <Link to={tool.fields.slug} tw="underline">
-                    {tool.name}
-                  </Link>
-                </td>
-                <td tw="text-center md:py-2">{tool.types.join(", ")}</td>
                 <td tw="text-center md:py-2">
                   <ul tw="list-none max-w-sm inline-block align-top">
                     {tool.tags &&
@@ -92,6 +98,16 @@ const Compare = d => {
                     )}
                   </ul>
                 </td>
+              
+                <td tw="text-center md:py-2">{tool.types.join(", ")}</td>
+                 
+                <td tw="text-center md:py-2">
+                  <Link to={tool.fields.slug} tw="underline">
+                    {tool.name}
+                  </Link>
+                </td>
+         
+             
 
                 <td tw="text-center px-6 py-2">
                   <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
