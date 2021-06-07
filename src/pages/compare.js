@@ -3,6 +3,8 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout_wide"
 import Vote from "../components/vote"
 import "twin.macro"
+import MaterialTable from 'material-table';
+
 
 const Compare = d => {
 let tools = d.data.allToolsYaml.nodes;
@@ -11,8 +13,6 @@ let tools = d.data.allToolsYaml.nodes;
 
   const [toolsFiltered, setToolsFiltered] = useState(tools)
   const [showProprietary, setShowProprietary] = useState(false)
-
-  
   const filterTools = showProprietary => {
     setShowProprietary(!showProprietary)
     console.log(showProprietary)
@@ -35,8 +35,14 @@ let tools = d.data.allToolsYaml.nodes;
 
 
   const [filter, setFilter] = useState('');
-
-
+  const handleChange = event => {
+        setFilter()
+        if(event.target.value){
+          setToolsFiltered(tools.filter(tool => tool.toLowerCase().includes(filter.toLocaleLowerCase()
+          )))
+        }else {
+          setToolsFiltered(tools)}
+  };
   return (
     <Layout>
       <article tw="shadow w-full p-2 md:p-8">
@@ -60,17 +66,24 @@ let tools = d.data.allToolsYaml.nodes;
             <tr tw="flex-auto">
               {heading.map((heading) => (
                 <th key={heading} tw="sticky top-0 md:py-2 text-gray-900 bg-gray-100">{heading}</th>
+                
               ))}
+            </tr>
+          
+          { <div tw="flex-auto">
+          <input
+          type="text"
+           placeholder="filter"
+           value={filter}
+           onChange={handleChange}
+           />
          
-            </tr>
-           
+        </div> }
           </thead>
-           <tr tw="flex-auto">
-           <input id="filter"name="filter"type="text"value={filter}onChange={event => setFilter(event.target.value)}/>
-            </tr>
+        
+           
           <tbody tw="divide-y">
-            {toolsFiltered.filter(tool => tools.includes(filter) || filter === '')
-                          .map(tool => (
+            {toolsFiltered.map(tool => (
               <tr>
                 <td tw="text-center md:py-2">{tool.categories.join(", ")}</td>
                 <td tw="text-center md:py-2">{tool.license}</td>
