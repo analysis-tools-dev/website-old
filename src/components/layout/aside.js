@@ -50,32 +50,21 @@ const Aside = () => {
           </a>
         </p>
         <p tw="pb-6">
-          <a href="https://deepsource.io?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
-            <img
-              width="269px"
-              height="50px"
-              alt="Deepsource logo"
-              src="/sponsors/deepsource.png"
-            />
-          </a>
-        </p>
-        <p tw="pb-6">
-          <a href="https://www.viva64.com/free-license">
-            <img
-              width="269px"
-              height="50px"
-              alt="PVS Studio logo"
-              src="/sponsors/pvs-studio.svg"
-            />
-          </a>
-        </p>
-        <p tw="pb-6">
           <a href="https://codescene.io?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
             <img
               width="269px"
               height="50px"
               alt="CodeScene logo"
               src="/sponsors/codescene.svg"
+            />
+          </a>
+        </p>
+        <p tw="pb-6">
+          <a href="https://r2c.dev?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
+            <img
+              style={{ maxHeight: "65px", margin: "0 auto" }}
+              alt="r2c logo"
+              src="/sponsors/r2c.svg"
             />
           </a>
         </p>
