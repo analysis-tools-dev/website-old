@@ -10,11 +10,18 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
+
+
 
 
 
 const Compare = d => {
+
   let tools = d.data.allToolsYaml.nodes;
+
   const [toolsFiltered, setToolsFiltered] = useState(tools)
   const [showProprietary, setShowProprietary] = useState(false)
   const filterTools = showProprietary => {
@@ -40,9 +47,11 @@ const Compare = d => {
   return (
     <Layout>
       <Container fixed>
-        <h1>Compare {tools.length} Analysis Tools</h1>
+        <Typography variant="h5" gutterBottom style={{ fontWeight: 600 }}>
+          Compare {tools.length} Analysis Tools
+        </Typography>
 
-        <div >
+        <Box style={{ backgroundColor: "#d3d3d3 " }} p={4}>
           <input
             onChange={() => filterTools(showProprietary)}
             type="checkbox"
@@ -50,90 +59,70 @@ const Compare = d => {
             name="showproprietary"
             value="true"
           ></input>
-          <label htmlFor="showproprietary">
+          <label  htmlFor="showproprietary">
             Hide proprietary tools
           </label>
-        </div>
+
+        </Box>
 
         <TableContainer component={Paper}>
-        <Table  size="small" aria-label="a dense table">
-          <TableHead>
-            <TableRow>
-              {heading.map((heading) => (
-                <TableCell  align ="center" key={heading}>{heading}</TableCell>
-
-              ))}
-            </TableRow>
-            
-            {/* filter */}
-          </TableHead>
-
-
-          <TableBody>
-            {toolsFiltered.map(tool => (
+          <Table size="small" aria-label="a dense table">
+            <TableHead>
               <TableRow>
-                <TableCell align="center">{tool.categories.join(", ")}</TableCell>
-                <TableCell align="center">{tool.license}</TableCell>
-                <TableCell align="center">
-                  <ul>
-                    {tool.tags &&
-                      tool.tags.slice(0, 3).map(tag => (
-                        <li
-                          key={`${tool.fields.slug}${tag}`}
-                        >
-                          <a href={"/tag/" + tag}>
-                            <span >
-                              {tag}
-                            </span>
-                          </a>
-                        </li>
-                      ))}
-                    {tool.tags.length > 3 && (
-                      <a href={tool.fields.slug}>
-                        <span>
-                          more...
-                        </span>
-                      </a>
-                    )}
-                  </ul>
-                </TableCell>
+                {heading.map((heading) => (
+                  <TableCell align="center" style={{ fontWeight: 800 }} key={heading}>{heading}</TableCell>
 
-                <TableCell align="center">{tool.types.join(", ")}</TableCell>
-
-                <TableCell align="center">
-                  <Link to={tool.fields.slug}>
-                    {tool.name}
-                  </Link>
-                </TableCell>
-                <TableCell align="center">
-                  <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
-                </TableCell>
+                ))}
               </TableRow>
-            ))}
-          </TableBody>
+
+              {/* filter */}
+            </TableHead>
+
+            <TableBody>
+              {toolsFiltered.map(tool => (
+                <TableRow>
+                  <TableCell align="center">{tool.categories.join(", ")}</TableCell>
+                  <TableCell align="center">{tool.license}</TableCell>
+                  <TableCell align="center">
+                    <ul>
+                      {tool.tags &&
+                        tool.tags.slice(0, 3).map(tag => (
+                          <li
+                            key={`${tool.fields.slug}${tag}`}
+                          >
+                            <a href={"/tag/" + tag}>
+                              <Box component="span" m={1} color="black" bgcolor="#d3d3d3" p={1} px={2}>
+                                {tag}
+                              </Box>
+                            </a>
+                          </li>
+                        ))}
+                      {tool.tags.length > 3 && (
+                        <a href={tool.fields.slug}>
+                          <Box component="span" m={1} color="black" bgcolor="#d3d3d3" p={1} px={2}>
+                            more...
+                          </Box>
+                        </a>
+                      )}
+                    </ul>
+                  </TableCell>
+
+                  <TableCell align="center">{tool.types.join(", ")}</TableCell>
+
+                  <TableCell align="center">
+                    <Link to={tool.fields.slug} style={{ textDecoration: 'underline' }}>
+                      {tool.name}
+                    </Link>
+                  </TableCell>
+                  <TableCell align="center">
+                    <Vote k={tool.children[0].key} sum={tool.children[0].sum} />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
           </Table>
         </TableContainer>
       </Container>
-
-      {/* <article tw="shadow w-full p-2 md:p-8">
-        <h1 tw="text-3xl font-semibold pb-10">
-          Compare {tools.length} Analysis Tools
-        </h1>
-        <div tw="p-8 bg-gray-300">
-          <input
-            onChange={() => filterTools(showProprietary)}
-            type="checkbox"
-            id="showproprietary"
-            name="showproprietary"
-            value="true"
-          ></input>
-          <label tw="ml-2" htmlFor="showproprietary">
-            Hide proprietary tools
-          </label>
-        </div>
-
-       
-      </article> */}
     </Layout>
   )
 }
