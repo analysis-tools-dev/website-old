@@ -11,6 +11,7 @@ const Nav = () => {
       <div tw="w-full">
         <div tw="w-full container mx-auto flex flex-row items-center justify-center text-sm font-bold uppercase mt-0">
           <NavLink to="/compare">Compare</NavLink>
+           {/* <NavLink to="/compare">Compare2</NavLink> */}
           <NavLink to="/tools">Categories</NavLink>
           <NavLink to="/blog">Blog</NavLink>
           <NavLink to="/sponsor">Sponsor</NavLink>
