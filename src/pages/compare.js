@@ -84,14 +84,14 @@ const Compare = d => {
                   <TableCell align="center">{tool.categories.join(", ")}</TableCell>
                   <TableCell align="center">{tool.license}</TableCell>
                   <TableCell align="center">
-                    <ul>
+                    <ul style={{display:"inline-block"}}>
                       {tool.tags &&
                         tool.tags.slice(0, 3).map(tag => (
-                          <li
+                          <li style={{display:"inline-block"}} mb={2} mr={1}
                             key={`${tool.fields.slug}${tag}`}
                           >
                             <a href={"/tag/" + tag}>
-                              <Box component="span" m={1} color="black" bgcolor="#d3d3d3" p={1} px={2}>
+                              <Box component="span" m={1} color="black" bgcolor="#d3d3d3" p={1} px={2} >
                                 {tag}
                               </Box>
                             </a>
