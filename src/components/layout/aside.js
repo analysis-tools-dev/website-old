@@ -68,6 +68,15 @@ const Aside = () => {
             />
           </a>
         </p>
+        <p tw="pb-6">
+          <a href="https://codiga.io">
+            <img
+              style={{ maxHeight: "65px", margin: "0 auto" }}
+              alt="r2c logo"
+              src="/sponsors/codiga.svg"
+            />
+          </a>
+        </p>
       </div>
       <div tw="w-full bg-white shadow flex flex-col my-4 p-6">
         <p tw="text-xl font-semibold pb-5">You Can Contribute!</p>
