@@ -42,6 +42,7 @@ const Aside = () => {
         <p tw="pb-6">
           <a href="https://www.deepcode.ai?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
             <img
+              style={{ maxHeight: "65px", margin: "0 auto" }}
               width="269px"
               height="50px"
               alt="DeepCode logo"
@@ -52,6 +53,7 @@ const Aside = () => {
         <p tw="pb-6">
           <a href="https://codescene.io?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
             <img
+              style={{ maxHeight: "65px", margin: "0 auto" }}
               width="269px"
               height="50px"
               alt="CodeScene logo"
@@ -59,7 +61,7 @@ const Aside = () => {
             />
           </a>
         </p>
-        <p tw="pb-6">
+        <p tw="pb-10">
           <a href="https://r2c.dev?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
             <img
               style={{ maxHeight: "65px", margin: "0 auto" }}
@@ -72,8 +74,17 @@ const Aside = () => {
           <a href="https://codiga.io">
             <img
               style={{ maxHeight: "65px", margin: "0 auto" }}
-              alt="r2c logo"
+              alt="codiga logo"
               src="/sponsors/codiga.svg"
+            />
+          </a>
+        </p>
+        <p tw="pb-6">
+          <a href="https://offensive360.com">
+            <img
+              style={{ maxHeight: "90px", margin: "0 auto" }}
+              alt="offensive360 logo"
+              src="/sponsors/offensive360.png"
             />
           </a>
         </p>
