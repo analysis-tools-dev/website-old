@@ -25,14 +25,6 @@ jobs:
         with:
           node-version: "14"
 
-      - uses: actions/cache@v1
-        id: node_modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node_modules-
-
       - name: Install yarn dependencies
         if: steps.node_modules.outputs.cache-hit != 'true'
         run: |
@@ -48,9 +40,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GATSBY_GITHUB_TOKEN }}
 
       - name: Publish to cloudflare
-        uses: cloudflare/wrangler-action@1.1.0
+        uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          wranglerVersion: "1.19.8"
 
       - name: Run Lighthouse 💡🏠
         uses: foo-software/lighthouse-check-action@master
@@ -58,7 +51,7 @@ jobs:
           # Use the following for Slack integration:
           # slackWebhookUrl: ${{ secrets.LIGHTHOUSE_CHECK_WEBHOOK_URL }}
           accessToken: ${{ secrets.GITHUB_TOKEN }}
-          urls: "https://static-analysis.dev,https://static-analysis.dev/tools,https://analysis-tools.dev/tag/go,https://analysis-tools.dev/tool/golangci-lint"
+          urls: "https://analysis-tools.dev,https://analysis-tools.dev/tools,https://analysis-tools.dev/tag/go,https://analysis-tools.dev/tool/golangci-lint"
           prCommentEnabled: ${{ github.event_name == 'pull_request' }}
           outputDirectory: lighthouse-reports/
 
