@@ -48,7 +48,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GATSBY_GITHUB_TOKEN }}
 
       - name: Publish to cloudflare
-        uses: cloudflare/wrangler-action@1.1.0
+        uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
 
