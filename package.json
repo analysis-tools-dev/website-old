@@ -20,7 +20,7 @@
     "algoliasearch": "^4.9.1",
     "bottleneck": "^2.19.5",
     "capture-website": "^1.4.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.0.0",
