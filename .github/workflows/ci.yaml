@@ -44,19 +44,3 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           wranglerVersion: "1.19.8"
-
-      - name: Run Lighthouse 💡🏠
-        uses: foo-software/lighthouse-check-action@master
-        with:
-          # Use the following for Slack integration:
-          # slackWebhookUrl: ${{ secrets.LIGHTHOUSE_CHECK_WEBHOOK_URL }}
-          accessToken: ${{ secrets.GITHUB_TOKEN }}
-          urls: "https://analysis-tools.dev,https://analysis-tools.dev/tools,https://analysis-tools.dev/tag/go,https://analysis-tools.dev/tool/golangci-lint"
-          prCommentEnabled: ${{ github.event_name == 'pull_request' }}
-          outputDirectory: lighthouse-reports/
-
-      - name: Store Lighthouse reports
-        uses: actions/upload-artifact@master
-        with:
-          name: Lighthouse reports
-          path: lighthouse-reports/
