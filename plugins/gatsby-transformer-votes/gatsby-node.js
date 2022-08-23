@@ -15,7 +15,12 @@ let data = {}
 exports.onPreBootstrap = async () => {
   console.log("Fetching voting data from the GCP endpoint")
   const resp = await fetch(`https://analysis-tools.dev/api/votesList`)
-  data = await resp.json()
+  try {
+    data = await resp.json()
+  } catch (error) {
+    console.log(resp)
+    console.error(error)
+  }
 }
 
 getNodeVotes = async node => {
