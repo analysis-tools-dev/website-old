@@ -62,11 +62,11 @@ const Aside = () => {
           </a>
         </p>
         <p tw="pb-10">
-          <a href="https://r2c.dev?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
+          <a href="https://semgrep.dev?utm_source=github_analysis_tools.dev&utm_medium=sponsorship&utm_content=banner_logo">
             <img
-              style={{ maxHeight: "65px", margin: "0 auto" }}
-              alt="r2c logo"
-              src="/sponsors/r2c.svg"
+              style={{ maxHeight: "85px", margin: "0 auto" }}
+              alt="semgrep logo"
+              src="/sponsors/semgrep.svg"
             />
           </a>
         </p>
